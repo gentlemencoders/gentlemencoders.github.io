@@ -213,6 +213,14 @@ img {
 	border-style: none;
 }
 
+.main-navigation a {
+	color: #ffffff;
+}
+.main-navigation a:visited {
+	color: #ffffff;
+}
+
+
 /* Forms
 	 ========================================================================== */
 
@@ -747,9 +755,6 @@ a:hover, a:active {
 	.custom-logo-link{
 		text-align:center;
 	}
-	.custom-logo{
-		transform:translateY(8px) translateX(0px);
-	}
 }
 
 .site-main .comment-navigation, .site-main
@@ -995,9 +1000,8 @@ object {
 }
 /* Position the custom logo*/
 .custom-logo{
-	height:auto;
-	max-width:50%;
-	transform: translateY(8px) translatex(8px);
+	max-height: 75px;
+	width:auto;
 }
 
 /*--------------------------------------------------------------
