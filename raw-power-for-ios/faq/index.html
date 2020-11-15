@@ -1,0 +1,246 @@
+<html>
+
+<head>
+	<link rel="stylesheet" href="../style.css">
+	<meta charset="utf-8">
+	<title>Raw Power for iOS FAQ</title>
+</head>
+
+
+<style>
+	.imageText {
+		text-align: center;
+		color: #eeeeee;
+		webkit-text-fill-color: #eeeeee;
+	}
+
+	iframe {
+		border: 0px;
+	}
+</style>
+
+<body>
+	<script src="../header.js" root=".."></script>
+	<div id="content" class="site-content">
+
+
+		<!-- Navigation link color uses same color as header text color -->
+		<style>
+			.main-navigation a {
+				color: #ffffff;
+			}
+		</style>
+		<div id="primary" class="content-area">
+			<main id="main" class="site-main">
+
+
+				<article id="post-20592" class="post-20592 page type-page status-publish hentry">
+					<header class="entry-header">
+						<h1 class="entry-title">RAW Power for iOS FAQ</h1>
+						<hr class="entry-title">
+					</header><!-- .entry-header -->
+
+
+					<div class="entry-content">
+						<div style="color:black;">
+							<h3>How does the Send to RAW Power Extension work?<br />
+							</h3>
+							<p>Send to RAW Power is an extension added to RAW Power 2.1 for iOS. It works by integrating
+								with the Share menu in iOS apps. Apps that can share images typically will be able to
+								use the Send to RAW Power extension. Images that you share this way will be added to the
+								Photos library in a special album called “Sent to RAW Power”. If you share a single
+								image, then RAW Power will open that image into the RAW Power editor. If you share
+								multiple images, then the app will display the thumbnail grid.</p>
+							<p>Here are some important notes about it:</p>
+							<ul>
+								<li>The extension may not appear when you tap the Share button. If it does not, look for
+									the “More” (or “…” button). Tap that, slide the switch, and tap Done.</li>
+								<li>Not all apps properly support the Share system for RAWs. Some will send a RAW,
+									others will convert the RAW to a JPEG. The Send to RAW Power extension does not have
+									control over that. If the image is a RAW+JPEG, then the sending app will send one or
+									the other, but not both.</li>
+								<li>The Kingston Mobilite G3 app sometimes fails to send images to RAW Power. This is a
+									bug in Mobilite itself (thanks to Barry N. for his work troubleshooting this). As a
+									workaround, you can add files from Mobilite to Offline, or to your iOS device first,
+									and then use Files.app to send them to RAW Power.</li>
+							</ul>
+							<hr>
+							<h3>What is the Copy to RAW Power Extension?<br />
+							</h3>
+							<p>Copy to RAW Power is an extension added to RAW Power 3.0 for iOS. It works by integrating
+								with the Share menu in iOS apps. If you use that extension to share an image to RAW
+								Power, then that image will be saved in the Files.app storage container for RAW Power
+								(not in the Photos library). If you share a single image, then RAW Power will open that
+								image into the RAW Power editor. If you share multiple images, then the app will display
+								the thumbnail grid.</p>
+							<p>Here are some important notes about it:</p>
+							<ul>
+								<li>The extension may not appear when you tap the Share button. If it does not, look for
+									the “More” (or “…” button). Tap that, slide the switch, and tap Done.</li>
+								<li>Not all apps properly support the Share system for RAWs. Some will send a RAW,
+									others will convert the RAW to a JPEG. The Send to RAW Power extension does not have
+									control over that. If the image is a RAW+JPEG, then the sending app will send one or
+									the other, but not both.</li>
+							</ul>
+							<hr>
+							<h3>Do you support DNG?</p>
+							</h3>
+							<p>Yes. RAW Power supports DNG, including linear DNG files and iPhone RAW files. However,
+								some DNGs from DJI are not supported as is. To check to see if your DNGs will work, open
+								them in Apple’s Preview application for the Mac. If they work in Preview, then RAW Power
+								also supports them. If they are not supported, you can use Adobe’s DNG Converter to
+								batch-convert them to a version of DNG supported by RAW Power. You can download DNG
+								Converter here:</p>
+							<p><a href='http://www.adobe.com/go/dng_converter_mac/'>macOS</a><br />
+								<a
+									href='http://supportdownloads.adobe.com/detail.jsp?ftpID=6220&#038;promoid=DTEHR&#038;s_cid=70114000002CfGJAA0&#038;s_iid=70114000002ChdJAAS'>Windows</a><br />
+								For more information on performing this batch conversion, please contact us on our
+								support page.</p>
+							<hr>
+							<h3>How do I get iPhone RAWs into RAW Power?</p>
+							</h3>
+							<p>The built in Camera app does not shoot RAW images, so you will have to use a separate
+								app. Many apps do not save RAWs to the Camera Roll, but a few do. Halide is the
+								preferred camera app for RAW Power, because it integrates with RAW Power directly. The
+								next question discusses Halide integration further.</p>
+							<hr>
+							<h3>How does Halide integration work?</p>
+							</h3>
+							<p>There is a Halide button at the bottom of the RAW Power Albums view. If you tap it,
+								Halide will open. If you do not have Halide installed, it will ask you if you want to
+								view the app on the App Store. When you are in Halide, you can open RAW Power by tapping
+								the button at the bottom of the Halide photo viewer (not the live camera view). Halide
+								supports editors other than RAW Power. To select RAW Power, &#8220;long press&#8221; on
+								the button at the bottom. Halide will display a picker. After that, you can just single
+								tap on the button. Halide will send the image to RAW Power, and RAW Power will open the
+								image directly into Edit interface.</p>
+							<hr>
+							<h3>How do I zoom in and out?</p>
+							</h3>
+							<p>Double-tap to zoom to 100%. Double-tap again to return to zoom-to-fit.<br />
+								If you pinch to zoom, RAW Power will stop at 100% initially. Pinch again to go past
+								100%, all the way up to 800%.</p>
+							<hr>
+							<h3>Is my camera supported by RAW Power?<br />
+							</h3>
+							<p>RAW Power includes support for a very large number of cameras because it uses the RAW
+								engine built into iOS. Apple updates camera support periodically through its software
+								update mechanism. <a href='../camera/'>Tap here
+								</a> for the list of supported cameras (and any limitations).</p>
+							<hr>
+							<h3>Is there a User Manual for RAW Power?<br />
+							</h3>
+							<p>Yes. Tap <a href='http://gentlemencoders.com/RAWPower/iOS/UserManual-3_0.pdf'>here</a> to
+								download the manual (PDF)</p>
+							<hr>
+							<h3>What are the circles next to the histogram?<br />
+							</h3>
+							<p>Those circles light up whenever there is pixel data being clipped in that channel
+								(brighter than can be displayed). There are indicators for red, green, and blue. If you
+								tap on any of the red, green, and blue circles, it engages the “hot pixels” feature for
+								that channel only. Tapping on the gray circle shows hot and cold pixels, where red means
+								a pixel is clipped in red, green, or blue, and where blue means a pixel is black (0.0 in
+								all three channels).</p>
+							<hr>
+							<h3>Where does RAW Power store its edits?<br />
+							</h3>
+							<p>RAW Power is a fully non-destructive editor and stores its adjustment information in the
+								iOS Photo library if you use Photos. If you are using Files, then it stores the
+								information in a &#8220;sidecar&#8221; file. The adjustment information is a small
+								amount of data that includes “instructions” for applying the adjustments — the original
+								image is never modified. If you use iCloud Photo Library, that adjustment information
+								gets synced to iCloud and sent to all your other devices using that iCloud Photo
+								Library.</p>
+							<hr>
+							<h3>Why don’t I see the Depth Effect for my Portrait iPhone images?<br />
+							</h3>
+							<p>The Depth Effect is only available for images shot on iOS 11 or later. Previous versions
+								of iOS do not store depth information with the image. If you believe the image was show
+								on iOS 11 or later, but you still don’t see the depth effect, it is possible that the
+								depth information was stripped out of the file. This can happen when emailing or sharing
+								images.</p>
+							<hr>
+							<h3>Why don’t I see the People, Places, or Recently Deleted Albums in RAW Power?<br />
+							</h3>
+							<p>Unfortunately, those albums are maintained by the built-in Photos app and are not
+								accessible to other apps.</p>
+							<hr>
+							<h3>Why don’t I see a RAW Processing adjustment for my image?<br />
+							</h3>
+							<p>RAW Processing only appears for RAW images — not for JPEGs, PNGs or other image formats.
+							</p>
+							<p>It is also possible your original RAW was adjusted in another app (Photos on either iOS
+								or macOS, iPhoto, Aperture or perhaps another iOS app). That is because, when you adjust
+								an image on iOS and save it back to the system photo library, the editing app provides
+								iOS with a full-size JPEG (the original RAW is then “hidden” from view). By doing this,
+								other apps can use the adjusted image without knowing how it was made. To get back to
+								the RAW, use Photos to revert the image (by going into Edit in Photos and tapping
+								Revert).</p>
+							<hr>
+							<h3>Does RAW Power support lens correction?<br />
+							</h3>
+							<p>Yes. Apple’s RAW Engine automatically corrects distortion and shading for cameras with
+								fixed lenses (e.g., Sony RX100, Leica Q, etc.). It also corrects many images that have
+								lens profile information stored in the RAW files (e.g, Fuji X-T20). It does not,
+								however, have a general purpose lens correction feature.</p>
+							<hr>
+							<h3>When should I use Boost?<br />
+							</h3>
+							<p>There are two reasons to use Boost. The first reason is to get the best results for
+								over-exposed images. For those images, decrease the value of Boost to 0.5 or less before
+								using other sliders like Exposure or Recovery. This will allow you to minimize the
+								amount of Exposure or Recovery you need to apply, keeping the image bright. The second
+								reason to use Boost is to get a flatter-looking (more “raw”) image before adding
+								adjustments like Saturation.</p>
+							<hr>
+							<h3>What does Recovery do?<br />
+							</h3>
+							<p>Recovery works like “selective exposure.” It affects the brightest areas but without
+								touching the shadows or midtones.</p>
+							<hr>
+							<h3>What is the best way to use the White Balance Sampler?<br />
+							</h3>
+							<p>It’s best to identify a reasonably-sized area in your image that should be a neutral
+								gray. Don’t pick a bright white area.</p>
+							<hr>
+							<h3>What is the difference between RAW Sharpen and the Sharpen adjustment?<br />
+							</h3>
+							<p>RAW Sharpen (found in the RAW Fine Tuning adjustment) is a subtle sharpener that works as
+								part of the RAW decoding itself. The Sharpen adjustment is a luminance-oriented
+								sharpener that runs after decoding, but still operates on the linear data found in RAW
+								files.</p>
+							<hr>
+							<h3>What do the Linear / Gamma and Luminance / Equal RGB controls in Curves do?<br />
+							</h3>
+							<p>The label of the buttons indicates the current state of the control, so if you see
+								“Linear”, then Curves is operating in a Linear mode, but if you see Gamma, then Curves
+								is processing in a gamma-corrected mode. This is also true for the Luminance / Equal RGB
+								button.</p>
+							<p>RAW Power works with floating point, linear pixel data. If you choose Linear for Curves,
+								then Curves will manipulate the linear pixel data as is. If you choose Gamma, then
+								Curves will gamma-correct the pixels, apply the curve, and then undo the
+								gamma-correction (so the pixel data is converted back into linear values).</p>
+							<p>Equal RGB means that the Combined curve will apply changes to the Red, Green, and Blue
+								components of each pixel equally. This will affect any tint the image has. However, if
+								you choose Luminance, then the Combined curve will modify the luminance value of each
+								pixel, and will not affect the tint.</p>
+							<hr>
+							<h3>Are there any tutorial videos for RAW Power?<br />
+							</h3>
+							<p>Yes. There are tutorials on YouTube at <a
+									href='https://www.youtube.com/channel/UC7l78rOzFxaHG-e5AT-MGWQ'>https://www.youtube.com/channel/UC7l78rOzFxaHG-e5AT-MGWQ</a>
+							</p>
+						</div>
+					</div><!-- .entry-content -->
+
+				</article><!-- #post-20592 -->
+
+			</main><!-- #main -->
+		</div><!-- #primary -->
+
+	</div><!-- #content -->
+	<script src="../footer.js"></script>
+	</div><!-- #page -->
+</body>
+
+</html>

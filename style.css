@@ -1155,7 +1155,7 @@ a.pillbutton:visited{
 
 /* Sticky header (partially covered when signed in*/
 .stickyHeader{
-	position:sticky;
+	/*position:sticky;*/
 	top:0;
 	width:100%;
 }
