@@ -1,0 +1,132 @@
+<html>
+<head>
+	<link rel="stylesheet" href="../../style.css">
+	<meta charset="utf-8">
+	<title>LiveScan API Documentation</title>
+</head>
+<style>
+    img{
+        width:100%;
+        max-width:500px;
+    }
+</style>
+<body>
+	<script src="../../header.js" root="../.."></script>
+	<div id="content" class="site-content">
+		<!-- Navigation link color uses same color as header text color -->
+		<style>
+			.main-navigation a {
+				color: #ffffff;
+			}
+		</style>
+		<div id="primary" class="content-area">
+			<main id="main" class="site-main">
+				<article id="post-20592" class="post-20592 page type-page status-publish hentry">
+					<header class="entry-header">
+						<h1 class="entry-title">LiveScan API Documentation</h1>
+						<hr class="entry-title">
+                    </header>
+                    The LiveScan app for iOS and Mac provides interfaces so you can extend the app through 
+                    custom plugins. A plugin is defined as a single JavaScript or JSON file, which is placed in the application's 
+                    data directory.
+                    <br>
+                    <img src="exampleplugin.png">
+
+                    <hr>
+
+                    <h2>Installing Plugins</h2>
+                    <h3>iOS</h3>
+                    If you have not installed plugins before, you must first inform iOS that you wish to make the application's plugin
+                    folder accessible in Files. To do this, follow the steps below:
+                    <ol>
+                        <li>
+                            Launch LiveScan and open Settings, using the gear icon in the tray at the bottom of the screen.
+                            
+                        </li>
+                        <li>
+                            Press <code>Go to Plug-Ins Folder</code> at the bottom of the pop-over.
+                            <br>
+                            <img src="settings.png">
+                        </li>
+                    </ol>
+                    <p>
+                        After you have done this, the LiveScan folder should now be accessible via the On My iPhone section of the Files app. 
+                        Simply place your plugin files inside, and LiveScan will load them automatically.
+                    </p>
+                    
+                    <img src="files.png">
+
+                    <h3>macOS</h3>
+                    Because LiveScan is sandboxed, macOS hides the plugins folder from you. To access it, follow the steps below:
+                    <ol>
+                        <li>
+                            launch LiveScan.
+                        </li>
+                        <li>
+                            Open LiveScan's menu and press <code>Manage Plug-Ins</code>. A Finder window will open showing the plugins folder.
+                        </li>
+                        <li>
+                            Drag a plugin file into the folder to add it to LiveScan, or remove it from the folder to remove it from LiveScan.
+                        </li>
+                    </ol>
+                    <hr>
+                    <h2>
+                        Creating a JavaScript Plugin</h2>
+                    <p>
+                        Your JavaScript plugin must at minimum contain the following:
+<pre><code>function runAction(str){
+    //LiveScan invokes this function when it runs your plugin. Process the string inside here. Any returned value is ignored.    
+}
+function getDetails() {
+    //Here you must return a struct containing details about your plugin.
+    //Note: These fields are cached. If you make a change to getDetails, you must reload LiveScan for your changes to take effect.
+    return	{
+        "name": "Name of action to display",
+        "desc": "Subtitle text of action"
+    }
+}   
+</code></pre>
+                    </p>
+                    </h2>
+                    <h2>JavaScript API Reference</h2>
+                    <p>
+                        <code>openURL(string)</code>
+                        <br>
+                        Open the supplied URL in the application's embedded web browser. This function does not block.
+                    </p>
+                    <p>
+                        <code>alert(body, title)</code>
+                        <br>
+                        Display an alert with a body and optional title. This function does not block.
+                    </p>
+                    <p>
+                        <code>copyToClipboard(string)</code>
+                        <br>
+                        Copy the passed string to the device's clipboard.  
+                    </p>
+                    <hr>
+                    <h2>Creating a JSON Plugin</h2>
+                    <p>
+                        If you do not need all of the power that JavaScript provides and instead simply want to open a URL in the embedded browser, 
+                        you can create a JSON plugin. 
+                    </p>
+                   <p>
+                        Your JSON plugin must contain the following:
+                   </p>
+<pre><code>{
+    "name": "The name of the action",
+    "desc": "A short description of the action",
+    "target": "https://url-here.com/"
+}  
+</code></pre>
+                    LiveScan concatenates the selected text to the end of your URL. For example, if the selected text was "cat", the above plugin would 
+                    open the embedded web browser to <code>https://url-here.com/cat</code>.
+				</article>
+			</main>
+		</div>
+
+	</div>
+	<script src="../../footer.js"></script>
+	</div>
+</body>
+</html>
