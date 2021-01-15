@@ -202,6 +202,15 @@ sup {
 	top: -0.5em;
 }
 
+footer a:visited{
+	color:white;
+}
+
+header a:hover{
+	color:gray;
+}
+
+
 /* Embedded content
 	 ========================================================================== */
 

@@ -1,12 +1,9 @@
 {
     document.currentScript.outerHTML = `
     <style>
-        a:visited{
-            color:white;
-        }
-        h4{
-            text-align: center;
-        }
+    h4{
+        text-align: center;
+    }
     </style>
     <footer id="colophon" class="site-footer" style="background-color:#333333;">
             <div class="site-info" style="padding-left:10px;">

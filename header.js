@@ -13,18 +13,17 @@ function toggleNav(element){
     const menus = {
         "About":`${root}/about/`,
         "Videos":"https://www.youtube.com/channel/UC7l78rOzFxaHG-e5AT-MGWQ/videos",
-        "Cameras":"",
+        "Cameras":`${root}/camera/`,
         "Support":`${root}/support`,
-        "Blog":"",
-        "Contact Us":"",
+        "Blog":`${root}/blog`,
+        "Contact Us":`${root}/contact-us`,
         "Mailing List":"https://gentlemencoders.us15.list-manage.com/subscribe?u=03bf04c551d8bddf44492e889&id=3f1d84feef",
         "Downloads":`${root}/downloads/`
     }
 
     let html = [
-        `<header id="masthead" class="site-header stickyHeader" style="background-color:#333333"
-        <a href="/" class="custom-logo-link" rel="home">
-        <img src="${root}/images/GC-Logo-White-Horizontal.png" class="custom-logo"</a>
+        `<header id="masthead" class="site-header stickyHeader" style="background-color:#333333">
+        <a href="/"><img src="${root}/images/GC-Logo-White-Horizontal.png" class="custom-logo"</a>
         <nav id="site-navigation" class="main-navigation" style="text-align:center">
         <button class="menu-toggle pillbutton" onclick="toggleNav(this)">Menu</button>
         <div class="menu-primary-navigation-container">
