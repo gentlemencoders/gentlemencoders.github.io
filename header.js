@@ -11,14 +11,14 @@ function toggleNav(element){
 {
     const root = document.currentScript.getAttribute('root');
     const menus = {
-        "About":`${root}/about/`,
-        "Videos":"https://www.youtube.com/channel/UC7l78rOzFxaHG-e5AT-MGWQ/videos",
-        "Cameras":`${root}/camera/`,
-        "Support":`${root}/support`,
-        "Blog":`${root}/blog`,
-        "Contact Us":`${root}/contact-us`,
+        "Downloads":`${root}/downloads/`,
         "Mailing List":"https://gentlemencoders.us15.list-manage.com/subscribe?u=03bf04c551d8bddf44492e889&id=3f1d84feef",
-        "Downloads":`${root}/downloads/`
+        "Contact Us":`${root}/contact-us`,
+        "Blog":`${root}/blog`,
+        "Support":`${root}/support`,
+        "Cameras":`${root}/camera/`,
+        "Videos":"https://www.youtube.com/channel/UC7l78rOzFxaHG-e5AT-MGWQ/videos",
+        "About":`${root}/about/`,
     }
 
     let html = [

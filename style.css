@@ -891,12 +891,14 @@ a:hover, a:active {
 	flex-basis:auto;
 	flex-direction: row;
 	align-items: center;
+	height:100px;
 }
 
 @media only screen and (max-width: 37.5em) {
 	.site-header{
 		flex-direction: column;
 		padding-bottom:8px;
+		height:unset;
 	}
 	.main-navigation li {
 		float:none;
@@ -1013,6 +1015,13 @@ object {
 .custom-logo{
 	max-height: 75px;
 	width:auto;
+	padding-left:10px;
+}
+
+@media only screen and (max-width: 37.5em) {
+	.custom-logo{
+		padding-left: unset;
+	}
 }
 
 /*--------------------------------------------------------------
