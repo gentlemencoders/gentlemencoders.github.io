@@ -9,7 +9,7 @@ function toggleNav(element){
 }
 
 {
-    const root = document.currentScript.getAttribute('root');
+    const root = document.currentScript.src.substring(0,document.currentScript.src.lastIndexOf('/'));
     const menus = {
         "Downloads":`${root}/downloads/`,
         "Mailing List":"https://gentlemencoders.us15.list-manage.com/subscribe?u=03bf04c551d8bddf44492e889&id=3f1d84feef",
