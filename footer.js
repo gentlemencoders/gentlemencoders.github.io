@@ -20,7 +20,7 @@
                         <a href="https://www.instagram.com/gentlemencoders/">
                             <img class="icon" src="${root}/images/social/instagram_color.png"></img>
                         </a>
-                        <a href="">
+                        <a href="https://www.pinterest.com/gentscoders/">
                             <img class="icon" src="${root}/images/social/pinterest_color.png"></img>
                         </a>
                         <a href="https://twitter.com/gentcoders">
