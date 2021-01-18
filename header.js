@@ -23,7 +23,7 @@ function toggleNav(element){
 
     let html = [
         `<header id="masthead" class="site-header stickyHeader" style="background-color:#333333">
-        <a href="/"><img src="${root}/images/GC-Logo-White-Horizontal.png" class="custom-logo"</a>
+        <a href="/"><img src="${root}/images/GC-Logo-White-Horizontal.png" class="custom-logo"></a>
         <nav id="site-navigation" class="main-navigation" style="text-align:center">
         <button class="menu-toggle pillbutton" onclick="toggleNav(this)">Menu</button>
         <div class="menu-primary-navigation-container">
