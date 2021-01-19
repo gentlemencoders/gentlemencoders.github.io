@@ -1,0 +1,127 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="../../style.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <title>Raw Power for macOS FAQ</title>
+</head>
+
+
+<style>
+    .imageText {
+        text-align: center;
+        color: #eeeeee;
+    }
+
+    iframe {
+        border: 0px;
+    }
+</style>
+
+<body>
+    <script src="../../header.js"></script>
+    <div id="content" class="site-content">
+        <article id="post-20594" class="post-20594 page type-page status-publish hentry">
+            <header class="entry-header">
+                <h1 class="entry-title">RAW Power pour Mac FAQ</h1><hr class="entry-title">	</header><!-- .entry-header -->
+        
+            
+            <div class="entry-content">
+                <div style="color:black;">
+        <h3>
+        Existe-t-il des vidéos de tutoriel pour RAW Power?<br>
+        </h3>
+        <p>Oui. Des tutoriels sont disponibles sur YouTube à l’adresse https://www.youtube.com/channel/UC7l78rOzFxaHG-e5AT-MGWQ.</p>
+        <hr>
+        <h3>
+        Que font les commandes Linéaire / Gamma et Luminance / RVB égaux dans Courbes ?<br>
+        </h3>
+        <p>Le nom affiché sur les boutons indique l’état actuel du contrôle. Si vous voyez «Linéaire», Courbes fonctionne en mode Linéaire, mais si vous voyez Gamma, Courbes traite en mode corrigé gamma. Cela est également vrai pour le bouton Luminance / RVB égaux.</p>
+        <p>RAW Power fonctionne avec des données de pixels linéaires à virgule flottante. Si vous choisissez Linéaire pour Courbes, Courbes manipulera les données de pixels linéaires telles quelles. Si vous choisissez Gamma, Curves corrigera les pixels de manière gamma, appliquera la courbe, puis annulera la correction de gamma (pour que les données de pixel soient reconverties en valeurs linéaires).</p>
+        <p>RVB égaux signifie que la courbe combinée appliquera les mêmes modifications aux composants rouge, vert et bleu de chaque pixel. Cela affectera n’importe quelle teinte de l’image. Cependant, si vous choisissez Luminance, la courbe combinée modifiera la valeur de luminance de chaque pixel et n’affectera pas la teinte.</p>
+        <hr>
+        <h3>
+        Quelle est la différence entre Netteté RAW et le réglage Netteté?<br>
+        </h3>
+        <p>Netteté RAW (présent dans l’ajustement Traitement RAW) est un renforcement subtil qui fonctionne dans le cadre du décodage RAW lui-même. L’ajustement Netteté est un dispositif de netteté orienté luminance qui s’exécute après le décodage, mais qui fonctionne toujours sur les données linéaires trouvées dans les fichiers RAW.</p>
+        <hr>
+        <h3>
+        Quelle est la meilleure façon d’utiliser l’échantillonneur de balance des blancs?<br>
+        </h3>
+        <p>Il est préférable d’identifier dans votre image une zone de taille raisonnable qui devrait être un gris neutre. Ne choisissez pas une zone blanche et brillante.</p>
+        <hr>
+        <h3>
+        Que fait la Récupération?<br>
+        </h3>
+        <p>La récupération fonctionne comme une «exposition sélective». Elle affecte les zones les plus lumineuses, mais sans toucher aux ombres ni aux demi-tons.</p>
+        <hr>
+        <h3>
+        Quand devrais-je utiliser le Boost?<br>
+        </h3>
+        <p>Il y a deux raisons d’utiliser Boost. La première raison est d’obtenir les meilleurs résultats pour des images surexposées. Pour ces images, diminuez la valeur de Boost à 0,5 ou moins avant d’utiliser d’autres curseurs tels que Exposition ou Récupération. Cela vous permettra de minimiser la quantité d’exposition ou de récupération à appliquer, tout en maintenant l’image lumineuse. La deuxième raison d’utiliser Boost est d’obtenir une image plus plate (plus «brute») avant d’ajouter des réglages tels que Saturation.</p>
+        <hr>
+        <h3>
+        Est-ce que RAW Power prend en charge la correction optique ?<br>
+        </h3>
+        <p>Oui. Le moteur RAW d’Apple corrige automatiquement la distorsion et les ombres pour les appareils photo à objectifs fixes (Sony RX100, Leica Q, etc.). Il corrige également de nombreuses images dont les informations de profil d’objectif sont stockées dans les fichiers RAW (Fuji X-T20, par exemple). Cependant, il n’a pas de fonction de correction d’optique à usage général.</p>
+        <hr>
+        <h3>
+        Supportez-vous le format DNG?<br>
+        </h3>
+        <p>Oui. RAW Power prend en charge le format DNG, y compris les fichiers DNG linéaires et les fichiers RAW pour iPhone. Cependant, certains DNG de DJI ne sont pas pris en charge tels quels. Pour vérifier si vos DNG fonctionneront, ouvrez-les dans l’application de prévisualisation d’Apple pour Mac. S’ils fonctionnent dans Aperçu, RAW Power les prend également en charge. S’ils ne sont pas pris en charge, vous pouvez utiliser le convertisseur DNG d’Adobe pour les convertir par lots en une version de DNG prise en charge par RAW Power. Pour plus d’informations sur cette conversion par lots, veuillez nous contacter sur notre page de support.</p>
+        <hr>
+        <h3>
+        Que sont les cercles à côté de l’histogramme?<br>
+        </h3>
+        <p>Ces cercles s’illuminent chaque fois que des données de pixels sont surexposés dans ce canal (plus lumineuses que celles pouvant être affichées). Il existe des indicateurs pour le rouge, le vert et le bleu. Si vous cliquez sur l’un des cercles rouge, vert et bleu, la fonctionnalité «pixels surexposés» n’est activée que pour ce canal. Cliquez sur le cercle gris pour afficher les pixels chauds et froids, où rouge signifie un pixel surexposé en rouge, vert ou bleu, et bleu un pixel noir (0,0 dans les trois canaux).</p>
+        <hr>
+        <h3>
+        Est-ce que RAW Power est compatible avec macOS Mojave?<br>
+        </h3>
+        <p>Oui, la version la plus récente sur le Mac App Store est compatible avec High Sierra et Mojave,</p>
+        <hr>
+        <h3>
+        Est-ce que mon appareil photo est pris en charge par RAW Power?<br>
+        </h3>
+        <p>RAW Power prend en charge un très grand nombre de caméras car il utilise le moteur RAW intégré à macOS. La liste des caméras prises en charge (et les limitations éventuelles) est disponible à l’adresse suivante: macOS High Sierra et macOS Mojave:</p>
+        <hr>
+        <h3>
+        Quelles sont les règles de licence pour RAW Power?<br>
+        </h3>
+        <p>En tant qu’application App Store, les règles de licence définies par Apple sont les suivantes:</p>
+        <p>Vous pouvez l’utiliser sur autant d’ordinateurs que vous le souhaitez, pour votre usage personnel. Chaque ordinateur doit être connecté au même compte App Store.</p>
+        <p>Pour une utilisation professionnelle, éducative ou gouvernementale, chaque utilisateur doit avoir son propre compte et une copie achetée individuellement.</p>
+        <hr>
+        <h3>
+        Comment utiliser l’Extension RAW Power?<br>
+        </h3>
+        <p>Une fois que RAW Power est téléchargé, vous pouvez activer l’extension dans les Préférences Système Extensions ou en cliquant sur le bouton Plus… dans la section Extensions du module Éditer de Photos d’Apple. Une fois que RAW Power est activé, vous pouvez le sélectionner dans la section Extensions du module Modifier de Photos d’Apple.</p>
+        <hr>
+        <h3>
+        Où RAW Power conserve-t-il ses modifications?<br>
+        </h3>
+        <p>RAW Power est un éditeur totalement non destructif. Dans l’application autonome, les modifications sont enregistrées dans un fichier annexe associé. Ce fichier associé se trouve dans le «dossier de sandbox» de l’application, plutôt que dans l’image originale, car RAW Power est une application en sandbox. Vous pouvez ensuite quitter RAW Power, rouvrir l’image ultérieurement et continuer là où vous l’avez laissée. Lorsque RAW Power s’exécute en tant qu’extension Photos, les modifications sont enregistrées dans la bibliothèque Photos. Vous pouvez également continuer là où vous en étiez, à condition de ne pas utiliser une autre extension (ou Photos elle-même) pour modifier l’image. Ceci est une limitation de l’application Photos.</p>
+        <hr>
+        <h3>
+        Pourquoi ne vois-je pas de réglage Traitement RAW pour mon image?<br>
+        </h3>
+        <p>Le traitement RAW apparaît uniquement pour les images RAW – pas pour les formats JPEG, TIFF ou autres formats d’image.</p>
+        <p>Lors de l’utilisation de l’extension Photos, il se peut que le réglage Traitement RAW ne soit pas affiché même si votre original est un fichier RAW. En effet, l’application Photos envoie un fichier JPEG à l’extension si l’image a déjà été modifiée dans Photos. Les modifications dans Photos incluent tout élément du module Modifier, y compris l’amélioration automatique, le recadrage, la rotation et les filtres. Pour éviter ce problème, appuyez sur le bouton Revenir à l’original dans Photos avant d’utiliser l’alimentation RAW.</p>
+        <p>L’extension Photos indique cette situation par un triangle jaune dans la barre d’outils, comme illustré ci-dessous. Ce triangle n’apparaît pas dans l’application autonome.</p>
+        <hr>
+        <h3>
+        Que fait la fonction Superposition dans Courbes?<br>
+        </h3>
+        <p>Si la case « Superposition » est cochée, elle affiche les courbes rouge, verte et bleue ainsi que la courbe combinée (lorsque vous regardez la courbe combinée). Cela ne fait rien si vous ne regardez que les courbes rouge, verte ou bleue. Cette fonctionnalité vous permet de voir en un coup d’œil comment les quatre courbes sont appliquées.
+        </p></div>
+            </div><!-- .entry-content -->
+        
+            </article>
+    </div>
+    <script src="../../footer.js"></script>
+    </div><!-- #page -->
+</body>
+
+</html>
