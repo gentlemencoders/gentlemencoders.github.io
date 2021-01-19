@@ -699,6 +699,7 @@ a:hover, a:active {
 	align-items: center;
 	width: 100%;
 	overflow-x:hidden;
+	font-weight:bold;
 }
 
 .main-navigation ul {
