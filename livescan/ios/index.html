@@ -1,0 +1,283 @@
+<html>
+<head>
+    <link rel="stylesheet" href="../../style.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <title>LiveScan | Fast text recognition</title>
+<style>
+    .imageText {
+        text-align: center;
+        color: #eeeeee;
+    }
+
+    iframe {
+        border: 0px;
+    }
+
+    .sharpImage {
+        image-rendering: auto; image-rendering: crisp-edges;image-rendering: pixelated;       
+    }
+
+    .modal {
+				  display: none; /* Hidden by default */
+				  position: fixed; /* Stay in place */
+				  z-index: 1; /* Sit on top */
+				  padding-top: 100px; /* Location of the box */
+				  left: 0;
+				  top: 0;
+				  margin-left: auto;
+				  margin-right: auto;
+				  width: 100%; /* Full width */
+				  height: 100%; /* Full height */
+				  overflow: auto; /* Enable scroll if needed */
+				  background-color: rgb(0,0,0); /* Fallback color */
+				  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+			}
+
+    /* Modal Content (image) */
+    .modal-content {
+        display: block;
+            max-width: 1000px;
+            width: 95%;
+    }
+    
+    .modal-content, #caption {
+			  -webkit-animation-name: zoom;
+			  -webkit-animation-duration: 0.6s;
+			  animation-name: zoom;
+			  animation-duration: 0.6s;
+			}
+
+
+    /* The Close Button */
+    .close {
+        position: absolute;
+        top: 15px;
+        right: 35px;
+        color: #f1f1f1;
+        font-size: 40px;
+        font-weight: bold;
+        transition: 0.3s;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: #bbb;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .navigationButtons {
+				display: flex; justify-content: center;
+			}
+
+    .horiz-centered {
+        position: relative;
+        left: 50%;
+        transform: translate(-50%, 0%);
+    }
+
+    .slideshowGroup {
+				display: none;
+			}
+
+    .galleryimg:hover
+    {
+        cursor:pointer
+    }
+</style>
+</head>
+
+<script>
+				
+    var gCurrentSlideshowImageArray;
+    var gCurrentSlideIndex;
+
+    function showSlideAtIndex(slideIndex, imageArray)
+    {
+        if (slideIndex >= imageArray.length)
+            slideIndex = 0;
+        else if (slideIndex < 0)
+            slideIndex = imageArray.length - 1;
+        
+        var modalImg = document.getElementById("modalImg");
+        modalImg.src = imageArray[slideIndex].src;
+        gCurrentSlideIndex = slideIndex;
+    }
+
+    
+    function loadSlideshowForDivID(slideshowDivID, startIndex)
+    {
+        var i;
+        var slideshowDivs = document.getElementsByClassName("slideshowGroup");
+        var divCount = slideshowDivs.length;
+        for (i = 0; i < divCount; i++) {
+            // find the div for this slideshow
+            var theID = slideshowDivs[i].id;
+            if (theID == slideshowDivID)
+            {
+                // find the images for this slideshow div
+                var slideshowDiv = slideshowDivs[i];
+                var images = slideshowDiv.getElementsByTagName("img");
+                for (j = 0; j < images.length; j++) {
+                    var image = images[j];
+                    var src = image.getAttribute("src");
+                    var imgSrc = image.getAttribute("img-src");
+                    if (imgSrc != null)
+                        image.src = imgSrc;
+                }
+
+                gCurrentSlideshowImageArray = images;
+                gCurrentSlideIndex = startIndex;
+                showSlideAtIndex(startIndex, images);
+            }
+        }
+    }
+
+
+    function showModalImage(img, slideshowDivID, startIndex)
+    {
+        // Get the modal
+        var modal = document.getElementById("myModal");
+        var modalImg = document.getElementById("modalImg");
+        var captionText = document.getElementById("caption");
+        var span = document.getElementsByClassName("close")[0];
+        
+        modalImg.classList.add('fade-in');
+
+        modal.style.display = "block";
+        loadSlideshowForDivID(slideshowDivID, startIndex);
+    }
+
+    function onload()
+    {
+        // Get the <span> element that closes the modal
+        var modal = document.getElementById("myModal");
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+          modal.style.display = "none";
+          var modalImg = document.getElementById("modalImg");
+          modalImg.src = "#";
+        }
+    }
+</script>
+<body onload="onload();">
+    <script src="../../header.js"></script>
+    <div style="background-color: #101010;">
+        <div class="whiteText reducedSides bgimage attention mobileText mobileSection">
+            <h2 style="text-align: center;">LiveScan for iOS 14<br>Makes Text Detection Quick and Easy</h2>
+            <p style="text-align: center;"><a class="pillbutton mobileText"
+                href="https://apps.apple.com/us/app/livescan-grab-text-in-images/id1532663695">Get It on the App Store</a></p>
+                <p><h4 style="text-align: center;">LiveScan processes all images on your device.<br>Your images are not transmitted or sent anywhere.</h4></p>
+            
+        <!-- Screenshots section here -->
+        <div class="featureGrid mobileText"
+            style="max-width: 1200px; margin: auto; float: center; padding-left: 16px; padding-right: 16px; -webkit-text-fill-color: #eeeeee;">
+            <div class="imageText mobileText pairgridVertical">
+                <div class="image galleryimg" style="background-image: url('../images/biz-card-ipad.png');" onclick="showModalImage(this, 'iOSImages', 0)"></div>
+                <div>
+                    <h3 style="text-align: center;">Any Image, Anywhere</h3>
+                    <p style="text-align: center;">Grab text from your camera, your photo library, or share images from other apps.</p>
+
+                </div>
+            </div>
+            <div class="imageText pairgridVertical">
+                <div class="image galleryimg" style="background-image: url('../images/dog-combo.png');" onclick="showModalImage(this, 'iOSImages', 1)"></div>
+                <div>
+                    <h3 style="text-align: center;">Contextual</h3>
+                    <p style="text-align: center;">Automatic Recognition of phone numbers, addresses, tracking numbers and much more!</p>
+                </div>
+            </div>
+
+            <div class="imageText pairgridVertical">
+                <div class="image galleryimg" style="background-image: url('../images/mask-ipad.png');" onclick="showModalImage(this, 'iOSImages', 2)"></div>
+                <div>
+                    <h3 style="text-align: center;">Multilingual</h3>
+                    <p style="text-align: center;">Detect text natively in 8 languages, and translate to many more.</p>
+                </div>
+            </div>
+
+            <div class="imageText pairgridVertical">
+                <div class="image galleryimg" style="background-image: url('../images/restaurant-combo.png');" onclick="showModalImage(this, 'iOSImages', 3)"></div>
+                <div>
+                    <h3 style="text-align: center;">Integrated Services</h3>
+                    <p style="text-align: center;">Built-in access to Yelp, Amazon, eBay, Google Translate and more.</p>
+                </div>
+            </div>
+
+            <div class="imageText pairgridVertical">
+                <div class="image galleryimg" style="background-image: url('../images/tweet-ios.png');" onclick="showModalImage(this, 'iOSImages', 4)"></div>
+                <div>
+                    <h3 style="text-align: center;">Share Extension</h3>
+                    <p style="text-align: center;">Grab text in images inside apps like Twitter</p>
+                </div>
+            </div>
+
+            <div class="imageText pairgridVertical">
+                <div class="image galleryimg" style="background-image: url('../images/more-actions-ios.png')" onclick="showModalImage(this, 'iOSImages', 5)"></div>
+                <div>
+                    <h3 style="text-align: center;">Favorites</h3>
+                    <p style="text-align: center;">One-tap access to your favorite actions.</p>
+                </div>
+            </div>
+
+
+            <div class="imageText pairgridVertical">
+                <div class="image" style="background-image: url('../images/puzzle.png');"></div>
+                <div>
+                    <h3 style="text-align: center;">Extensible</h3>
+                    <p style="text-align: center;">Add your own custom workflows via LiveScan's JavaScript plugin API</p>
+                </div>
+            </div>
+            <div class="imageText pairgridVertical">
+                <div class="image" style="background-image: url('../images/lock.png');"></div>
+                <div>
+                    <h3 style="text-align: center;">Private</h3>
+                    <p style="text-align: center;">LiveScan processes everything on-device, and does not transmit or save your images anywhere.</p>
+                </div>
+            </div>
+            <div class="imageText pairgridVertical">
+                <div class="image" style="background-image: url('../images/ios+mac.png');"></div>
+                <div>
+                    <h3 style="text-align: center;">Single purchase</h3>
+                    <p style="text-align: center;">The mac and iOS versions, for one price.</p>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="whiteText bgimage" style="background-color: #000000; padding: 10px;">
+            <div class="featureGrid mobileText"
+                style="max-width: 1200px; margin: auto; float: center; align-items: center;">
+                <h3 style="text-align: center;">Get LiveScan on the App Store</h3>
+                <a style="float: center; display: block; margin: 0 auto;" title=""
+                    href="https://apps.apple.com/us/app/livescan-grab-text-in-images/id1532663695" target=""
+                    rel="noopener noreferrer"><img style="display: block; margin: 0 auto; height: 40px;"
+                        src="../images/Download-on-App-Store-271x80.png" /></a>
+
+            </div>
+        </div>
+        <div id="myModal" class="modal">
+            <span class="close">&times;</span>
+            <div class="">
+            <img class="modal-content horiz-centered" id="modalImg"><br/>
+            <div class="navigationButtons">
+                <button class="w3-button w3-display-left" onclick="showSlideAtIndex(gCurrentSlideIndex - 1, gCurrentSlideshowImageArray)">&#10094;</button>
+                <button class="w3-button w3-display-right" onclick="showSlideAtIndex(gCurrentSlideIndex + 1, gCurrentSlideshowImageArray)">&#10095;</button>
+            </div>>
+        </div>
+    </div>
+    <script src="../../footer.js"></script>
+    <div class="slideshowGroup" id="iOSImages">
+        <img class="slideshowImage" src="#" img-src="../images/biz-card-ipad.png">
+        <img class="slideshowImage" src="#" img-src="../images/dog-combo.png">
+        <img class="slideshowImage" src="#" img-src="../images/mask-ipad.png">
+        <img class="slideshowImage" src="#" img-src="../images/restaurant-combo.png">
+        <img class="slideshowImage" src="#" img-src="../images/tweet-ios.png">
+        <img class="slideshowImage" src="#" img-src="../images/more-actions-ios.png">
+    </div>
+</body>
+
+</html>
