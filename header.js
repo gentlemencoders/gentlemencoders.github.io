@@ -16,7 +16,7 @@ function toggleNav(element){
         "Contact Us":`${root}/contact-us`,
         "Blog":`${root}/blog`,
         "Support":`${root}/support`,
-        "Cameras":`${root}/camera/`,
+        "Cameras":`${root}/extended-raw/`,
         "Videos":"https://www.youtube.com/channel/UC7l78rOzFxaHG-e5AT-MGWQ/videos",
         "About":`${root}/about/`,
     }
