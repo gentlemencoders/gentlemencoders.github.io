@@ -1101,7 +1101,7 @@ object {
 /* Theme extras */
 /* Background image views (used on the homepage and product pages) */
 .bgimage{
-	padding:80px;
+	padding:16px;
 	background-repeat: no-repeat;
 	background-size: cover;
 }
