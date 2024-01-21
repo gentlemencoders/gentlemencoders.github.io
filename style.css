@@ -1,7 +1,7 @@
 /** Fonts and icons */
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css');
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600');
-
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=Lato');
 /*!
 Theme Name: wp basic
 Theme URI: http://underscores.me/
@@ -83,8 +83,8 @@ body{
  * `article` contexts in Chrome, Firefox, and Safari.
  */
 
-h1,h2{
-	font-weight:bolder;
+h1,h2, h3{
+	font-weight: 600;
 }
 
 h1 {
@@ -95,14 +95,27 @@ h1 {
 h2{
 	font-size:24px;
 }
+
 h3{
-	font-size:22px;
+	font-size:18px;
+	margin:0;
+}
+h4{
+	font-size:14px;
 	margin:0;
 }
 /* Used as a vertical spacer */
 h5{
 	font-size:3px;
 	margin:0;
+}
+
+.tagline {
+	font-weight: 300;
+}
+
+.tagline {
+	font-weight: 300;
 }
 
 
@@ -202,14 +215,30 @@ sup {
 	top: -0.5em;
 }
 
+p {
+	margin-block-end: 8px;
+}
+
 footer a:visited{
-	color:white;
+	color:eeeeee;
+}
+
+footer a:hover{
+	color:rgb(219, 237, 255);
+}
+
+footer a{
+	color:#eeeeee;
+	font-size: 10pt;
 }
 
 header a:hover{
-	color:gray;
+	color:blue;
 }
 
+.footer-text{
+    color: rgba(255, 255, 255, 0.85);
+}
 
 /* Embedded content
 	 ========================================================================== */
@@ -223,10 +252,10 @@ img {
 }
 
 .main-navigation a {
-	color: #ffffff;
+    color: rgba(255, 255, 255, 0.85);
 }
 .main-navigation a:visited {
-	color: #ffffff;
+    color: rgba(255, 255, 255, 0.85);
 }
 
 
@@ -438,8 +467,7 @@ input,
 select,
 optgroup,
 textarea {
-	color: #404040;
-	font-family: 'Open Sans','Segoe UI', 'San Francisco', Arial, Helvetica, sans-serif;
+	font-family: 'Lato',sans-serif;
 	font-size: 16px;
 	font-size: 1rem;
 	line-height: 1.5;
@@ -447,10 +475,7 @@ textarea {
 
 h1, h2, h3, h4, h5, h6 {
 	clear: both;
-}
-
-p {
-	margin-bottom: 1.5em;
+	margin: 4;
 }
 
 dfn, cite, em, i {
@@ -471,7 +496,6 @@ pre {
 	font-size: 15px;
 	font-size: 0.9375rem;
 	line-height: 1.6;
-	margin-bottom: 1.6em;
 	max-width: 100%;
 	overflow: auto;
 	padding: 1.6em;
@@ -512,12 +536,12 @@ html {
 }
 
 body {
-	background: #fff;
+	background: white;
 	/* Fallback for when there is no custom background color defined. */
 }
 
 hr {
-	background-color: #ccc;
+	background-color: #888888;
 	border: 0;
 	height: 1px;
 	margin-bottom: 1.5em;
@@ -661,6 +685,10 @@ textarea {
 .site-title{
 	margin: 0.5em 0.5em;
 }
+.site-info {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
 
 /*--------------------------------------------------------------
 ## Links
@@ -692,10 +720,21 @@ a:hover, a:active {
 	font-weight:bold;
 }
 
+.navbutton {
+	padding: 0px 0px;
+	margin-top: 10px;
+  	cursor: pointer;
+    color: rgba(255, 255, 255, 0.8);
+	transition: background-color 0.5s, color 1s;
+    cursor: pointer;
+    fill: rgba(255, 255, 255, 0.8);
+}
+
 .main-navigation {
 	display: flex;
 	/*grid-template-columns: repeat(auto-fit, 1fr);*/
 	justify-content: flex-end;
+	padding-right: 10px;
 	align-items: center;
 	width: 100%;
 	overflow-x:hidden;
@@ -755,6 +794,10 @@ a:hover, a:active {
 	display: block;
 }
 
+.menu-primary-navigation-container {
+	padding-top: 2px;
+}
+
 @media screen and (min-width: 37.5em) {
 	.menu-toggle {
 		display: none;
@@ -789,6 +832,165 @@ a:hover, a:active {
 	float: right;
 	text-align: right;
 	width: 50%;
+}
+
+.product-tile {
+	padding-top: 50px;
+	padding-bottom: 50px;
+	margin-bottom: 16px;
+	border-radius: 10px;
+	background-color: rgba(245, 245, 247, 1.0);
+}
+.product-tile.product-tile-1  {
+	background-color: rgba(245, 245, 247, 1.0);
+}
+
+.product-tile.product-tile-2 {
+	background-color: rgba(230, 230, 235, 1.0);
+}
+
+.product-tile.product-tile-last {
+	margin-bottom: 0px;
+}
+
+.product-hero {
+	padding-left: 30px;
+	padding-top: 10px;
+	padding-right: 30px;
+    max-height:300px;
+}
+ .product-hero-iOS {
+	padding-left: 30px;
+	padding-top: 10px;
+	padding-right: 30px;
+    max-height:300px;
+}
+
+.product-page {
+	padding-top: 20px;
+	padding-bottom: 20px;
+	margin-top: 10pt;
+	margin-left: 10pt;
+	margin-right: 10pt;
+	margin-bottom: 10pt;
+	border-radius: 10px;
+	text-align: center;
+	background-color: rgba(245, 245, 247, 1.0);
+}
+
+.product-page-inset {
+	margin-top: 0pt;
+	margin-left: 10pt;
+	margin-right: 10pt;
+	margin-bottom: 10pt;
+}
+
+.product-page {
+	padding-top: 20px;
+	padding-bottom: 20px;
+	margin-top: 4pt;
+	margin-left: 10pt;
+	margin-right: 10pt;
+	margin-bottom: 10pt;
+	border-radius: 10px;
+	text-align: center;
+	background-color: rgba(245, 245, 247, 1.0);
+}
+
+.product-page-screenshots-mac {
+	background-color: #DAEDFD;
+	border-radius: 10px;
+	max-width: 1200px;
+	margin: auto;
+	padding-top: 10px;
+	padding-bottom: 20px;
+	padding-left: 10px;
+	padding-right: 20px;
+	justify-content: left;
+	align-content: left;
+}
+
+.product-page-screenshots-mac-2 {
+	background-color: #D5E9F8;
+	border-radius: 10px;
+	max-width: 1200px;
+	margin: auto;
+	padding-top: 10px;
+	padding-bottom: 20px;
+	padding-left: 10px;
+	padding-right: 20px;
+	justify-content: left;
+	align-content: left;
+}
+
+.product-page-screenshots-image-mac {
+	max-width: 1000px;
+	margin: auto;
+}
+
+.promotion {
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding-left: 20px;
+	padding-right: 20px;
+	margin-top: 2pt;
+	margin-left: 20pt;
+	margin-right: 20pt;
+	margin-bottom: 2pt;
+	border-radius: 10px;
+	text-align: center;
+	background-color: rgb(79, 79, 171);
+	color: #eeeeee;
+}
+
+.promotion-home {
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding-left: 20px;
+	padding-right: 20px;
+	margin-top: 10pt;
+	margin-left: 0pt;
+	margin-right: 0pt;
+	margin-bottom: 10pt;
+	border-radius: 10px;
+	text-align: center;
+	background-color: rgb(79, 79, 171);
+	color: #eeeeee;
+}
+
+.product-page-grid {
+	display: grid;
+	align-items: start;
+	grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+	/*background-color: #DAEDFD;*/
+	border-radius: 10px;
+	max-width: 1200px;
+	margin: auto;
+	padding-top: 10px;
+	padding-bottom: 20px;
+	padding-left: 10px;
+	padding-right: 20px;
+	justify-content: left;
+	align-content: left;
+}
+
+.footer-grid {
+	display: grid;
+	align-items: start;
+	grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+	margin: auto;
+	padding-top: 20px;
+	padding-bottom: 0px;
+	padding-left: 20px;
+	padding-right: 20px;
+	text-align: center;
+	row-gap: 14px;
+}
+
+.footer-text {
+	font-size: 10pt;
+	color: #eeeeee;
+	text-align: center;
 }
 
 /*--------------------------------------------------------------
@@ -875,10 +1077,11 @@ a:hover, a:active {
 	position:absolute;
 	/*bottom:0;*/
 	width:100%;
+	line-height: 1.0;
 }
 
 .site-footer{
-	padding:20px;
+	padding:00px;
 }
 
 .site-footer:before,
@@ -892,7 +1095,7 @@ a:hover, a:active {
 	flex-basis:auto;
 	flex-direction: row;
 	align-items: center;
-	height:100px;
+	height:60px;
 }
 
 @media only screen and (max-width: 37.5em) {
@@ -1014,9 +1217,10 @@ object {
 }
 /* Position the custom logo*/
 .custom-logo{
-	max-height: 75px;
+	max-height: 40px;
 	width:auto;
 	padding-left:10px;
+	opacity: 0.85;
 }
 
 @media only screen and (max-width: 37.5em) {
@@ -1110,6 +1314,7 @@ object {
 .responsive {
 	display: grid;
 	align-items: center;
+	text-align: center;
 	grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
 }
 
@@ -1118,6 +1323,50 @@ object {
 	align-items: start;
 	grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
 	column-gap:30px;
+	margin: 10px;
+	border-radius: 10px;
+	max-width: 1200px;
+}
+
+.featureGrid2 {
+	margin: 10px;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+	grid-gap: 10px;
+	column-gap:30px;
+	line-height: 1.2;
+	text-align: left;
+	row-gap: 30px;
+}
+
+.featureGrid2Element {
+	display: flex;
+	flex-wrap: nowrap;
+	flex-direction: row;
+	margin-left: 8px;
+	align-items:center;
+}
+
+.featureGrid2ElementBlock {
+	padding-left: 10px;
+	margin-right: 8px;
+	line-height: 1.4;
+}
+
+.featureGrid2ElementIcon {
+	max-width: 36px;
+	max-height: 36px;
+}
+
+.featureGrid2ElementHeader {
+	margin: 0px;
+	font-size: 12pt;
+	font-weight: 600;
+}
+
+.featureGrid2ElementDesc {
+	margin: 0px;
+	font-size: 11pt;
 }
 
 /* Used on post pages */
@@ -1135,37 +1384,63 @@ object {
 
 /* Helper class for displaying white text inside views */
 .whiteText{
-	color:white;
-	-webkit-text-fill-color: white;
+	color:#eeeeee;
 }
 
+.headline {
+	font-size:36px;
+	line-height: 1.0;
+}
+
+.subheadline {
+	color:#C6090E;
+	font-size:16px;
+	line-height: 1.0;
+	font-weight: lighter;
+}
+
+.product-tile-text {
+	margin-top: 20px;
+	font-size:16px;
+	font-weight: lighter;
+	line-height: 1.2;
+	margin-bottom: 10px;
+}
+
+.product-action {
+	margin-top: 40px;
+	margin-right: 20px;
+	font-size:16px;
+	font-weight: lighter;
+}
+
+a.product-action {
+	color: rgba(0, 102, 204, 1.0);
+}
 /* Pill shaped buttons */
 .pillbutton{
 	text-align: center;
-	padding: 14px 20px;
-	margin: 4px 2px;
+	padding: 10px 20px;
+	margin: 0px 2px;
   	cursor: pointer;
-	border-radius: 50px;
+	border-radius: 10px;
 	background-color:transparent;
-	color:white;
+	color:black;
 	transition: background-color 0.5s, color 1s;
 	font-size:16px;
 	font-weight:bold;
 }
-/*.pillbutton:hover{
-	background-color:white;
-	color:#045089;
-	-webkit-text-fill-color: #045089;
-}*/
+
+.pillbutton:hover{
+	background-color:#A2D4EA;
+}
+
 /* adds a border to links that should act like buttons */
 a.pillbutton{
-	border: 1px solid white;
+	border: 1px solid rgba(0, 102, 204, 1.0);
 }
 a.pillbutton:hover{
 	text-decoration: none;
-}
-a.pillbutton:visited{
-	-webkit-text-fill-color: white;
 }
 
 /* Easy way to draw larger text inside buttons or other thigns */
@@ -1213,9 +1488,11 @@ a:hover{
 	text-decoration: underline;
 }
 
+/*
 a:visited{
 	color:darkblue;
 }
+*/
 
 .hoverUnderline:hover {
 	text-decoration: underline;
@@ -1257,6 +1534,7 @@ a:visited{
 .pairgrid,.pairgridVertical{
 	display:grid;
 	grid-template-columns: 32px 1fr;
+	margin: 14px;
 }
 .pairgrid{
 	column-gap:30px;
@@ -1267,6 +1545,7 @@ a:visited{
 	grid-template-rows: 240px 1fr;
 	grid-template-columns: unset;
 	row-gap:8px;
+	max-width: 1200px;
 }
 
 /* Because image tags don't work correctly */
@@ -1277,6 +1556,14 @@ a:visited{
 	background-position: center center;
 	width:100%;
 	height:100%;
+}
+
+.image-mac{
+	background-size:contain;
+	background-repeat:no-repeat;
+	background-position: center center;
+	width:100%;
+	height:600px;
 }
 
 .light{
@@ -1293,12 +1580,15 @@ li.comment{
 /* Fix mobile menus not lining up vertically */
 li.menu-item{
 	transform: translateX(11px);
+	font-size: 11pt;
 }
 
 /* Reducing padding on sides */
 .reducedSides{
 	padding-left:10px;
 	padding-right:10px;
+	padding-top: 0px;
+	padding-bottom: 0px;
 }
 
 /* fixing fonts and other issues with small or mobile screens */
@@ -1334,11 +1624,78 @@ li.menu-item{
 	}
 	/* For the large section divs with background images */
 	.mobileSection{
-		padding-top:40px;
-		padding-bottom:40px;
+		padding-top:0px;
+		padding-bottom:0px;
 	}
 }
 
 .main{
 	padding:20px;
 }
+
+.imageText {
+	text-align: center;
+	color: #eeeeee;
+}
+
+.imageText-dark {
+	text-align: center;
+	color: #222222;
+}
+
+
+/* I turned off dark mode, because I don't have images that are dark, and it's a pain to swap them [have to use a <picture> tag, etc.]
+@media (prefers-color-scheme: dark) {
+
+	html {
+		color: #eeeeee;
+	}
+	body {
+		background: #111111;
+	}
+	
+	.subheadline {
+		color:#EA2C32;
+	}
+
+	.product-tile {
+		background-color: rgba(10, 10, 8, 1.0);
+	}
+	.product-tile.product-tile-1  {
+		background-color: rgba(10, 10, 8, 1.0);
+	}
+	
+	.product-tile.product-tile-2 {
+		background-color: rgba(40, 40, 55, 1.0);
+	}
+	
+	.product-page {
+		background-color: rgba(10, 10, 8, 1.0);
+	}
+	
+	.product-page-screenshots-mac {
+		background-color: #222527; 
+	}
+	
+	.product-page-screenshots-mac-2 {
+		background-color: #5E636D; 
+	}
+	
+	.product-page-grid {
+		background-color: #222527; 
+	}
+	
+	.pillbutton{
+		color:white;
+	}
+	
+	a.pillbutton{
+		border: 1px solid rgba(0, 102, 204, 1.0);
+	}
+
+	.imageText {
+		color: #ffffff;
+	}
+}
+
+*/
