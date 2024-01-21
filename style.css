@@ -1581,6 +1581,7 @@ li.comment{
 li.menu-item{
 	transform: translateX(11px);
 	font-size: 11pt;
+	padding-top: 10px;
 }
 
 /* Reducing padding on sides */
