@@ -11,6 +11,7 @@ function toggleNav(element){
 {
     const root = document.currentScript.src.substring(0,document.currentScript.src.lastIndexOf('/'));
     const menus = {
+        "Blog":`${root}/blog/index.html`,
         "Contact Us":`${root}/contact-us/index.html`,
         "Cameras":`${root}/extended-raw/index.html`,
         "Support":`${root}/support/index.html`,
