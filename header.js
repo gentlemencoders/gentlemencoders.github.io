@@ -14,7 +14,7 @@ function toggleNav(element){
         "Blog":`${root}/blog/index.html`,
         "Contact Us":`${root}/contact-us/index.html`,
         "Cameras":`${root}/extended-raw/index.html`,
-        "Support":`${root}/support/index.html`,
+        "Support":`https://support.gentlemencoders.com`,
 }
 
     let html = [
