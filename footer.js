@@ -27,7 +27,7 @@
             </div>
         </div>
         <br>
-        <center><span class="footer-text">© ${new Date().getFullYear()} Gentlemen Coders, LLC.<br>Nitro and RAW Power are registered US Trademarks of Gentlemen Coders, LLC.</span></center>
+        <center><span class="footer-text">© ${new Date().getFullYear()} Gentlemen Coders, LLC.<br>Nitro and RAW Power are US Trademarks of Gentlemen Coders, LLC.</span></center>
        <div class="footer-grid">
             <span><a href="https://www.gentlemencoders.com/contact-us/index.html">Contact Us</a></span>
             <span><a href="https://support.gentlemencoders.com/blog/">Blog</a></span>
