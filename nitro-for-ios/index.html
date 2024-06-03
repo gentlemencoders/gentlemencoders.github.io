@@ -6,6 +6,33 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="icon" type="image/png" href="/favicon.png">
 	<title>Nitro® for iPhone and iPad</title>
+
+	<script>
+		function show_iPhone() {
+			show_screenshot("screen1_iPhone", "screen1_iPad");
+			show_screenshot("screen2_iPhone", "screen2_iPad");
+			show_screenshot("screen3_iPhone", "screen3_iPad");
+			show_screenshot("screen4_iPhone", "screen4_iPad");
+			show_screenshot("screen5_iPhone", "screen5_iPad");
+			return false;
+		}
+
+		function show_iPad() {
+			show_screenshot("screen1_iPad", "screen1_iPhone");
+			show_screenshot("screen2_iPad", "screen2_iPhone");
+			show_screenshot("screen3_iPad", "screen3_iPhone");
+			show_screenshot("screen4_iPad", "screen4_iPhone");
+			show_screenshot("screen5_iPad", "screen5_iPhone");
+			return false;
+		}
+
+		function show_screenshot(idToShow, idToHide) {
+			var toShow = document.getElementById(idToShow);
+			var toHide = document.getElementById(idToHide);
+			toHide.style.display = "none";
+			toShow.style.display = "block";
+		}
+	</script>
 </head>
 
 <body>
@@ -200,16 +227,19 @@
 				<div class="product-page-inset">
 					<div class="mobileText"
 						style="float: center">
+						<div class="desktopButtons"><span><a class="pillbutton product-action" onclick="return show_iPhone();">iPhone</a>
+							<a class="pillbutton product-action" onclick="return show_iPad();">iPad</a>
+						</span><h5>&nbsp;</h5><h5>&nbsp;</h5></div>
 						<div class="product-page-screenshots-ios-2 product-page-screenshots-image-ios imageText-2 mobileText">
 							<div>
 								<h3 style="text-align: center;">Rate. Flag. Filter.</h3>
 								<span style="text-align: center;">Even make smart albums in the Photo Library that sync over iCloud!</span>
 									<h5>&nbsp;</h5>
 							</div>
-							<div class="image-ios iphone-only"
+							<div id="screen1_iPhone" class="image-ios iphone-only"
 								style="background-image: url('images/iPhone-rate.png');">
 							</div>
-							<div class="image-ios ipad-only"
+							<div id="screen1_iPad" class="image-ios ipad-only"
 								style="background-image: url('images/iPad-rate.png');">
 							</div>
 						</div>
@@ -222,10 +252,10 @@
 								<span style="text-align: center;">AI Masks isolate subjects and backgrounds. Use a brush for maximum precision, with edge aware brushes to follow tricky contours. Apply 12 different adjustments, including Curves and blur.</span>
 								<h5>&nbsp;</h5>
 							</div>
-							<div class="image-ios iphone-only"
+							<div id="screen2_iPhone" class="image-ios iphone-only"
 								style="background-image: url('images/iPhone-mask.png');">
 							</div>
-							<div class="image-ios ipad-only"
+							<div id="screen2_iPad" class="image-ios ipad-only"
 								style="background-image: url('images/iPad-mask.png');">
 							</div>
 						</div>
@@ -238,10 +268,10 @@
 								<span style="text-align: center;">Linear Gradients make quick work of skies. Radial Gradients make natural looking lighting effects.</span>
 								<h5>&nbsp;</h5>
 							</div>
-							<div class="image-ios iphone-only"
+							<div id="screen3_iPhone" class="image-ios iphone-only"
 								style="background-image: url('images/iPhone-gradient.png');">
 							</div>
-							<div class="image-ios ipad-only"
+							<div id="screen3_iPad" class="image-ios ipad-only"
 								style="background-image: url('images/iPad-gradient.png');">
 							</div>
 						</div>
@@ -270,10 +300,10 @@
 								<span class="iphone-only" style="text-align: center;">View shot and camera information.</span>
 								<h5>&nbsp;</h5>
 							</div>
-							<div class="image-ios iphone-only"
+							<div id="screen4_iPhone" class="image-ios iphone-only"
 								style="background-image: url('images/iPhone-info.png');">
 							</div>
-							<div class="image-ios ipad-only"
+							<div id="screen4_iPad" class="image-ios ipad-only"
 								style="background-image: url('images/iPad-info.png');">
 							</div>
 						</div>
@@ -286,10 +316,10 @@
 								<span style="text-align: center;">Export, Apply Presets, and more.</span>
 								<h5>&nbsp;</h5>
 							</div>
-							<div class="image-ios iphone-only"
+							<div id="screen5_iPhone" class="image-ios iphone-only"
 								style="background-image: url('images/iPhone-batch.png');">
 							</div>
-							<div class="image-ios ipad-only"
+							<div id="screen5_iPad" class="image-ios ipad-only"
 								style="background-image: url('images/iPad-Batch.png');">
 							</div>
 						</div>

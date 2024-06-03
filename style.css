@@ -1628,12 +1628,24 @@ a:visited{
 	display: block;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 600px) and (any-pointer: coarse) {
     .ipad-only {
         display: none;
     }
 
     .iphone-only {
+        display: block;
+    }
+
+    .desktopButtons {
+        display: none;
+    }
+}
+
+/* if device has no touch screen */
+@media (any-pointer: fine) {
+
+    .desktopButtons {
         display: block;
     }
 }
