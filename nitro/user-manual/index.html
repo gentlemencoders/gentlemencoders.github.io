@@ -1578,6 +1578,148 @@ If you eject an external drive and open Nitro, then it will alert you about dire
 
 This may happen more frequently on iOS because Apple changes the path to the disk each time it is ejected and reconnected.
 
+## One Up (The Viewer)
+From the grid, you can tap (iOS) or double-click (Mac) to enter the Viewer. When in Viewer mode, the grid is replaced by a filmstrip and there is a large set of controls on the left and right sides of a large image view, as shown below:
+
+<p align=center><img src="images/oneUpLabeled.jpg" height="500"/></p>
+
+In this view, you can easily view and change ratings or flags. You can also view metadata and enter other modes like Edit, N-Up, and Compare. These modes are described below.
+
+### Zoom
+
+Nitro has a number of ways to zoom into images. The first way is by using the controls to the left of the image. Those will increase or decrease the zoom level, or jump between 100% and zoom to fit. You can also pinch (on a trackpad or iOS screen). When using a keyboard, then you can use the following shortcuts:
+<br>
+<table>
+<tr><td> Zoom to Fit </td><td> Cmd-Shift-minus </td></tr>
+<tr><td> Zoom to Actual Size (100%) </td><td>Z</td></tr>
+<tr><td> Zoom In</td><td> Cmd-plus </td></tr>
+<tr><td> Zoom Out</td><td> Cmd-minus</td></tr>
+</table>
+
+## The Editing Panel
+
+Enter edit by picking the first button on the right side panel (see above image).
+
+<p align=center><img src="images/editPanelLabeled.jpg" height="510"/></p>
+
+At the top is shot information including shutter speed ISO and camera. You can collapse it or expand it to get more information. Next is the histogram which includes clipping indicators, which are discussed below. Histograms visually describe the distribution of color or tone in an image; the leftmost column represents black and the rightmost column represents white. 
+The height of the histogram tells you how much of the image (relatively) contains that pixel value. You can also hide the histogram if you like, which both gives more screen real estate, and also improves performance some, because the histogram won't be updated when it's closed.
+
+The next section shows the main editing panels. The first has quick fixes like Auto Enhance, Spot Removal, and Clone. There are some additional ones that will appear based on the image you have. For example, the Highlight Recovery Quick Fix will appear for certain types of RAW images. The next panel contains presets and LUTs. The third has sliders which is the primary topic for this section. The last is masking, which will be covered in a later section.
+
+### Undo, Redo, and Show Original
+
+Editing in Nitro is undoable and non-destructive. At the bottom of the right side toolbar are the undo and redo controls. At the bottom of the editing panel is another bar with four controls: Copy Adjustments, Paste Adjustments, Show Original, and Reset Adjustments.
+
+<p align=center><img src="images/bottom_toolbar.jpg" height="455"/></p>
+
+It's best to turn off the clipping overlay when using Show Original to make it easier to see what has changed. The histogram also will update when you use Show Original.
+
+Copy Adjustments will display a dialog that lets you choose which adjustments to copy. Paste Adjustments works the same way, so you can decide what to paste. Reset Adjustments will remove all the adjustments that have been applied. However, if the image has been edited in the Photo Library by another app, the Reset will only remove the Nitro adjustments. To fully revert the image, leave Edit and use Revert to Original.
+
+### Reordering Adjustments
+
+The adjustments are listed in a common workflow order. For example, many people crop early in the process to make sure that they are only concerning themselves with the part of the image they're interested in. However, other people like to crop at the end, or perhaps they apply white balance correction first. Nitro lets you reorder the adjustments in the UI. To do that, go to Settings and pick Configure. 
+
+<p align=center><img src="images/reorderAdjustments.jpg" height="600"/></p>
+
+You can drag adjustments up and down. You can also change the auto-collapse adjustment setting. If it's on, then adjustment sections will open and close automatically as you use them to save space. Note that reordering adjustments only changes the appearance in the UI; it does not change the order that the adjustments are processed to make an image.
+
+### Crop
+
+Let's start with Crop. For most adjustments, you do not need to click the checkbox before working. The checkbox will automatically enable as soon as you start dragging sliders or otherwise working with the adjustment. A reset button will appear as well. You can click the checkbox to turn the adjustment off, or you can clear the adjustment by clicking the reset button.
+
+<p align=center><img src="images/crop.jpg" height="306"/></p>
+
+The controls below the crop checkbox are tools. From left to right: 
+- Crop tool
+- Straighten tool
+- Rotate left
+- Rotate right
+- Flip vertical
+- Flip horizontal
+
+
+The crop tool is mostly self-explanatory; however, an important control appears when you turn it on. In the image below, you can see a  number sign button. This controls a rule of thirds guide. Next to it is a megapixel reading that tells you the size of the image after the crop has been applied. Press the "checkmark" button to exit the crop tool.
+
+<p align=center><img src="images/cropToolOn.jpg" height="149"/></p>
+
+You can straighten in a few different ways. First, you can drag the straighten slider, which will display a grid as you do that. Second, you can use the straighten tool. When you engage this tool, you can simply drag on a line in the image that should be level, but isn’t (either a vertical or horizontal line - it doesn’t matter). You may find it is easier to drag just above or to the side of the line in question. That will compute the angle and straighten the image.
+
+### Slider Basics
+
+Editing sliders in Nitro have a number of additional features to make it easier to set values. 
+- Reset: Double-click the slider to reset the value (you can also double-click the title of the slider)
+- Precision Mode: Drag the slider vertically about 1 inch (2.5 cm) until the slider ball turns green. Then drag horizontally as then the values will update more slowly.
+- Nudge (Mac only): you can click the arrows next to the slider value to nudge the values up or down. Hold the option key while clicking to move them a smaller amount.
+- Manual Entry: 
+    - Mac: click on the numeric field to type in a new value
+    - iPad and iPhone: tap on the numeric field to get an onscreen mini-keyboard to enter numbers (see below image).
+
+<p align=center><img src="images/numeric_keypad.jpg" height="352"/></p>
+
+### White Balance 
+
+The white balance adjustment shows the color temperature and tint of the image, and you can adjust them if the image has a tint you want to neutralize (or add).
+ 
+<p align=center><img src="images/white_balance.jpg" height="153"/></p>
+
+There are also presets for common scenes, such as daylight or fluorescent lighting. One way to adjust white balance is to use the auto white balance control. It looks for an area that it thinks should be a gray value and then changes the temperature and tint so that it matches. Alternatively, you can use an eyedropper. When you use the eyedropper, do something similar to what the auto white balance is doing: look for an area that **should** be gray. You don't want to choose a white pixel or a very bright one; you don't want something too close to black. Look for a midtone - something that should be gray, but isn’t -- that gives the white balance algorithm the most latitude. You can also drag the eyedropper to get a white balance change in real-time.
+
+### Tone
+
+Next is tone. The tone adjustment is important for controlling brightness in the image. Tone has a large number of sliders. 
+
+<p align=center><img src="images/tone.jpg" height="380"/></p>
+
+The first slider is Boost. Boost is very important for recovering highlights, and it’s not present in apps from other companies. It controls a key part of Apple's RAW decoder and without control over Boost, highlight recovery is substandard. Boost controls the “look” of the image. The “look” is the mix of contrast, saturation and other sweetening that is applied to a RAW image by default to make it look more appealing. However, in its attempt to make the image look nice, the Boost slider also interferes with highlight recovery, fighting with your attempts to bring down blown-out highlights. You can move the slider yourself, but in Nitro, there's a better way to deal with this problem: use the Recover Highlights Quick Fix (described in detail below). That'll move the Boost slider and other important sliders for you. Note: Boost does not appear for ProRAW images, or non-RAWs like JPEGs and HEIF images, as those file formats to not have the image data necessary to recover highlights.
+
+Exposure is a simple slider for adjusting the entire image's brightness. Highlights just work on the brighter pixels, and shadows are for the darker areas. Midtones are right in the center. Blacks, Whites, and Boost Shadows are only available for raw images because they control special settings in Apple's decoder. Blacks, in particular, are key for dealing with extremely underexposed areas. Recovery is another tool for working with overexposed areas of an image because it's tuned to just change the brightest parts of an image.
+
+### Clipping Indicators
+
+As mentioned above, the histogram includes clipping indicator circles at the top. These circles at the top of the histogram clipping indicators are used to identify very bright and very dark parts of the image. 
+
+<p align=center><img src="images/histogram.jpg" height="135"/></p>
+
+If an image has extremely bright pixels, the circles will light up. If you click on the circles, you get an overlay that shows which pixels are too bright or too dark. Another term for this is clipping because the pixel value is too large to be represented on screen and therefore is clipped to the maximum value of white or black. In other words, the pixel is brighter than the brightest value that can be shown on screen. The first circle is the one you will use most often. It'll show you any pixels that are clipped because they're too bright or are black. In this case, a pixel is considered clipped if any of the components (red, green, or blue) are above 1.0, which is the highest value that is normally seen on a screen. Another word for a clipped pixel is a hot pixel, and a black pixel is sometimes called a cold pixel. If you click on the first circle, you see red for pixels that are too bright and blue for pixels that are black. This is also called a hot and cold pixel overlay. An example appears below.
+
+<p align=center><img src="images/hot_pixel_overlay.jpg" height="466"/></p>
+
+The other circles are channel-specific clipping indicators, so you can see clipping in just the red, green, or blue channels. There are two histogram-specific preferences. One lets you control how clipping is calculated (all channels or any channel). You can also choose whether histograms are computed in the sRGB or the Display P3 color space. See the Settings interface.
+
+### Quick Fix: Highlight Recovery
+
+If you have a true RAW image, the Recover Highlights Quick Fix will appear. It does not appear for ProRAW files, because ProRAW is not truly a RAW image - highlight recovery is not really valid, because the images have already been balanced.
+
+<p align=center><img src="images/recover_highlights.jpg" height="213"/></p>
+
+For the best results, start by turning on the first clipping overlay in the histogram. Then drag the first slider (Highlights) and watch the clipping overlay. As you recover highlights, the overlay will shrink in size and detail will appear in the overexposed areas. If you look at the histogram, it will also shift, and data from the right edge will start to shift to the left, which is an indication that detail is being restored. You can then bring up the midtones by moving the second slider, which will brighten the image some. While it’s fine to remove every last clipped pixel, it’s often not necessary, or even preferable. It can be appealing to have some bright areas in an image, especially if there is no detail in those areas anyway. Otherwise, you can lose some contrast and end up with gray instead of white. In other words, it’s possible to overdo highlight recovery. If you want to see the image before and after, you can click the button that looks like two overlapping squares. That is the Nitro icon for Show Original (or Show Unedited Image). Press "Done" to leave the recover highlights tool. You don’t have to use the Recover Highlights to accomplish this task - it is moving four different sliders in the Tone Adjustment: Boost, Highlights, Midtones, and Recovery, but it's a lot easier and it moves the sliders very precisely.
+
+### Enhance
+The Enhance adjustment contains basic tools like contrast, saturation, and vibrancy. 
+
+<p align=center><img src="images/enhance.jpg" height="225"/></p>
+
+Vibrancy is like saturation, but it doesn't affect skin tones or orange hues. Deepen and Lighten are smarter versions of Highlights and Shadows. They work on the brighter or darker parts of the image respectively, but do it in a way that adds richness to an image.
+
+### Detail
+Detail has two basic types of sliders: one for sharpening and one for noise reduction. 
+
+<p align=center><img src="images/detail.jpg" height="226"/></p>
+
+Clarity and Sharpen are two types of sharpening sliders. It's best to look at the detail sliders when zoomed in. You can move Sharpen to the left to blur an image. 
+
+The noise reduction sliders only appear for RAW images. They can be used to increase or decrease the amount of default noise reduction on an image. The Luminance Noise slider affects black and white noise, while the Color Noise controls noise that looks like colored speckles. Noise reduction can also remove detail from the image, so you can counteract that somewhat with by moving the Detail slider.
+
+### Perspective
+When shooting at an angle, the image can be tilted in such a way that rectangles look more like parallelograms. 
+
+<p align=center><img src="images/perspective.jpg" height="165"/></p>
+
+To fix that, you can move the vertical or horizontal sliders depending on the angle you're shooting. Instead of the sliders, you can select four corners in the image and Nitro will warp the image so that those become the four outermost points on the image. Perspective automatically crops the image. You can decrease that crop by moving the zoom slider, but if you move it too far, you'll get some black areas. You can use the crop tool to remove them.
+
+
 # Topics Coming Soon
 
 ## Metadata and ExifTool
@@ -1588,11 +1730,13 @@ This may happen more frequently on iOS because Apple changes the path to the dis
 
 ## Presets
 
-## Editing with Sliders
+## More Adjustments
 
 ## Masking
 
 ## External Editing (Mac)
+
+## RAW+JPEG Editing (Photos)
 
 ## Editing on iPhone
 
@@ -1749,14 +1893,104 @@ Or, go into Edit for these images - Nitro will build the thumbnail when it loads
 <p>If you eject an external drive and open Nitro, then it will alert you about directories that are missing. It is safe to select Remove from App. You will not lose any data.</p>
 <p align=center><img src="images/unable_to_find_folders.jpg" height="311"/></p>
 <p>This may happen more frequently on iOS because Apple changes the path to the disk each time it is ejected and reconnected.</p>
+<h2>One Up (The Viewer)</h2>
+<p>From the grid, you can tap (iOS) or double-click (Mac) to enter the Viewer. When in Viewer mode, the grid is replaced by a filmstrip and there is a large set of controls on the left and right sides of a large image view, as shown below:</p>
+<p align=center><img src="images/oneUpLabeled.jpg" height="500"/></p>
+<p>In this view, you can easily view and change ratings or flags. You can also view metadata and enter other modes like Edit, N-Up, and Compare. These modes are described below.</p>
+<h3>Zoom</h3>
+<p>Nitro has a number of ways to zoom into images. The first way is by using the controls to the left of the image. Those will increase or decrease the zoom level, or jump between 100% and zoom to fit. You can also pinch (on a trackpad or iOS screen). When using a keyboard, then you can use the following shortcuts:
+<br></p>
+<table>
+<tr><td> Zoom to Fit </td><td> Cmd-Shift-minus </td></tr>
+<tr><td> Zoom to Actual Size (100%) </td><td>Z</td></tr>
+<tr><td> Zoom In</td><td> Cmd-plus </td></tr>
+<tr><td> Zoom Out</td><td> Cmd-minus</td></tr>
+</table>
+<h2>The Editing Panel</h2>
+<p>Enter edit by picking the first button on the right side panel (see above image).</p>
+<p align=center><img src="images/editPanelLabeled.jpg" height="510"/></p>
+<p>At the top is shot information including shutter speed ISO and camera. You can collapse it or expand it to get more information. Next is the histogram which includes clipping indicators, which are discussed below. Histograms visually describe the distribution of color or tone in an image; the leftmost column represents black and the rightmost column represents white.
+The height of the histogram tells you how much of the image (relatively) contains that pixel value. You can also hide the histogram if you like, which both gives more screen real estate, and also improves performance some, because the histogram won't be updated when it's closed.</p>
+<p>The next section shows the main editing panels. The first has quick fixes like Auto Enhance, Spot Removal, and Clone. There are some additional ones that will appear based on the image you have. For example, the Highlight Recovery Quick Fix will appear for certain types of RAW images. The next panel contains presets and LUTs. The third has sliders which is the primary topic for this section. The last is masking, which will be covered in a later section.</p>
+<h3>Undo, Redo, and Show Original</h3>
+<p>Editing in Nitro is undoable and non-destructive. At the bottom of the right side toolbar are the undo and redo controls. At the bottom of the editing panel is another bar with four controls: Copy Adjustments, Paste Adjustments, Show Original, and Reset Adjustments.</p>
+<p align=center><img src="images/bottom_toolbar.jpg" height="455"/></p>
+<p>It's best to turn off the clipping overlay when using Show Original to make it easier to see what has changed. The histogram also will update when you use Show Original.</p>
+<p>Copy Adjustments will display a dialog that lets you choose which adjustments to copy. Paste Adjustments works the same way, so you can decide what to paste. Reset Adjustments will remove all the adjustments that have been applied. However, if the image has been edited in the Photo Library by another app, the Reset will only remove the Nitro adjustments. To fully revert the image, leave Edit and use Revert to Original.</p>
+<h3>Reordering Adjustments</h3>
+<p>The adjustments are listed in a common workflow order. For example, many people crop early in the process to make sure that they are only concerning themselves with the part of the image they're interested in. However, other people like to crop at the end, or perhaps they apply white balance correction first. Nitro lets you reorder the adjustments in the UI. To do that, go to Settings and pick Configure.</p>
+<p align=center><img src="images/reorderAdjustments.jpg" height="600"/></p>
+<p>You can drag adjustments up and down. You can also change the auto-collapse adjustment setting. If it's on, then adjustment sections will open and close automatically as you use them to save space. Note that reordering adjustments only changes the appearance in the UI; it does not change the order that the adjustments are processed to make an image.</p>
+<h3>Crop</h3>
+<p>Let's start with Crop. For most adjustments, you do not need to click the checkbox before working. The checkbox will automatically enable as soon as you start dragging sliders or otherwise working with the adjustment. A reset button will appear as well. You can click the checkbox to turn the adjustment off, or you can clear the adjustment by clicking the reset button.</p>
+<p align=center><img src="images/crop.jpg" height="306"/></p>
+<p>The controls below the crop checkbox are tools. From left to right:</p>
+<ul>
+<li>Crop tool</li>
+<li>Straighten tool</li>
+<li>Rotate left</li>
+<li>Rotate right</li>
+<li>Flip vertical</li>
+<li>Flip horizontal</li>
+</ul>
+<p>The crop tool is mostly self-explanatory; however, an important control appears when you turn it on. In the image below, you can see a  number sign button. This controls a rule of thirds guide. Next to it is a megapixel reading that tells you the size of the image after the crop has been applied. Press the &quot;checkmark&quot; button to exit the crop tool.</p>
+<p align=center><img src="images/cropToolOn.jpg" height="149"/></p>
+<p>You can straighten in a few different ways. First, you can drag the straighten slider, which will display a grid as you do that. Second, you can use the straighten tool. When you engage this tool, you can simply drag on a line in the image that should be level, but isn’t (either a vertical or horizontal line - it doesn’t matter). You may find it is easier to drag just above or to the side of the line in question. That will compute the angle and straighten the image.</p>
+<h3>Slider Basics</h3>
+<p>Editing sliders in Nitro have a number of additional features to make it easier to set values.</p>
+<ul>
+<li>Reset: Double-click the slider to reset the value (you can also double-click the title of the slider)</li>
+<li>Precision Mode: Drag the slider vertically about 1 inch (2.5 cm) until the slider ball turns green. Then drag horizontally as then the values will update more slowly.</li>
+<li>Nudge (Mac only): you can click the arrows next to the slider value to nudge the values up or down. Hold the option key while clicking to move them a smaller amount.</li>
+<li>Manual Entry:
+<ul>
+<li>Mac: click on the numeric field to type in a new value</li>
+<li>iPad and iPhone: tap on the numeric field to get an onscreen mini-keyboard to enter numbers (see below image).</li>
+</ul>
+</li>
+</ul>
+<p align=center><img src="images/numeric_keypad.jpg" height="352"/></p>
+<h3>White Balance</h3>
+<p>The white balance adjustment shows the color temperature and tint of the image, and you can adjust them if the image has a tint you want to neutralize (or add).</p>
+<p align=center><img src="images/white_balance.jpg" height="153"/></p>
+<p>There are also presets for common scenes, such as daylight or fluorescent lighting. One way to adjust white balance is to use the auto white balance control. It looks for an area that it thinks should be a gray value and then changes the temperature and tint so that it matches. Alternatively, you can use an eyedropper. When you use the eyedropper, do something similar to what the auto white balance is doing: look for an area that <strong>should</strong> be gray. You don't want to choose a white pixel or a very bright one; you don't want something too close to black. Look for a midtone - something that should be gray, but isn’t -- that gives the white balance algorithm the most latitude. You can also drag the eyedropper to get a white balance change in real-time.</p>
+<h3>Tone</h3>
+<p>Next is tone. The tone adjustment is important for controlling brightness in the image. Tone has a large number of sliders.</p>
+<p align=center><img src="images/tone.jpg" height="380"/></p>
+<p>The first slider is Boost. Boost is very important for recovering highlights, and it’s not present in apps from other companies. It controls a key part of Apple's RAW decoder and without control over Boost, highlight recovery is substandard. Boost controls the “look” of the image. The “look” is the mix of contrast, saturation and other sweetening that is applied to a RAW image by default to make it look more appealing. However, in its attempt to make the image look nice, the Boost slider also interferes with highlight recovery, fighting with your attempts to bring down blown-out highlights. You can move the slider yourself, but in Nitro, there's a better way to deal with this problem: use the Recover Highlights Quick Fix (described in detail below). That'll move the Boost slider and other important sliders for you. Note: Boost does not appear for ProRAW images, or non-RAWs like JPEGs and HEIF images, as those file formats to not have the image data necessary to recover highlights.</p>
+<p>Exposure is a simple slider for adjusting the entire image's brightness. Highlights just work on the brighter pixels, and shadows are for the darker areas. Midtones are right in the center. Blacks, Whites, and Boost Shadows are only available for raw images because they control special settings in Apple's decoder. Blacks, in particular, are key for dealing with extremely underexposed areas. Recovery is another tool for working with overexposed areas of an image because it's tuned to just change the brightest parts of an image.</p>
+<h3>Clipping Indicators</h3>
+<p>As mentioned above, the histogram includes clipping indicator circles at the top. These circles at the top of the histogram clipping indicators are used to identify very bright and very dark parts of the image.</p>
+<p align=center><img src="images/histogram.jpg" height="135"/></p>
+<p>If an image has extremely bright pixels, the circles will light up. If you click on the circles, you get an overlay that shows which pixels are too bright or too dark. Another term for this is clipping because the pixel value is too large to be represented on screen and therefore is clipped to the maximum value of white or black. In other words, the pixel is brighter than the brightest value that can be shown on screen. The first circle is the one you will use most often. It'll show you any pixels that are clipped because they're too bright or are black. In this case, a pixel is considered clipped if any of the components (red, green, or blue) are above 1.0, which is the highest value that is normally seen on a screen. Another word for a clipped pixel is a hot pixel, and a black pixel is sometimes called a cold pixel. If you click on the first circle, you see red for pixels that are too bright and blue for pixels that are black. This is also called a hot and cold pixel overlay. An example appears below.</p>
+<p align=center><img src="images/hot_pixel_overlay.jpg" height="466"/></p>
+<p>The other circles are channel-specific clipping indicators, so you can see clipping in just the red, green, or blue channels. There are two histogram-specific preferences. One lets you control how clipping is calculated (all channels or any channel). You can also choose whether histograms are computed in the sRGB or the Display P3 color space. See the Settings interface.</p>
+<h3>Quick Fix: Highlight Recovery</h3>
+<p>If you have a true RAW image, the Recover Highlights Quick Fix will appear. It does not appear for ProRAW files, because ProRAW is not truly a RAW image - highlight recovery is not really valid, because the images have already been balanced.</p>
+<p align=center><img src="images/recover_highlights.jpg" height="213"/></p>
+<p>For the best results, start by turning on the first clipping overlay in the histogram. Then drag the first slider (Highlights) and watch the clipping overlay. As you recover highlights, the overlay will shrink in size and detail will appear in the overexposed areas. If you look at the histogram, it will also shift, and data from the right edge will start to shift to the left, which is an indication that detail is being restored. You can then bring up the midtones by moving the second slider, which will brighten the image some. While it’s fine to remove every last clipped pixel, it’s often not necessary, or even preferable. It can be appealing to have some bright areas in an image, especially if there is no detail in those areas anyway. Otherwise, you can lose some contrast and end up with gray instead of white. In other words, it’s possible to overdo highlight recovery. If you want to see the image before and after, you can click the button that looks like two overlapping squares. That is the Nitro icon for Show Original (or Show Unedited Image). Press &quot;Done&quot; to leave the recover highlights tool. You don’t have to use the Recover Highlights to accomplish this task - it is moving four different sliders in the Tone Adjustment: Boost, Highlights, Midtones, and Recovery, but it's a lot easier and it moves the sliders very precisely.</p>
+<h3>Enhance</h3>
+<p>The Enhance adjustment contains basic tools like contrast, saturation, and vibrancy.</p>
+<p align=center><img src="images/enhance.jpg" height="225"/></p>
+<p>Vibrancy is like saturation, but it doesn't affect skin tones or orange hues. Deepen and Lighten are smarter versions of Highlights and Shadows. They work on the brighter or darker parts of the image respectively, but do it in a way that adds richness to an image.</p>
+<h3>Detail</h3>
+<p>Detail has two basic types of sliders: one for sharpening and one for noise reduction.</p>
+<p align=center><img src="images/detail.jpg" height="226"/></p>
+<p>Clarity and Sharpen are two types of sharpening sliders. It's best to look at the detail sliders when zoomed in. You can move Sharpen to the left to blur an image.</p>
+<p>The noise reduction sliders only appear for RAW images. They can be used to increase or decrease the amount of default noise reduction on an image. The Luminance Noise slider affects black and white noise, while the Color Noise controls noise that looks like colored speckles. Noise reduction can also remove detail from the image, so you can counteract that somewhat with by moving the Detail slider.</p>
+<h3>Perspective</h3>
+<p>When shooting at an angle, the image can be tilted in such a way that rectangles look more like parallelograms.</p>
+<p align=center><img src="images/perspective.jpg" height="165"/></p>
+<p>To fix that, you can move the vertical or horizontal sliders depending on the angle you're shooting. Instead of the sliders, you can select four corners in the image and Nitro will warp the image so that those become the four outermost points on the image. Perspective automatically crops the image. You can decrease that crop by moving the zoom slider, but if you move it too far, you'll get some black areas. You can use the crop tool to remove them.</p>
 <h1>Topics Coming Soon</h1>
 <h2>Metadata and ExifTool</h2>
 <h2>ExifTool</h2>
 <h2>Quick Fixes</h2>
 <h2>Presets</h2>
-<h2>Editing with Sliders</h2>
+<h2>More Adjustments</h2>
 <h2>Masking</h2>
 <h2>External Editing (Mac)</h2>
+<h2>RAW+JPEG Editing (Photos)</h2>
 <h2>Editing on iPhone</h2>
 <h2>Batch Processing</h2>
 <h2>Export</h2>
