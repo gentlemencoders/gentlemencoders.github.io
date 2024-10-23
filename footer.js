@@ -12,7 +12,7 @@
     <div class="site-info" style="padding-left:10px;padding-top: 16px;">
         <div class="responsive" style="text-align:center;text-decoration:none">
             <div>
-                <a href="http://facebook.com/gentlemencoders">
+                <a href="https://facebook.com/gentlemencoders">
                     <img class="icon" src="${root}/images/social/facebook_color.png"></img>
                 </a>
                 <a href="https://www.instagram.com/gentlemencoders/">
