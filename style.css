@@ -1033,6 +1033,10 @@ a:hover, a:active {
 	line-height: 1.5;
 }
 
+.roadmap-done {
+	color: green;
+}
+
 /*--------------------------------------------------------------
 # Accessibility
 --------------------------------------------------------------*/
@@ -1408,6 +1412,42 @@ object {
 	margin: 0px;
 	font-size: 11pt;
 }
+
+.reviewGrid2ElementImage {
+	max-width: 393px;
+	max-height: 241px;
+	border-radius: 10px;
+	background: #dddddd;
+	border: 2px;
+	padding: 2px;
+	justify-items: center;
+  }
+
+  .reviewGrid2 {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+	grid-gap: 10px;
+	column-gap:30px;
+	text-align: center;
+	row-gap: 30px;
+}
+
+  .reviewGrid2Element {
+	display: flex;
+	flex-wrap: nowrap;
+	flex-direction: row;
+	margin-left: 8px;
+	justify-items: center;
+}
+
+.reviewGrid2ElementBlock {
+	justify-items: center;
+}
+
+.review-page-grid {
+	background-color: #dddddd; 
+}
+
 
 /* Used on post pages */
 .postGrid{
