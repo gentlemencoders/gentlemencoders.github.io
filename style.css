@@ -1433,10 +1433,6 @@ object {
 }
 
   .reviewGrid2Element {
-	display: flex;
-	flex-wrap: nowrap;
-	flex-direction: row;
-	margin-left: 8px;
 	justify-items: center;
 }
 
