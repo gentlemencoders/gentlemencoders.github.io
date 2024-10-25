@@ -1414,8 +1414,9 @@ object {
 }
 
 .reviewGrid2ElementImage {
-	max-width: 393px;
-	max-height: 241px;
+	max-width: 300px;
+	max-height: 100%;
+	object-fit: cover;
 	border-radius: 10px;
 	background: #dddddd;
 	border: 2px;
@@ -1425,7 +1426,7 @@ object {
 
   .reviewGrid2 {
 	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 	grid-gap: 10px;
 	column-gap:30px;
 	text-align: center;
