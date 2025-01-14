@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-<title>Nitro User Manual</title>
+<title>index</title>
 <style type="text/css">
 :root {
     --color-scale-black: #1b1f23;
@@ -1455,7 +1455,7 @@ On the Mac and on iPads with keyboards, the flagging keyboard shortcuts are as f
 <tr><td>Not Flagged</td><td>]</td><td>(the ‘right bracket’ key)</td></tr>
 </table>
 
-The Image menu has submenus for Rating and Flag, where you can view the shortcut keys. You can rate images using the number keys from 0 through 5. Those are single keystrokes for ratings. If you want to use the Command key, you can switch that in the app’s Settings panel. Flagging does not have a command key option, since the command key versions would conflict with other standard operations (like Cut, which is Command-X). If you want to change the shortcut keys for rating or flagging, you can do that by going to the Apple menu and picking System Settings. Then pick Keyboard and configure the keyboard shortcuts there. Instructions can be found [here](https://support.apple.com/guide/mac-help/create-keyboard-shortcuts-for-apps-mchlp2271/mac)
+The Image menu has submenus for Rating and Flag, where you can view the shortcut keys. You can rate images using the number keys from 0 through 5. Those are single keystrokes for ratings. If you want to use the Command key, you can switch that in the app’s Settings panel. Flagging does not have a command key option, since the command key versions would conflict with other standard operations (like Cut, which is Command-X). If you want to change the shortcut keys for rating or flagging, you can do that by going to the Apple menu and picking System Settings. Then pick Keyboard and configure the keyboard shortcuts there. Instructions can be found [here.](https://support.apple.com/guide/mac-help/create-keyboard-shortcuts-for-apps-mchlp2271/mac)
 
 When you are displaying images in the viewer on iPads and Macs, there is a narrow panel on the left with rating and flag controls. They show the current rating and flag status for the selected image and you can click or tap them as well. On iPhones, the rating and flag controls appear underneath the image.
 
@@ -1629,9 +1629,11 @@ You can drag adjustments up and down. You can also change the auto-collapse adju
 
 Let's start with Crop. For most adjustments, you do not need to click the checkbox before working. The checkbox will automatically enable as soon as you start dragging sliders or otherwise working with the adjustment. A reset button will appear as well. You can click the checkbox to turn the adjustment off, or you can clear the adjustment by clicking the reset button.
 
-<p align=center><img src="images/crop.jpg" height="306"/></p>
+Crop initially shows a simple view with tools and a straighten slider. 
 
-The controls below the crop checkbox are tools. From left to right: 
+<p align=center><img src="images/crop_basic.jpg" height="120"/></p>
+
+From left to right the tools are:
 - Crop tool
 - Straighten tool
 - Rotate left
@@ -1640,9 +1642,11 @@ The controls below the crop checkbox are tools. From left to right:
 - Flip horizontal
 
 
-The crop tool is mostly self-explanatory; however, an important control appears when you turn it on. In the image below, you can see a  number sign button. This controls a rule of thirds guide. Next to it is a megapixel reading that tells you the size of the image after the crop has been applied. Press the "checkmark" button to exit the crop tool.
+The crop tool is mostly self-explanatory; however, an important control appears when you turn it on. In the image below, you can see a  number sign button. This controls a rule of thirds guide. Next to it is a megapixel reading that tells you the size of the image after the crop has been applied.
 
-<p align=center><img src="images/cropToolOn.jpg" height="149"/></p>
+<p align=center><img src="images/crop_tool.jpg" height="302"/></p>
+
+The tool also has a popup menu to set the aspect ratio (or have freeform crop), text fields to set a custom aspect ratio, and text fields to enter a precise crop size and position. Press the "checkmark" button to exit the crop tool.
 
 You can straighten in a few different ways. First, you can drag the straighten slider, which will display a grid as you do that. Second, you can use the straighten tool. When you engage this tool, you can simply drag on a line in the image that should be level, but isn’t (either a vertical or horizontal line - it doesn’t matter). You may find it is easier to drag just above or to the side of the line in question. That will compute the angle and straighten the image.
 
@@ -1660,7 +1664,7 @@ Editing sliders in Nitro have a number of additional features to make it easier 
 
 ### White Balance 
 
-The white balance adjustment shows the color temperature and tint of the image, and you can adjust them if the image has a tint you want to neutralize (or add). Color temperature is expressed in degrees Kelvin, where lower temperatures result in a bluer image and higher temperatures in a redder image.
+The white balance adjustment shows the color temperature and tint of the image, and you can adjust them if the image has a tint you want to neutralize (or add). Color temperature is expressed in degrees Kelvin, where lower temperatures result in a bluer image and higher temperatures result in a redder image.
  
 <p align=center><img src="images/white_balance.jpg" height="153"/></p>
 
@@ -1672,7 +1676,7 @@ Next is the Tone adjustment. The tone adjustment is important for controlling br
 
 <p align=center><img src="images/tone.jpg" height="380"/></p>
 
-The first slider is Boost. By default, RAW images can look very flat and lack contrast or “punch.” Boost provides that contrast and punch. Boost is also very important for recovering highlights, and it’s not present in apps from other companies. It controls a key part of Apple's RAW decoder and without control over Boost, highlight recovery is substandard. Boost controls the “look” of the image. The “look” is the mix of contrast, saturation and other sweetening that is applied to a RAW image by default to make it look more appealing. However, in its attempt to make the image look nice, the Boost slider also interferes with highlight recovery, fighting with your attempts to bring down blown-out highlights. You can move the slider yourself, but in Nitro, there's a better way to deal with this problem: use the Recover Highlights Quick Fix (described in detail below). That'll move the Boost slider and other important sliders for you. Note: Boost does not appear for ProRAW images, or non-RAWs like JPEGs and HEIF images, as those file formats to not have the image data necessary to recover highlights. Also, if you want the most control over your RAW images, decrease Boost to 0.5 or shut it off entirely by setting it to 0.0. But if you do that, you will need to do more editing of the image on your own in Nitro.
+The first slider is Boost. By default, RAW images can look very flat and lack contrast or “punch.” Boost provides that contrast and punch. Boost is also very important for recovering highlights, and it’s not present in apps from other companies. It controls a key part of Apple's RAW decoder and without control over Boost, highlight recovery is substandard. Boost controls the “look” of the image. The “look” is the mix of contrast, saturation and other sweetening that is applied to a RAW image by default to make it look more appealing. However, in its attempt to make the image look nice, the Boost slider also interferes with highlight recovery, fighting with your attempts to bring down blown-out highlights. You can move the slider yourself, but in Nitro, there's a better way to deal with this problem: use the Recover Highlights Quick Fix (described in detail below). That'll move the Boost slider and other important sliders for you. Note: Boost does not appear for ProRAW images, or non-RAWs like JPEGs and HEIF images, as those file formats do not have the image data necessary to recover highlights. Also, if you want the most control over your RAW images, decrease Boost to 0.5 or shut it off entirely by setting it to 0.0. But if you do that, you will need to do more editing of the image on your own in Nitro.
 
 Exposure is a simple slider for adjusting the entire image's brightness. Setting the value to 1.0 makes every pixel twice as bright. At 2.0, every pixel is four times as bright. Moving the slider to -1.0 makes every pixel half as bright. Highlights just work on the brighter pixels, and shadows are for the darker areas. Midtones are right in the center. 
 
@@ -1716,8 +1720,62 @@ Clarity and Sharpen are two types of sharpening sliders. It's best to look at th
 
 The noise reduction sliders only appear for RAW images. They can be used to increase or decrease the amount of default noise reduction on an image. The Luminance Noise slider affects black and white noise, while the Color Noise controls noise that looks like colored speckles. Sometimes applying strong noise reduction can cause the image to look flat or “plasticky.” If that happens, consider increasing the value of the Detail slider. It restores some “grain” to the image to make it look more natural.
 
+### Curves
+
+Curves is a very powerful adjustment that allows precise manipulation of pixel data. Curves can be thought of as a custom adjustment where you precisely describe the effect on each channel of each pixel. Each curve represents	 a mathematical equation. The X coordinate is the input value, and the Y coordinate is the output value. In other words, y = f(x). By default, the input and output is the same, resulting in no change to pixels. This is expressed as a 45 degree line, because at every point on such a line, y = x, and therefore no change occurs. Black (0.0) is on the left, and white (1.0) is on the right. The histogram shows the image before the Curves adjustment. As a result, the histogram does not move as you manipulate the curves.
+
+
+The Curves adjustment consists of four separate curves, one for “Red,” “Green,” and “Blue” and a “Combined” curve. The red, green, and blue curves only affect one channel of each pixel, while the combined curve affects all three channels.
+
+<p align=center><img src="images/curves.jpg" height="383"/></p>
+
+You can tap on a curve to add a point, which you can then drag to the position of your choosing. The image updates in real-time to account for the change in the curve. There are limitations on how close points can be to each other, so sometimes the Nitro will prevent you from adding or moving curve points. 
+
+People often use Curves to adjust contrast. To do that, make an S-shaped curve in the Combined channel as shown in the above image. The more it looks like an “S,” the greater the contrast. 
+
+At the top of the Curves adjustment are two automatic buttons: Auto Black and White and Auto RGB. Auto Black and White is a good way to make sure your image has good contrast and it inserts multiple points on the gray curve to accomplish that. Auto RGB sets just the black and white points on the red, green, and blue curves, which improves contrast and also corrects color casts in the image. Here is an example image using the Auto RGB control to eliminate the color cast in the image:
+
+<p align=center><img src="images/color_cast.jpg" height="306"/></p>
+
+Below the Auto controls are color samplers and a menu with more options. The samplers let you place points on the curve by clicking on portions of the image. The first control sets the black point for the image; the second sets the 50% gray point, and the third control sets the white point. Each of these can cause the image to change appearance. The last sampler is the “target” sampler. It places a point on all of the curves at the color value of the pixel you tap on. Except in extreme cases, the target sampler does not affect the image. 
+
+Like the White Balance sampler, the curves samplers update continuously if you drag on the image while using them. In the following example, a color cast is removed using the black and white samplers. The sampled points are circled.
+
+<p align=center><img src="images/samplers.jpg" height="259"/></p>
+
+Once any point is placed on the curve, you can move it around to adjust the colors similar to the one you sampled.
+
+Right below the curve is the black and white point control (see below). This is the simplest way to set the darkest and lightest colors for a given curve.
+
+<p align=center><img src="images/black_point_control.jpg" height="38"/></p>
+
+You can also add a point manually by clicking on the curve and dragging the point. On the Mac, right-click to get a menu to remove points and make other changes to the curve. On iOS, press and hold on a point to display the menu.
+
+In the "..." menu are some modes. One mode is Gamma vs. Linear. By default, Curves is in gamma mode. When in Gamma mode, Curves gamma-corrects the data before applying the curve data and then reverses the correction before sending the image data to the next adjustment. Gamma is generally a good default, but if you want maximum control over the bright areas of the image, Linear can be a better bet.
+
+The other mode is Equal RGB vs. Luminance. This mode controls the way Curves processes the Combined channel. If it’s set to Equal RGB, then red, green, and blue are affected equally. However, if it is set to Luminance, then the combined curve affects the red, green and blue curves according to the luminance equation, which weights green more heavily, and blue the least. This approach avoids enhancing color casts and is much easier than converting the image to the “Lab” color space in Photoshop and manipulating it that way. 
+
+Here is an example using an image with an S-shaped contrast curve. On the left is the image in Equal RGB mode and on the right, in Luminance mode:
+
+<p align=center><img src="images/rgb_vs_luminance.jpg" height="154"/></p>
+
+A unique feature of Nitro's Curves adjustment is an Extended Range Curve. This is enabled for RAW images only. You can engage it by clicking on the "2" button at the bottom of the interface, as shown below.
+
+<p align=center><img src="images/curves_ext.jpg" height="387"/></p>
+
+When you view the extended range curve, you are seeing a histogram that ranges from 0.0 to 2.0, rather than the standard 0.0 to 1.0. This allows you to manipulate the extremely bright parts of an image precisely, which is impossible with a regular "0 to 1" curve.
+
+### Levels
+Levels lets you quickly work with the color range of an image.  Most people find Levels to be easier to understand than Curves, but it is less powerful than Curves. 
+
+<p align=center><img src="images/levels.jpg" height="293"/></p>
+
+Start by either checking the box to enable the Levels controls, or by clicking one of the Auto buttons. Levels defaults to working with the gray channel. Gray and RGB refer to the same channel but show the information differently. RGB shows each channel overlaid, while Gray just shows luminance. The Equal RGB button controls the way Levels processes the Gray channel. If it’s set to Equal RGB, then red, green, and blue are affected equally. However, if it is set to Luminance, then the gray curve affects the red, green and blue curves according to the luminance equation, which weights green more heavily, and blue the least. This approach avoids enhancing color casts and is much easier than converting the image to the “Lab” color space in Photoshop and manipulating it that way.
+
+Like Curves, Levels also includes an Auto Black and Auto RGB feature. Auto Black sets the black and white points on the Gray / RGB channel and will also move the midpoint to add contrast. You can choose the amount of black and white data to be clipped in Preferences. Auto RGB sets the black and white points for the Red, Green, and Blue channels but does not add a contrast point. Auto RGB can correct color casts, when Auto Black is better for general look and contrast issues. In addition, Levels has eye droppers to manually set the black and white points, and you can enter values for the black, mid, and white points. The histogram shows the image _before_ the Levels adjustment. As a result, the histogram does not move as you move the controls in Levels. 
+
 ### Perspective
-Perspective corrects images that are shot off-angle, typically off to the side or up from ground level. The filter works by rotating the image three-dimensionally so that the image data looks like it was shot at the proper angle. By default, the perspective adjustment will attempt to fill the image frame, but that may not be desirable in some situation because it can cut off important parts of the image. In that event, use the Zoom Factor slider to expose the full image without cropping. Once you have done that, you can manually crop the image as you like. When you drag the Vertical or Horizontal sliders, a grid appears to make it easier to line up the image to make it straight. Be careful not to over rotate the image — if you do, the image may become warped.
+Perspective corrects images that are shot off-angle, typically off to the side or up from ground level. The filter works by rotating the image three-dimensionally so that the image data looks like it was shot at the proper angle. By default, the perspective adjustment will attempt to fill the image frame, but that may not be desirable in some situations because it can cut off important parts of the image. In that event, use the Zoom Factor slider to expose the full image without cropping. Once you have done that, you can manually crop the image as you like. When you drag the Vertical or Horizontal sliders, a grid appears to make it easier to line up the image to make it straight. Be careful not to over rotate the image — if you do, the image may become warped.
 
 <p align=center><img src="images/perspective.jpg" height="165"/></p>
 
@@ -1732,9 +1790,89 @@ Note: The RAW Processing adjustment only appears if you are adjusting a RAW imag
 
 Moiré:  This slider reduces the effect of moiré. Moiré is an artifact of digital sensors which can cause colored stripes to appear in finely detailed areas. Cameras with an anti-aliasing filter tend to have less moiré, but they also sometimes capture less detail as a result.
 
-RAW Sharpen and RAW Contrast:  RAW Sharpen is a subtle form of capture sharpening which works at the Bayer mosaic level. RAW Contrast is a type of local contrast (which can look like sharpening). RAW Contrast generally has a lot stronger effect than RAW Sharpen. Both are image-dependent — the characteristics of the image greatly affect how these sliders operate and affect the default values of those sliders. Sony cameras, in particular, are mostly unaffected by the RAW Sharpen slider.
+RAW Sharpen and RAW Contrast:  RAW Sharpen is a subtle form of capture sharpening which works at the Bayer mosaic level. RAW Contrast is a type of local contrast (which can look like sharpening). RAW Contrast generally has a much stronger effect than RAW Sharpen. Both are image-dependent — the characteristics of the image greatly affect how these sliders operate and affect the default values of those sliders. Sony cameras, in particular, are mostly unaffected by the RAW Sharpen slider.
 
 Gamut Mapping: In its final processing step, Apple’s RAW engine ensures colors do not exceed the range of the working color space (Adobe RGB or P3). This is called Gamut Mapping. Colors that are near or outside the limit of that color space are changed to fit within the gamut. Without gamut mapping, colors that exceed the limit of the gamut will be clipped. Gamut Mapping usually provides good results but having control over gamut mapping is helpful in some situations. For example, sometimes you may want the colors to be clipped rather than mapped because you prefer the appearance. Or, you may want to use other filters in Nitro to bring the colors back into gamut.
+
+### Depth
+
+The Depth Effect adjustment is available for images shot with the iOS camera in portrait mode. The adjustment allows you to adjust the background and foreground of the image independently. It also provides control over the definition of foreground and background by manipulating the depth mask captured by the camera.
+
+<p align=center><img src="images/depth.jpg" height="298"/></p>
+
+Deepen darkens the brighter pixels but adds richness to the image.
+Lighten brightens the shadow areas while maintaining contrast.
+Highlights darkens the brightest pixels in the foreground.
+Stretch Mask controls what the other sliders consider foreground and background. Sliding it to the left makes more of the image “foreground” and sliding to the right makes more of the image “background”. So, if you move the slider all the way to the left, the entire image is considered “foreground” and the background sliders have no effect. If you move the slider all the way to the right, then very little of the image will be affected by the foreground sliders, while most will be affected by the background sliders. As you change the mask, the image will change to an overlay showing the mask. Lighter shades of gray denote foreground and darker shades denote background.
+
+### Black and White
+
+Black and White is a monochrome “mixer” which allows you to make black and white images by controlling the percentages of red, green, and blue that contribute to the grayscale image. Different percentages of these color channels will accentuate different parts of the image and are better for some scenes than others. The Black & White adjustment comes with some presets that simulate the effect of a color filter placed over a camera lens. 
+
+<p align=center><img src="images/bw.jpg" height="194"/></p>
+
+If you check the box next to “Black & White,” the adjustment will produce a black and white image using a “luminance” weighting of red, green, and blue. This is generally more pleasing than an equal weighting of the channels, though equal channels is also a preset. A Red filter is good for landscapes and deepens a blue sky. An Orange filter is good for street photography and images with tiles and bricks. A Yellow filter darkens the sky and is generally a good “middle ground” choice. Green is also an interesting choice for landscapes and nature photography. The Blue filter can create a moody shot.
+
+### HSL (Hue, Saturation, and Luminance)
+
+The HSL Color adjustment lets you work with individual hues without affecting other hues in your image. To use this adjustment, pick the hue you are interested in, from the nine pre-set hues. Then, adjust the hue, saturation, or luminance of that hue. Similar hues will also be affected, but to a lesser extent. The range slider determines the range of hues affected. If you decrease the range, fewer hues will be changed. 
+
+<p align=center><img src="images/hsl.jpg" height="231"/></p>
+
+If you increase the range, more hues will be affected. There is an additional choice at the end of the list of preset hues. This is called the “target hue.” The target hue is a custom hue that you choose by clicking and dragging on the image. It works by finding the two preset hues nearest to the one you have chosen and adjusting those proportionally. As with the preset hues, you can choose whether to adjust the hue, saturation or luminance of the target hue. You can choose as many target hues as you like.
+
+### Split Toning
+
+Split Toning is an advanced way to adjust images by tinting the highlights or the shadows independently. 
+
+<p align=center><img src="images/split_toning.jpg" height="214"/></p>
+
+There are three tint wheels; the third is an overall tint for the image. In addition, you can adjust the luminance of the highlights, shadows or overall image. The Balance slider controls the dividing line between highlights and shadows. Move it to the right and the range of pixels values considered highlights increases; move it left and the highlight range is reduced. The Balance slider does not affect the Overall tint wheel.
+
+### Chromatic Aberration
+
+Chromatic Aberration corrects color shifts that occur when light hits the sensor at an angle, causing the constituent colors to split apart (as in a prism). The signature of an image with chromatic aberration is a colored line (red, yellow, etc.) that appears next to a sharp edge. When that happens, you can use this adjustment to realign the colors and correct the image. 
+
+<p align=center><img src="images/ca.jpg" height="264"/></p>
+
+The two sliders control different types of aberration. You will usually see
+aberration near edges / high contrast areas. If you have red or cyan aberration, use that slider. Otherwise, use the second slider to control blue / yellow aberration. Here is an example of chromatic aberration:
+
+<p align=center><img src="images/ca_example.jpg" height="306"/></p>
+
+This adjustment can also be used to reduce color fringing. Purple or green fringing can also appear in high contrast areas, such as between tree branches in the winter. 
+
+<p align=center><img src="images/purple_fringe.jpg" height="230"/></p>
+
+You can reduce this effect with the purple (or green) intensity slider. The range of purple or green hue that is affected can be controlled with the range sliders. Take care with the range slider as it can affect other parts of the image with nearby hues.
+
+### Lens Correction
+
+Nitro includes two types of lens correction to handle artifacts in lenses such as distortion and shading (also called vignetting). There are two types of lens correction in the app: automatic and manual. The automatic lens correction is provided by Apple's RAW decoder, but is only available for some camera and lens combinations. Apple's system works by reading lens metadata written into the image file. In general, they can correct newer cameras and lenses, rather than older ones. When Apple's decoder can correct a lens, Nitro defaults to turning that correction on. You can add further devignetting to Apple's correction, though this is not usually necessary. When the decoder cannot correct a lens automatically, the full suite of manual tools is enabled.
+
+<p align=center><img src="images/lens.jpg" height="452"/></p>
+
+The manual correction is better described as "semi-automatic." The best way to correct a lens is to take a number of pictures of a grid with that camera and lens combination at a range of aperture values and focal lengths. Then it is straightforward to correct the distortion and shading. The lens correction is semi-automatic because Nitro will learn how to correct the lens automatically using your manual corrections. In short order, Nitro can correct the lens on its own. The AUTO button at the top can be used to correct the lens automatically once there is sufficient information in Nitro's lens correction database. There are also preferences in the app that controls whether this semi-automatic correction engages without your having to click the Auto Button. That is described in more detail in the Settings section.
+
+To learn more about how to correct a lens with Nitro and to build up its correction database, please watch this video (it covers the RAW Power app, but the technique is identical):
+
+[Lens Correction Video](https://www.youtube.com/watch?v=dRMYv6AbXPk)
+
+### Channel Mixer
+
+A channel mixer is a very powerful tool for tinting images or completely changing the look of your image. You can even swap channels (exchanging blue for red, for example). 
+
+<p align=center><img src="images/channel_mixer.jpg" height="221"/></p>
+
+Click on the three-color control to choose the color channel to manipulate. Then determine the amount of red, green, and blue data to copy into that channel. The Constant slider simply adds red, green, or blue to the image for a quick tinting effect. 
+
+### Vignette
+
+Vignette darkens (or lightens) the edges of an image. When darkening an image, it draws the eye to the lighter part of the image (typically the center, or the subject of the image). Vignettes in most photo applications are center-based, making them poor choices if the subject is not in the center of image (as is often the case).
+
+<p align=center><img src="images/vignette.jpg" height="155"/></p>
+
+The Vignette in Nitro allows you to specify the center point. To do this click the targeting control next to the reset button and then click and drag on the image. You might want to increase the intensity of the effect before changing the center point to make it easier to see what will happen. Vignette applies its effect after crop, so if you want to lighten the edges of an image before crop is applied to counteract lens shading, then use the Devignette tool in the Lens adjustment.
 
 # Topics Coming Soon
 
@@ -1745,8 +1883,6 @@ Gamut Mapping: In its final processing step, Apple’s RAW engine ensures colors
 ## Quick Fixes
 
 ## Presets
-
-## More Adjustments
 
 ## Masking
 
@@ -1765,6 +1901,8 @@ Gamut Mapping: In its final processing step, Apple’s RAW engine ensures colors
 ## N-Up 
 
 ## Power tips 
+
+## Settings (esp. Standard RAW Development and such) 
 
 Questions? Comments? Suggestions for topic areas? Email [support\@gentlemencoders.com](mailto:support@gentlemencoders.com?subject=User%20Manual)
 
@@ -1829,7 +1967,7 @@ tutorials of Nitro on YouTube at:</p>
 <tr><td>Flag</td><td>\</td><td>(the ‘backslash’ key)</td></tr>
 <tr><td>Not Flagged</td><td>]</td><td>(the ‘right bracket’ key)</td></tr>
 </table>
-<p>The Image menu has submenus for Rating and Flag, where you can view the shortcut keys. You can rate images using the number keys from 0 through 5. Those are single keystrokes for ratings. If you want to use the Command key, you can switch that in the app’s Settings panel. Flagging does not have a command key option, since the command key versions would conflict with other standard operations (like Cut, which is Command-X). If you want to change the shortcut keys for rating or flagging, you can do that by going to the Apple menu and picking System Settings. Then pick Keyboard and configure the keyboard shortcuts there. Instructions can be found <a href="https://support.apple.com/guide/mac-help/create-keyboard-shortcuts-for-apps-mchlp2271/mac">here</a></p>
+<p>The Image menu has submenus for Rating and Flag, where you can view the shortcut keys. You can rate images using the number keys from 0 through 5. Those are single keystrokes for ratings. If you want to use the Command key, you can switch that in the app’s Settings panel. Flagging does not have a command key option, since the command key versions would conflict with other standard operations (like Cut, which is Command-X). If you want to change the shortcut keys for rating or flagging, you can do that by going to the Apple menu and picking System Settings. Then pick Keyboard and configure the keyboard shortcuts there. Instructions can be found <a href="https://support.apple.com/guide/mac-help/create-keyboard-shortcuts-for-apps-mchlp2271/mac">here.</a></p>
 <p>When you are displaying images in the viewer on iPads and Macs, there is a narrow panel on the left with rating and flag controls. They show the current rating and flag status for the selected image and you can click or tap them as well. On iPhones, the rating and flag controls appear underneath the image.</p>
 <p align=center><img src="images/ratingControls_iPhone.jpg" height="169"/></p>
 <p>On iPhones and iPads, you can use gestures to rate and flag. To rate, drag your finger up and down on the left half of the image. The flag, drag your finger up and down on the right half of the image.</p>
@@ -1939,8 +2077,9 @@ The height of the histogram tells you how much of the image (relatively) contain
 <p>You can drag adjustments up and down. You can also change the auto-collapse adjustment setting. If it's on, then adjustment sections will open and close automatically as you use them to save space. Note that reordering adjustments only changes the appearance in the UI; it does not change the order that the adjustments are processed to make an image.</p>
 <h3>Crop</h3>
 <p>Let's start with Crop. For most adjustments, you do not need to click the checkbox before working. The checkbox will automatically enable as soon as you start dragging sliders or otherwise working with the adjustment. A reset button will appear as well. You can click the checkbox to turn the adjustment off, or you can clear the adjustment by clicking the reset button.</p>
-<p align=center><img src="images/crop.jpg" height="306"/></p>
-<p>The controls below the crop checkbox are tools. From left to right:</p>
+<p>Crop initially shows a simple view with tools and a straighten slider.</p>
+<p align=center><img src="images/crop_basic.jpg" height="120"/></p>
+<p>From left to right the tools are:</p>
 <ul>
 <li>Crop tool</li>
 <li>Straighten tool</li>
@@ -1949,8 +2088,9 @@ The height of the histogram tells you how much of the image (relatively) contain
 <li>Flip vertical</li>
 <li>Flip horizontal</li>
 </ul>
-<p>The crop tool is mostly self-explanatory; however, an important control appears when you turn it on. In the image below, you can see a  number sign button. This controls a rule of thirds guide. Next to it is a megapixel reading that tells you the size of the image after the crop has been applied. Press the &quot;checkmark&quot; button to exit the crop tool.</p>
-<p align=center><img src="images/cropToolOn.jpg" height="149"/></p>
+<p>The crop tool is mostly self-explanatory; however, an important control appears when you turn it on. In the image below, you can see a  number sign button. This controls a rule of thirds guide. Next to it is a megapixel reading that tells you the size of the image after the crop has been applied.</p>
+<p align=center><img src="images/crop_tool.jpg" height="302"/></p>
+<p>The tool also has a popup menu to set the aspect ratio (or have freeform crop), text fields to set a custom aspect ratio, and text fields to enter a precise crop size and position. Press the &quot;checkmark&quot; button to exit the crop tool.</p>
 <p>You can straighten in a few different ways. First, you can drag the straighten slider, which will display a grid as you do that. Second, you can use the straighten tool. When you engage this tool, you can simply drag on a line in the image that should be level, but isn’t (either a vertical or horizontal line - it doesn’t matter). You may find it is easier to drag just above or to the side of the line in question. That will compute the angle and straighten the image.</p>
 <h3>Slider Basics</h3>
 <p>Editing sliders in Nitro have a number of additional features to make it easier to set values.</p>
@@ -1967,13 +2107,13 @@ The height of the histogram tells you how much of the image (relatively) contain
 </ul>
 <p align=center><img src="images/numeric_keypad.jpg" height="352"/></p>
 <h3>White Balance</h3>
-<p>The white balance adjustment shows the color temperature and tint of the image, and you can adjust them if the image has a tint you want to neutralize (or add). Color temperature is expressed in degrees Kelvin, where lower temperatures result in a bluer image and higher temperatures in a redder image.</p>
+<p>The white balance adjustment shows the color temperature and tint of the image, and you can adjust them if the image has a tint you want to neutralize (or add). Color temperature is expressed in degrees Kelvin, where lower temperatures result in a bluer image and higher temperatures result in a redder image.</p>
 <p align=center><img src="images/white_balance.jpg" height="153"/></p>
 <p>There are also presets for common scenes, such as daylight or fluorescent lighting. One way to adjust white balance is to use the auto white balance control. It looks for an area that it thinks should be a gray value and then changes the temperature and tint so that it matches. Alternatively, you can use an eyedropper. When you use the eyedropper, do something similar to what the auto white balance is doing: look for an area that <strong>should</strong> be gray. You don't want to choose a white pixel or a very bright one; you don't want something too close to black. Look for a uniform midtone - a patch of color that should be gray, but isn’t -- that gives the white balance algorithm the most latitude. You can also drag the eyedropper to get a white balance change in real-time.</p>
 <h3>Tone</h3>
 <p>Next is the Tone adjustment. The tone adjustment is important for controlling brightness in the image. Tone has a large number of sliders.</p>
 <p align=center><img src="images/tone.jpg" height="380"/></p>
-<p>The first slider is Boost. By default, RAW images can look very flat and lack contrast or “punch.” Boost provides that contrast and punch. Boost is also very important for recovering highlights, and it’s not present in apps from other companies. It controls a key part of Apple's RAW decoder and without control over Boost, highlight recovery is substandard. Boost controls the “look” of the image. The “look” is the mix of contrast, saturation and other sweetening that is applied to a RAW image by default to make it look more appealing. However, in its attempt to make the image look nice, the Boost slider also interferes with highlight recovery, fighting with your attempts to bring down blown-out highlights. You can move the slider yourself, but in Nitro, there's a better way to deal with this problem: use the Recover Highlights Quick Fix (described in detail below). That'll move the Boost slider and other important sliders for you. Note: Boost does not appear for ProRAW images, or non-RAWs like JPEGs and HEIF images, as those file formats to not have the image data necessary to recover highlights. Also, if you want the most control over your RAW images, decrease Boost to 0.5 or shut it off entirely by setting it to 0.0. But if you do that, you will need to do more editing of the image on your own in Nitro.</p>
+<p>The first slider is Boost. By default, RAW images can look very flat and lack contrast or “punch.” Boost provides that contrast and punch. Boost is also very important for recovering highlights, and it’s not present in apps from other companies. It controls a key part of Apple's RAW decoder and without control over Boost, highlight recovery is substandard. Boost controls the “look” of the image. The “look” is the mix of contrast, saturation and other sweetening that is applied to a RAW image by default to make it look more appealing. However, in its attempt to make the image look nice, the Boost slider also interferes with highlight recovery, fighting with your attempts to bring down blown-out highlights. You can move the slider yourself, but in Nitro, there's a better way to deal with this problem: use the Recover Highlights Quick Fix (described in detail below). That'll move the Boost slider and other important sliders for you. Note: Boost does not appear for ProRAW images, or non-RAWs like JPEGs and HEIF images, as those file formats do not have the image data necessary to recover highlights. Also, if you want the most control over your RAW images, decrease Boost to 0.5 or shut it off entirely by setting it to 0.0. But if you do that, you will need to do more editing of the image on your own in Nitro.</p>
 <p>Exposure is a simple slider for adjusting the entire image's brightness. Setting the value to 1.0 makes every pixel twice as bright. At 2.0, every pixel is four times as bright. Moving the slider to -1.0 makes every pixel half as bright. Highlights just work on the brighter pixels, and shadows are for the darker areas. Midtones are right in the center.</p>
 <p>Blacks, Whites, and Boost Shadows are only available for raw images because they control special settings in Apple's decoder. Boost Shadows adjusts the bottom or “black” end of the RAW boost curve, allowing you to manipulate the darker parts of the image. The Blacks slider, in particular, is key for dealing with extremely underexposed areas. It sets the &quot;black point&quot; of the image, which is the value below which all pixels are black (that is, 0.0). Pixels that are black are not affected by Exposure, so if you have a very dark image, you may want to move the Blacks slider in order to &quot;lift&quot; some of the pixels above 0.0, where exposure and other sliders can affect them. The Whites slider works primarily with the brighter parts of the image by modifying the baseline exposure of an image.</p>
 <p>Recovery: this slider works like a “selective exposure”. Only the brightest pixels are affected, but unlike highlights, it adjusts the brightness just like exposure. Sometimes you will get better results with Recovery and other times Highlights will work better (or a combination).</p>
@@ -1996,8 +2136,35 @@ The height of the histogram tells you how much of the image (relatively) contain
 <p align=center><img src="images/detail.jpg" height="226"/></p>
 <p>Clarity and Sharpen are two types of sharpening sliders. It's best to look at the detail sliders when zoomed in. You can move Sharpen to the left to blur an image. Clarity provides a sharpening effect using a technique called Local Contrast. It is similar, but not identical to the Definition slider found in Photos for Mac and Aperture.</p>
 <p>The noise reduction sliders only appear for RAW images. They can be used to increase or decrease the amount of default noise reduction on an image. The Luminance Noise slider affects black and white noise, while the Color Noise controls noise that looks like colored speckles. Sometimes applying strong noise reduction can cause the image to look flat or “plasticky.” If that happens, consider increasing the value of the Detail slider. It restores some “grain” to the image to make it look more natural.</p>
+<h3>Curves</h3>
+<p>Curves is a very powerful adjustment that allows precise manipulation of pixel data. Curves can be thought of as a custom adjustment where you precisely describe the effect on each channel of each pixel. Each curve represents	 a mathematical equation. The X coordinate is the input value, and the Y coordinate is the output value. In other words, y = f(x). By default, the input and output is the same, resulting in no change to pixels. This is expressed as a 45 degree line, because at every point on such a line, y = x, and therefore no change occurs. Black (0.0) is on the left, and white (1.0) is on the right. The histogram shows the image before the Curves adjustment. As a result, the histogram does not move as you manipulate the curves.</p>
+<p>The Curves adjustment consists of four separate curves, one for “Red,” “Green,” and “Blue” and a “Combined” curve. The red, green, and blue curves only affect one channel of each pixel, while the combined curve affects all three channels.</p>
+<p align=center><img src="images/curves.jpg" height="383"/></p>
+<p>You can tap on a curve to add a point, which you can then drag to the position of your choosing. The image updates in real-time to account for the change in the curve. There are limitations on how close points can be to each other, so sometimes the Nitro will prevent you from adding or moving curve points.</p>
+<p>People often use Curves to adjust contrast. To do that, make an S-shaped curve in the Combined channel as shown in the above image. The more it looks like an “S,” the greater the contrast.</p>
+<p>At the top of the Curves adjustment are two automatic buttons: Auto Black and White and Auto RGB. Auto Black and White is a good way to make sure your image has good contrast and it inserts multiple points on the gray curve to accomplish that. Auto RGB sets just the black and white points on the red, green, and blue curves, which improves contrast and also corrects color casts in the image. Here is an example image using the Auto RGB control to eliminate the color cast in the image:</p>
+<p align=center><img src="images/color_cast.jpg" height="306"/></p>
+<p>Below the Auto controls are color samplers and a menu with more options. The samplers let you place points on the curve by clicking on portions of the image. The first control sets the black point for the image; the second sets the 50% gray point, and the third control sets the white point. Each of these can cause the image to change appearance. The last sampler is the “target” sampler. It places a point on all of the curves at the color value of the pixel you tap on. Except in extreme cases, the target sampler does not affect the image.</p>
+<p>Like the White Balance sampler, the curves samplers update continuously if you drag on the image while using them. In the following example, a color cast is removed using the black and white samplers. The sampled points are circled.</p>
+<p align=center><img src="images/samplers.jpg" height="259"/></p>
+<p>Once any point is placed on the curve, you can move it around to adjust the colors similar to the one you sampled.</p>
+<p>Right below the curve is the black and white point control (see below). This is the simplest way to set the darkest and lightest colors for a given curve.</p>
+<p align=center><img src="images/black_point_control.jpg" height="38"/></p>
+<p>You can also add a point manually by clicking on the curve and dragging the point. On the Mac, right-click to get a menu to remove points and make other changes to the curve. On iOS, press and hold on a point to display the menu.</p>
+<p>In the &quot;...&quot; menu are some modes. One mode is Gamma vs. Linear. By default, Curves is in gamma mode. When in Gamma mode, Curves gamma-corrects the data before applying the curve data and then reverses the correction before sending the image data to the next adjustment. Gamma is generally a good default, but if you want maximum control over the bright areas of the image, Linear can be a better bet.</p>
+<p>The other mode is Equal RGB vs. Luminance. This mode controls the way Curves processes the Combined channel. If it’s set to Equal RGB, then red, green, and blue are affected equally. However, if it is set to Luminance, then the combined curve affects the red, green and blue curves according to the luminance equation, which weights green more heavily, and blue the least. This approach avoids enhancing color casts and is much easier than converting the image to the “Lab” color space in Photoshop and manipulating it that way.</p>
+<p>Here is an example using an image with an S-shaped contrast curve. On the left is the image in Equal RGB mode and on the right, in Luminance mode:</p>
+<p align=center><img src="images/rgb_vs_luminance.jpg" height="154"/></p>
+<p>A unique feature of Nitro's Curves adjustment is an Extended Range Curve. This is enabled for RAW images only. You can engage it by clicking on the &quot;2&quot; button at the bottom of the interface, as shown below.</p>
+<p align=center><img src="images/curves_ext.jpg" height="387"/></p>
+<p>When you view the extended range curve, you are seeing a histogram that ranges from 0.0 to 2.0, rather than the standard 0.0 to 1.0. This allows you to manipulate the extremely bright parts of an image precisely, which is impossible with a regular &quot;0 to 1&quot; curve.</p>
+<h3>Levels</h3>
+<p>Levels lets you quickly work with the color range of an image.  Most people find Levels to be easier to understand than Curves, but it is less powerful than Curves.</p>
+<p align=center><img src="images/levels.jpg" height="293"/></p>
+<p>Start by either checking the box to enable the Levels controls, or by clicking one of the Auto buttons. Levels defaults to working with the gray channel. Gray and RGB refer to the same channel but show the information differently. RGB shows each channel overlaid, while Gray just shows luminance. The Equal RGB button controls the way Levels processes the Gray channel. If it’s set to Equal RGB, then red, green, and blue are affected equally. However, if it is set to Luminance, then the gray curve affects the red, green and blue curves according to the luminance equation, which weights green more heavily, and blue the least. This approach avoids enhancing color casts and is much easier than converting the image to the “Lab” color space in Photoshop and manipulating it that way.</p>
+<p>Like Curves, Levels also includes an Auto Black and Auto RGB feature. Auto Black sets the black and white points on the Gray / RGB channel and will also move the midpoint to add contrast. You can choose the amount of black and white data to be clipped in Preferences. Auto RGB sets the black and white points for the Red, Green, and Blue channels but does not add a contrast point. Auto RGB can correct color casts, when Auto Black is better for general look and contrast issues. In addition, Levels has eye droppers to manually set the black and white points, and you can enter values for the black, mid, and white points. The histogram shows the image <em>before</em> the Levels adjustment. As a result, the histogram does not move as you move the controls in Levels.</p>
 <h3>Perspective</h3>
-<p>Perspective corrects images that are shot off-angle, typically off to the side or up from ground level. The filter works by rotating the image three-dimensionally so that the image data looks like it was shot at the proper angle. By default, the perspective adjustment will attempt to fill the image frame, but that may not be desirable in some situation because it can cut off important parts of the image. In that event, use the Zoom Factor slider to expose the full image without cropping. Once you have done that, you can manually crop the image as you like. When you drag the Vertical or Horizontal sliders, a grid appears to make it easier to line up the image to make it straight. Be careful not to over rotate the image — if you do, the image may become warped.</p>
+<p>Perspective corrects images that are shot off-angle, typically off to the side or up from ground level. The filter works by rotating the image three-dimensionally so that the image data looks like it was shot at the proper angle. By default, the perspective adjustment will attempt to fill the image frame, but that may not be desirable in some situations because it can cut off important parts of the image. In that event, use the Zoom Factor slider to expose the full image without cropping. Once you have done that, you can manually crop the image as you like. When you drag the Vertical or Horizontal sliders, a grid appears to make it easier to line up the image to make it straight. Be careful not to over rotate the image — if you do, the image may become warped.</p>
 <p align=center><img src="images/perspective.jpg" height="165"/></p>
 <p>Instead of the sliders, you can select four corners in the image and Nitro will warp the image so that those become the four outermost points on the image. Perspective automatically crops the image. You can decrease that crop by moving the zoom slider, but if you move it too far, you'll get some black areas. You can use the crop tool to remove them.</p>
 <h3>RAW Tuning</h3>
@@ -2005,14 +2172,55 @@ The height of the histogram tells you how much of the image (relatively) contain
 Note: The RAW Processing adjustment only appears if you are adjusting a RAW image.</p>
 <p align=center><img src="images/raw_tuning.jpg" height="175"/></p>
 <p>Moiré:  This slider reduces the effect of moiré. Moiré is an artifact of digital sensors which can cause colored stripes to appear in finely detailed areas. Cameras with an anti-aliasing filter tend to have less moiré, but they also sometimes capture less detail as a result.</p>
-<p>RAW Sharpen and RAW Contrast:  RAW Sharpen is a subtle form of capture sharpening which works at the Bayer mosaic level. RAW Contrast is a type of local contrast (which can look like sharpening). RAW Contrast generally has a lot stronger effect than RAW Sharpen. Both are image-dependent — the characteristics of the image greatly affect how these sliders operate and affect the default values of those sliders. Sony cameras, in particular, are mostly unaffected by the RAW Sharpen slider.</p>
+<p>RAW Sharpen and RAW Contrast:  RAW Sharpen is a subtle form of capture sharpening which works at the Bayer mosaic level. RAW Contrast is a type of local contrast (which can look like sharpening). RAW Contrast generally has a much stronger effect than RAW Sharpen. Both are image-dependent — the characteristics of the image greatly affect how these sliders operate and affect the default values of those sliders. Sony cameras, in particular, are mostly unaffected by the RAW Sharpen slider.</p>
 <p>Gamut Mapping: In its final processing step, Apple’s RAW engine ensures colors do not exceed the range of the working color space (Adobe RGB or P3). This is called Gamut Mapping. Colors that are near or outside the limit of that color space are changed to fit within the gamut. Without gamut mapping, colors that exceed the limit of the gamut will be clipped. Gamut Mapping usually provides good results but having control over gamut mapping is helpful in some situations. For example, sometimes you may want the colors to be clipped rather than mapped because you prefer the appearance. Or, you may want to use other filters in Nitro to bring the colors back into gamut.</p>
+<h3>Depth</h3>
+<p>The Depth Effect adjustment is available for images shot with the iOS camera in portrait mode. The adjustment allows you to adjust the background and foreground of the image independently. It also provides control over the definition of foreground and background by manipulating the depth mask captured by the camera.</p>
+<p align=center><img src="images/depth.jpg" height="298"/></p>
+<p>Deepen darkens the brighter pixels but adds richness to the image.
+Lighten brightens the shadow areas while maintaining contrast.
+Highlights darkens the brightest pixels in the foreground.
+Stretch Mask controls what the other sliders consider foreground and background. Sliding it to the left makes more of the image “foreground” and sliding to the right makes more of the image “background”. So, if you move the slider all the way to the left, the entire image is considered “foreground” and the background sliders have no effect. If you move the slider all the way to the right, then very little of the image will be affected by the foreground sliders, while most will be affected by the background sliders. As you change the mask, the image will change to an overlay showing the mask. Lighter shades of gray denote foreground and darker shades denote background.</p>
+<h3>Black and White</h3>
+<p>Black and White is a monochrome “mixer” which allows you to make black and white images by controlling the percentages of red, green, and blue that contribute to the grayscale image. Different percentages of these color channels will accentuate different parts of the image and are better for some scenes than others. The Black &amp; White adjustment comes with some presets that simulate the effect of a color filter placed over a camera lens.</p>
+<p align=center><img src="images/bw.jpg" height="194"/></p>
+<p>If you check the box next to “Black &amp; White,” the adjustment will produce a black and white image using a “luminance” weighting of red, green, and blue. This is generally more pleasing than an equal weighting of the channels, though equal channels is also a preset. A Red filter is good for landscapes and deepens a blue sky. An Orange filter is good for street photography and images with tiles and bricks. A Yellow filter darkens the sky and is generally a good “middle ground” choice. Green is also an interesting choice for landscapes and nature photography. The Blue filter can create a moody shot.</p>
+<h3>HSL (Hue, Saturation, and Luminance)</h3>
+<p>The HSL Color adjustment lets you work with individual hues without affecting other hues in your image. To use this adjustment, pick the hue you are interested in, from the nine pre-set hues. Then, adjust the hue, saturation, or luminance of that hue. Similar hues will also be affected, but to a lesser extent. The range slider determines the range of hues affected. If you decrease the range, fewer hues will be changed.</p>
+<p align=center><img src="images/hsl.jpg" height="231"/></p>
+<p>If you increase the range, more hues will be affected. There is an additional choice at the end of the list of preset hues. This is called the “target hue.” The target hue is a custom hue that you choose by clicking and dragging on the image. It works by finding the two preset hues nearest to the one you have chosen and adjusting those proportionally. As with the preset hues, you can choose whether to adjust the hue, saturation or luminance of the target hue. You can choose as many target hues as you like.</p>
+<h3>Split Toning</h3>
+<p>Split Toning is an advanced way to adjust images by tinting the highlights or the shadows independently.</p>
+<p align=center><img src="images/split_toning.jpg" height="214"/></p>
+<p>There are three tint wheels; the third is an overall tint for the image. In addition, you can adjust the luminance of the highlights, shadows or overall image. The Balance slider controls the dividing line between highlights and shadows. Move it to the right and the range of pixels values considered highlights increases; move it left and the highlight range is reduced. The Balance slider does not affect the Overall tint wheel.</p>
+<h3>Chromatic Aberration</h3>
+<p>Chromatic Aberration corrects color shifts that occur when light hits the sensor at an angle, causing the constituent colors to split apart (as in a prism). The signature of an image with chromatic aberration is a colored line (red, yellow, etc.) that appears next to a sharp edge. When that happens, you can use this adjustment to realign the colors and correct the image.</p>
+<p align=center><img src="images/ca.jpg" height="264"/></p>
+<p>The two sliders control different types of aberration. You will usually see
+aberration near edges / high contrast areas. If you have red or cyan aberration, use that slider. Otherwise, use the second slider to control blue / yellow aberration. Here is an example of chromatic aberration:</p>
+<p align=center><img src="images/ca_example.jpg" height="306"/></p>
+<p>This adjustment can also be used to reduce color fringing. Purple or green fringing can also appear in high contrast areas, such as between tree branches in the winter.</p>
+<p align=center><img src="images/purple_fringe.jpg" height="230"/></p>
+<p>You can reduce this effect with the purple (or green) intensity slider. The range of purple or green hue that is affected can be controlled with the range sliders. Take care with the range slider as it can affect other parts of the image with nearby hues.</p>
+<h3>Lens Correction</h3>
+<p>Nitro includes two types of lens correction to handle artifacts in lenses such as distortion and shading (also called vignetting). There are two types of lens correction in the app: automatic and manual. The automatic lens correction is provided by Apple's RAW decoder, but is only available for some camera and lens combinations. Apple's system works by reading lens metadata written into the image file. In general, they can correct newer cameras and lenses, rather than older ones. When Apple's decoder can correct a lens, Nitro defaults to turning that correction on. You can add further devignetting to Apple's correction, though this is not usually necessary. When the decoder cannot correct a lens automatically, the full suite of manual tools is enabled.</p>
+<p align=center><img src="images/lens.jpg" height="452"/></p>
+<p>The manual correction is better described as &quot;semi-automatic.&quot; The best way to correct a lens is to take a number of pictures of a grid with that camera and lens combination at a range of aperture values and focal lengths. Then it is straightforward to correct the distortion and shading. The lens correction is semi-automatic because Nitro will learn how to correct the lens automatically using your manual corrections. In short order, Nitro can correct the lens on its own. The AUTO button at the top can be used to correct the lens automatically once there is sufficient information in Nitro's lens correction database. There are also preferences in the app that controls whether this semi-automatic correction engages without your having to click the Auto Button. That is described in more detail in the Settings section.</p>
+<p>To learn more about how to correct a lens with Nitro and to build up its correction database, please watch this video (it covers the RAW Power app, but the technique is identical):</p>
+<p><a href="https://www.youtube.com/watch?v=dRMYv6AbXPk">Lens Correction Video</a></p>
+<h3>Channel Mixer</h3>
+<p>A channel mixer is a very powerful tool for tinting images or completely changing the look of your image. You can even swap channels (exchanging blue for red, for example).</p>
+<p align=center><img src="images/channel_mixer.jpg" height="221"/></p>
+<p>Click on the three-color control to choose the color channel to manipulate. Then determine the amount of red, green, and blue data to copy into that channel. The Constant slider simply adds red, green, or blue to the image for a quick tinting effect.</p>
+<h3>Vignette</h3>
+<p>Vignette darkens (or lightens) the edges of an image. When darkening an image, it draws the eye to the lighter part of the image (typically the center, or the subject of the image). Vignettes in most photo applications are center-based, making them poor choices if the subject is not in the center of image (as is often the case).</p>
+<p align=center><img src="images/vignette.jpg" height="155"/></p>
+<p>The Vignette in Nitro allows you to specify the center point. To do this click the targeting control next to the reset button and then click and drag on the image. You might want to increase the intensity of the effect before changing the center point to make it easier to see what will happen. Vignette applies its effect after crop, so if you want to lighten the edges of an image before crop is applied to counteract lens shading, then use the Devignette tool in the Lens adjustment.</p>
 <h1>Topics Coming Soon</h1>
 <h2>Metadata and ExifTool</h2>
 <h2>ExifTool</h2>
 <h2>Quick Fixes</h2>
 <h2>Presets</h2>
-<h2>More Adjustments</h2>
 <h2>Masking</h2>
 <h2>External Editing (Mac)</h2>
 <h2>RAW+JPEG Editing (Photos)</h2>
@@ -2022,6 +2230,7 @@ Note: The RAW Processing adjustment only appears if you are adjusting a RAW imag
 <h2>Compare Mode</h2>
 <h2>N-Up</h2>
 <h2>Power tips</h2>
+<h2>Settings (esp. Standard RAW Development and such)</h2>
 <p>Questions? Comments? Suggestions for topic areas? Email <a href="mailto:support@gentlemencoders.com?subject=User%20Manual">support@gentlemencoders.com</a></p>
 
 </div>
