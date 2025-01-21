@@ -1364,14 +1364,13 @@ Nitro is an advanced photo library manager and editor. It is able to browse and 
 | [Sorting and Filtering](#Sorting-and-Filtering)    | [Presets and LUTs](#Presets-and-LUTs)    |
 | [Photo Library Limitations](#Photo-Library-Limitations)    | [Editing Sliders](#Editing-Sliders)     |
 | [Rating and Flagging](#Rating-and-Flagging)    | [Masking](#Masking)    |
-| [Finder / Files.app Tagging](#Finder-Files.app-Tagging)    |     |
+| [Finder / Files.app Tagging](#Finder-Files.app-Tagging)    | [Editing on iPhones](#Editing-on-iPhones)    |
 | [XMP File Overview](#XMP-File-Overview)    |  [Metadata and ExifTool](#Metadata-and-ExifTool)   |
 | [Cross-Machine Workflows: Editing and Rating](#Cross-Machine-Workflows-Editing-and-Rating)    |  [Topics Coming Soon](#Topics-Coming-Soon)   |
 | [One Up (The Viewer)](#One-Up-The-Viewer)    | [Modification History](#Modification-History)  |
 
 ## Video Tutorials
-You can watch video
-tutorials of Nitro on YouTube at:
+You can watch video tutorials of Nitro on YouTube at:
 
 [macOS Playlist](https://www.youtube.com/playlist?list=PLgF1Bfd-tVLbP9NrB74JmVCPNaNDz_0tW)
 
@@ -1747,6 +1746,8 @@ To save a preset, click the Save button on the Mac (use the "..." menu on iPads)
 <p align=left><img src="images/save_preset.jpg" height="606"/></p>
 
 In this dialog, you can select which adjustments to include in your preset. You will also be asked to name the preset. At the bottom is an advanced feature called a Camera Preset. This is a unique feature of Nitro that allows you to automatically apply presets to your images on a per-camera basis. You can assign any preset as a Camera Preset (one preset per camera model). Once you do that, any unedited image you open in Edit from that camera will be automatically adjusted with that preset. This is extremely useful if you want a specific look for all your images automatically. It's also useful for configuring Apple's RAW decoder (the RAW Processing adjustment) to your needs. For example, if you want to adjust the black point for a particular camera, you can do that by making a camera preset.
+
+Note: Nitro also automatically creates (and updates) a preset called "Most Recent Edit", which you can use to quickly apply the same edits to a sequence of images in a row.
 
 #### Managing Presets
 To view your presets on disk, click the My Preset button (on iPads, this is in the "..." menu). This will open a Finder folder or the Files.app on iOS. You can add, rename, or delete presets in that view. You can also organize them into folders. However, Nitro will not see those changes until you restart the app, so it's best to quit the app, arrange the presets, and then reopen the app (see the instructions below for LUTs).
@@ -2231,10 +2232,80 @@ On iPhone, this flip view is the primary way that metadata is displayed, due to 
 
 <p align=left><img src="images/iphone_metadata_small.jpg" height="500"/></p>
 
-## <a name=Topics-Coming-Soon></a> Topics Coming Soon
+## <a name=Editing-on-iPhones></a>Editing on iPhones
 [Back to top](#top)
 
-## Editing on iPhone
+Nitro has a different user interface on iPhones, due to the tall and narrow shape of the device. Most controls are on the bottom of the screen and more menu choices are in the “...” menu at the upper left. The app opens into the last album or folder you viewed. To access the other folders / albums, tap the Library button in the upper left. Below are some screenshots of the interface:
+
+<p align=left><img src="images/library_grid.jpg" height="624"/></p>
+
+The library view on iPhones is the same as found on iPads, with the same controls and switcher to go between the Photo Library and the Files.app view. If you are using the Photo Library, you can also use the Album picker at the bottom to jump between some commonly accessed albums. The bottom of the grid view also has two arrow buttons to jump to the top or bottom of the thumbnail view. The Select button remains in the grid view, which you can use to share, delete, or run batch operations. However, many other commands have been moved to the “...” menu in the upper right as shown below. 
+
+<p align=left><img src="images/album_menu.jpg" height="618"/></p>
+
+If you rotate your iPhone to landscape orientation, the interface will adapt to a more-iPad like design, though the app is optimized for use in portrait screen orientation. Tap on a thumbnail to go to the Viewer.
+
+### One Up (Viewer)
+
+The viewer is similar to the one on iPads, except all the controls have moved to the bottom of the screen. 
+
+<p align=left><img src="images/one_up_info.jpg" height="620"/></p>
+
+Here, you can rate, flag, and mark images as favorites. There is also a bottom toolbar with share, info, help, and trash. The info button uses the “flip tiles” method of showing metadata, which will show a map if the image has location information.
+
+You can tap the share button to bring up an export panel. To adjust the export settings, tap the Change button; a summary of the export settings appears at the bottom of the panel. To enter Edit, tap the Edit button in the upper right.
+
+<p align=left><img src="images/iphone_share_edit.jpg" height="620"/></p>
+
+The most obvious difference with Edit is that the controls are on the bottom of the screen.
+
+### Edit Basics
+
+On iPhones, Edit is laid out vertically. At the top of the screen is an Info button which will display a reduced set of metadata as shown below. Right below the image is a toolbar. The final button contains some configuration options.
+
+<p align=left><img src="images/info2_options.jpg" height="620"/></p>
+
+Tap the info button again to hide the shot information. The buttons below the image are as follows:
+
+<p align=left><img src="images/iphone_bar.jpg" height="116"/></p>
+
+The histogram on iPhones works very differently from the one on iPads and Macs. It floats above the image. 
+
+<p align=left><img src="images/histogram_options.jpg" height="620"/></p>
+
+Clipping indicators are present at the top, along with a “...” menu to set the top-most channel.. You can drag the histogram to place it where you like. In the toolbar below the image, you can Nitro’s unique histogram options (only for the iPhone). The four options work as follows:
+
+* Show: always shows the histogram
+* Don’t Show: always hides the histogram
+* Only While Adjusting: displays the histogram when you are moving a slider or a curve / level control. This lets you adjust with the histogram visible without it interfering with the image.
+* Only While Not Adjusting: displays the histogram when you are **not** actively moving a slider or curve / level control. This lets you see the entire image while adjusting, while displaying the histogram at other times.
+
+#### Editing
+
+As mentioned before, the editing tools are at the bottom of the screen on iPhones. There are three modes on the left: Quick Fixes, Presets and LUTs and Masks. After those are the slider adjustments. 
+
+<p align=left><img src="images/edit_bar.jpg" height="292"/></p>
+
+Tap any icon to view that adjustment or mode. When you change an adjustment, or add a mask, the icon turns blue, as shown above for the Tone adjustment. You can tap on the numbers above sliders to display an onscreen numeric keypad.
+
+<p align=left><img src="images/numeric_entry.jpg" height="290"/></p>
+
+Most adjustments look similar on iPhones as on iPads. The biggest differences are the need to scroll to see all the sliders, and a specific mode for Curves. This is the default view for Curves. If you tap the “Large” button, the curve appears on top of the image and you can interact with it there (and the Curve interface area gets shorter to give you more space).
+
+<p align=left><img src="images/curves_iphone.jpg" height="620"/></p>
+
+Which to use is personal preference, though one could also use the default view for simple adjustments (like black and white point) and the overlay view for detailed work.
+
+#### Masking
+
+Masking is also different on iPhones. The basic controls are the same, but there are a few additional things to keep in mind.
+
+<p align=left><img src="images/iphone_masking.jpg" height="280"/></p>
+
+To enter masking, tap the Masks button at the bottom. You will see a display like the one shown above on the left. Tap the Add menu button to add a mask - the same types of masks are available on iPhones as on Macs and iPads. Also note the blue Exit button above that area. That is the way you exit masking. An exit button is needed because the same adjustment icons are available for masking as for regular editing, so a mode is required so it’s clear whether you are editing the entire image, or the adjustments for a particular mask. Once you create (or choose a previously-created mask), the brushing tools appear, with the same options and controls as iPads and Macs have.
+
+## <a name=Topics-Coming-Soon></a> Topics Coming Soon
+[Back to top](#top)
 
 ## External Editing (Mac)
 
@@ -2255,7 +2326,8 @@ On iPhone, this flip view is the primary way that metadata is displayed, due to 
 ## <a name=Modification-History></a> Modification History
 [Back to top](#top)
 
-- 2025-01-20: Quick Fixes, Presets, LUTs and RAW+JPEG Editing
+- 2025-01-21: Editing on iPhones
+- 2025-01-20: Quick Fixes, Presets, LUTs, Masking, and RAW+JPEG Editing
 - 2025-01-20: Photo Library limitations and table of contents
 - 2025-01-14: Add metadata and ExifTool documentation
 - 2025-01-13: Add remaining adjustments
@@ -2305,7 +2377,7 @@ Questions? Comments? Suggestions for topic areas? Email [support\@gentlemencoder
 </tr>
 <tr>
 <td align="left"><a href="#Finder-Files.app-Tagging">Finder / Files.app Tagging</a></td>
-<td align="left"></td>
+<td align="left"><a href="#Editing-on-iPhones">Editing on iPhones</a></td>
 </tr>
 <tr>
 <td align="left"><a href="#XMP-File-Overview">XMP File Overview</a></td>
@@ -2322,8 +2394,7 @@ Questions? Comments? Suggestions for topic areas? Email [support\@gentlemencoder
 </tbody>
 </table>
 <h2>Video Tutorials</h2>
-<p>You can watch video
-tutorials of Nitro on YouTube at:</p>
+<p>You can watch video tutorials of Nitro on YouTube at:</p>
 <p><a href="https://www.youtube.com/playlist?list=PLgF1Bfd-tVLbP9NrB74JmVCPNaNDz_0tW">macOS Playlist</a></p>
 <p><a href="https://www.youtube.com/playlist?list=PLgF1Bfd-tVLY98RljyfH_h7MphhEqtDua">iPadOS Playlist</a></p>
 <p><a href="https://www.youtube.com/playlist?list=PLgF1Bfd-tVLa3PO3U9SVHv7AB1YOXE5-w">iPhone Playlist</a></p>
@@ -2558,6 +2629,7 @@ The height of the histogram tells you how much of the image (relatively) contain
 <p>To save a preset, click the Save button on the Mac (use the &quot;...&quot; menu on iPads).</p>
 <p align=left><img src="images/save_preset.jpg" height="606"/></p>
 <p>In this dialog, you can select which adjustments to include in your preset. You will also be asked to name the preset. At the bottom is an advanced feature called a Camera Preset. This is a unique feature of Nitro that allows you to automatically apply presets to your images on a per-camera basis. You can assign any preset as a Camera Preset (one preset per camera model). Once you do that, any unedited image you open in Edit from that camera will be automatically adjusted with that preset. This is extremely useful if you want a specific look for all your images automatically. It's also useful for configuring Apple's RAW decoder (the RAW Processing adjustment) to your needs. For example, if you want to adjust the black point for a particular camera, you can do that by making a camera preset.</p>
+<p>Note: Nitro also automatically creates (and updates) a preset called &quot;Most Recent Edit&quot;, which you can use to quickly apply the same edits to a sequence of images in a row.</p>
 <h4>Managing Presets</h4>
 <p>To view your presets on disk, click the My Preset button (on iPads, this is in the &quot;...&quot; menu). This will open a Finder folder or the Files.app on iOS. You can add, rename, or delete presets in that view. You can also organize them into folders. However, Nitro will not see those changes until you restart the app, so it's best to quit the app, arrange the presets, and then reopen the app (see the instructions below for LUTs).</p>
 <h3>LUTs</h3>
@@ -2899,9 +2971,48 @@ aberration near edges / high contrast areas. If you have red or cyan aberration,
 <p>If you search in the ExifTool area, Nitro will filter all images by the same string.</p>
 <p>On iPhone, this flip view is the primary way that metadata is displayed, due to the smaller screen. In Edit, you can access shot information by tapping the Info button at the top of the screen as shown below.</p>
 <p align=left><img src="images/iphone_metadata_small.jpg" height="500"/></p>
+<h2><a name=Editing-on-iPhones></a>Editing on iPhones</h2>
+<p><a href="#top">Back to top</a></p>
+<p>Nitro has a different user interface on iPhones, due to the tall and narrow shape of the device. Most controls are on the bottom of the screen and more menu choices are in the “...” menu at the upper left. The app opens into the last album or folder you viewed. To access the other folders / albums, tap the Library button in the upper left. Below are some screenshots of the interface:</p>
+<p align=left><img src="images/library_grid.jpg" height="624"/></p>
+<p>The library view on iPhones is the same as found on iPads, with the same controls and switcher to go between the Photo Library and the Files.app view. If you are using the Photo Library, you can also use the Album picker at the bottom to jump between some commonly accessed albums. The bottom of the grid view also has two arrow buttons to jump to the top or bottom of the thumbnail view. The Select button remains in the grid view, which you can use to share, delete, or run batch operations. However, many other commands have been moved to the “...” menu in the upper right as shown below.</p>
+<p align=left><img src="images/album_menu.jpg" height="618"/></p>
+<p>If you rotate your iPhone to landscape orientation, the interface will adapt to a more-iPad like design, though the app is optimized for use in portrait screen orientation. Tap on a thumbnail to go to the Viewer.</p>
+<h3>One Up (Viewer)</h3>
+<p>The viewer is similar to the one on iPads, except all the controls have moved to the bottom of the screen.</p>
+<p align=left><img src="images/one_up_info.jpg" height="620"/></p>
+<p>Here, you can rate, flag, and mark images as favorites. There is also a bottom toolbar with share, info, help, and trash. The info button uses the “flip tiles” method of showing metadata, which will show a map if the image has location information.</p>
+<p>You can tap the share button to bring up an export panel. To adjust the export settings, tap the Change button; a summary of the export settings appears at the bottom of the panel. To enter Edit, tap the Edit button in the upper right.</p>
+<p align=left><img src="images/iphone_share_edit.jpg" height="620"/></p>
+<p>The most obvious difference with Edit is that the controls are on the bottom of the screen.</p>
+<h3>Edit Basics</h3>
+<p>On iPhones, Edit is laid out vertically. At the top of the screen is an Info button which will display a reduced set of metadata as shown below. Right below the image is a toolbar. The final button contains some configuration options.</p>
+<p align=left><img src="images/info2_options.jpg" height="620"/></p>
+<p>Tap the info button again to hide the shot information. The buttons below the image are as follows:</p>
+<p align=left><img src="images/iphone_bar.jpg" height="116"/></p>
+<p>The histogram on iPhones works very differently from the one on iPads and Macs. It floats above the image.</p>
+<p align=left><img src="images/histogram_options.jpg" height="620"/></p>
+<p>Clipping indicators are present at the top, along with a “...” menu to set the top-most channel.. You can drag the histogram to place it where you like. In the toolbar below the image, you can Nitro’s unique histogram options (only for the iPhone). The four options work as follows:</p>
+<ul>
+<li>Show: always shows the histogram</li>
+<li>Don’t Show: always hides the histogram</li>
+<li>Only While Adjusting: displays the histogram when you are moving a slider or a curve / level control. This lets you adjust with the histogram visible without it interfering with the image.</li>
+<li>Only While Not Adjusting: displays the histogram when you are <strong>not</strong> actively moving a slider or curve / level control. This lets you see the entire image while adjusting, while displaying the histogram at other times.</li>
+</ul>
+<h4>Editing</h4>
+<p>As mentioned before, the editing tools are at the bottom of the screen on iPhones. There are three modes on the left: Quick Fixes, Presets and LUTs and Masks. After those are the slider adjustments.</p>
+<p align=left><img src="images/edit_bar.jpg" height="292"/></p>
+<p>Tap any icon to view that adjustment or mode. When you change an adjustment, or add a mask, the icon turns blue, as shown above for the Tone adjustment. You can tap on the numbers above sliders to display an onscreen numeric keypad.</p>
+<p align=left><img src="images/numeric_entry.jpg" height="290"/></p>
+<p>Most adjustments look similar on iPhones as on iPads. The biggest differences are the need to scroll to see all the sliders, and a specific mode for Curves. This is the default view for Curves. If you tap the “Large” button, the curve appears on top of the image and you can interact with it there (and the Curve interface area gets shorter to give you more space).</p>
+<p align=left><img src="images/curves_iphone.jpg" height="620"/></p>
+<p>Which to use is personal preference, though one could also use the default view for simple adjustments (like black and white point) and the overlay view for detailed work.</p>
+<h4>Masking</h4>
+<p>Masking is also different on iPhones. The basic controls are the same, but there are a few additional things to keep in mind.</p>
+<p align=left><img src="images/iphone_masking.jpg" height="280"/></p>
+<p>To enter masking, tap the Masks button at the bottom. You will see a display like the one shown above on the left. Tap the Add menu button to add a mask - the same types of masks are available on iPhones as on Macs and iPads. Also note the blue Exit button above that area. That is the way you exit masking. An exit button is needed because the same adjustment icons are available for masking as for regular editing, so a mode is required so it’s clear whether you are editing the entire image, or the adjustments for a particular mask. Once you create (or choose a previously-created mask), the brushing tools appear, with the same options and controls as iPads and Macs have.</p>
 <h2><a name=Topics-Coming-Soon></a> Topics Coming Soon</h2>
 <p><a href="#top">Back to top</a></p>
-<h2>Editing on iPhone</h2>
 <h2>External Editing (Mac)</h2>
 <h2>Batch Processing</h2>
 <h2>Export</h2>
@@ -2913,7 +3024,8 @@ aberration near edges / high contrast areas. If you have red or cyan aberration,
 <h2><a name=Modification-History></a> Modification History</h2>
 <p><a href="#top">Back to top</a></p>
 <ul>
-<li>2025-01-20: Quick Fixes, Presets, LUTs and RAW+JPEG Editing</li>
+<li>2025-01-21: Editing on iPhones</li>
+<li>2025-01-20: Quick Fixes, Presets, LUTs, Masking, and RAW+JPEG Editing</li>
 <li>2025-01-20: Photo Library limitations and table of contents</li>
 <li>2025-01-14: Add metadata and ExifTool documentation</li>
 <li>2025-01-13: Add remaining adjustments</li>
