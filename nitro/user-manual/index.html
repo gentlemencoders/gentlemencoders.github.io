@@ -1354,20 +1354,27 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 **_Note: This manual is incomplete and will evolve over time. I wanted to get something out to people now rather than wait until every section was done._**
 
 ## Overview
+Note: This user manual is best used as a reference in conjunction with the many videos I have created on YouTube (see Video Tutorials below). 
+
 Nitro is an advanced photo library manager and editor. It is able to browse and edit images in both the Apple Photo Library and the File System (i.e., Finder folders on Mac and Files.app folders on iPads and iPhones). All edits are non-destructive. That means that the original image is never modified. Instead, edits are stored as metadata along with the image, and the edited image is reconstructed using the original image as needed. Nitro uses (and extends) Apple’s RAW engine to decode RAW images. Apple's RAW engine supports hundreds of RAW camera formats, as well as DNGs and iPhone ProRAW images. However, there are many cameras that Apple does not support fully. For most of those, Nitro adds additional camera support. These include Compressed Fujifilm images, Nikon HE* format, GoPro RAW and many more. This is one of Nitro’s key advantages over other apps that use Apple's RAW engine. Please note: when this manual refers to iOS, it is referring to both iOS (iPhones) and iPadOS (iPads).
 
 ## <a name=top></a>Table of Contents
 |   |   |
 |:----------|:----------|
-| [Apple Photos and the File System](#Apple-Photos-and-the-File-System)    | [The Editing Panel](#The-Editing-Panel)    |
-| [Browsing Options](#Browsing-Options)    | [Quick Fixes](#Quick-Fixes)    |
-| [Sorting and Filtering](#Sorting-and-Filtering)    | [Presets and LUTs](#Presets-and-LUTs)    |
-| [Photo Library Limitations](#Photo-Library-Limitations)    | [Editing Sliders](#Editing-Sliders)     |
-| [Rating and Flagging](#Rating-and-Flagging)    | [Masking](#Masking)    |
-| [Finder / Files.app Tagging](#Finder-Files.app-Tagging)    | [Editing on iPhones](#Editing-on-iPhones)    |
-| [XMP File Overview](#XMP-File-Overview)    |  [Metadata and ExifTool](#Metadata-and-ExifTool)   |
-| [Cross-Machine Workflows: Editing and Rating](#Cross-Machine-Workflows-Editing-and-Rating)    |  [Topics Coming Soon](#Topics-Coming-Soon)   |
-| [One Up (The Viewer)](#One-Up-The-Viewer)    | [Modification History](#Modification-History)  |
+| [Apple Photos and the File System](#Apple-Photos-and-the-File-System)    |  [Editing on iPhones](#Editing-on-iPhones)   |
+| [Browsing Options](#Browsing-Options)    | [Metadata and ExifTool](#Metadata-and-ExifTool)    |
+| [Sorting and Filtering](#Sorting-and-Filtering)    | [External Editing](#External-Editing)    |
+| [Photo Library Limitations](#Photo-Library-Limitations)    |  [Batch Processing](#Batch-Processing)    |
+| [Rating and Flagging](#Rating-and-Flagging)    | [Export](#Export)    |
+| [Finder / Files.app Tagging](#Finder-Files.app-Tagging)    | [Watermarking](#Watermarking)    |
+| [XMP File Overview](#XMP-File-Overview)    |     |
+| [Cross-Machine Workflows: Editing and Rating](#Cross-Machine-Workflows-Editing-and-Rating)    |     |
+| [One Up (The Viewer)](#One-Up-The-Viewer)    |   |
+| [The Editing Panel](#The-Editing-Panel)    |  |
+| [Quick Fixes](#Quick-Fixes)    |  |
+| [Presets and LUTs](#Presets-and-LUTs)    |   |
+| [Editing Sliders](#Editing-Sliders)    | [Topics Coming Soon](#Topics-Coming-Soon)  |
+| [Masking](#Masking)    | [Modification History](#Modification-History)  |
 
 ## Video Tutorials
 You can watch video tutorials of Nitro on YouTube at:
@@ -2185,53 +2192,6 @@ When browsing the Photo library, RAW + JPEG image pairs are represented by a sin
 
 Click that button to switch between the two images. If you switch to the JPEG, adjustments that are RAW-only will disappear, and vice-versa. In addition, on the Mac, you can right-click on the Viewer to switch, or use the Image menu. Finally, in Settings, you can choose whether the RAW or the JPEG is the default.
 
-## <a name= Metadata-and-ExifTool></a> Metadata and ExifTool
-[Back to top](#top)
-
-Nitro shows metadata in multiple ways. The primary way is via the Info button in the right side panel. This image shows the various controls available on either side of the main viewer window:
-
-<p align=left><img src="images/oneUpLabeled.jpg" height="500"/></p>
-
-If you pick the Info button, then you will get three sections of metadata. The first is shot information, as shown here:
-
-<p align=left><img src="images/shot_info.jpg" height="260"/></p>
-
-This information is also visible when in the Edit interface, though you can also collapse it to get more working space vertically.
-
-The second section contains a map with location information, if there is GPS data in the image.
-
-<p align=left><img src="images/map.jpg" height="267"/></p>
-
-You can drag the map to move it and there are also different view options (Satellite and Road).
-
-The last section contains miscellaneous metadata that varies from camera to camera:
-
-<p align=left><img src="images/metadata.jpg" height="358"/></p>
-
-This information is not editable.
-
-On the Mac, you can also access much more extensive metadata with Nitro's Exiftool integration. To access ExifTool, click the EXIF button in the right side panel.
-
-<p align=left><img src="images/exiftool.jpg" height="464"/></p>
-
-You can filter to show specific Exif keys and you can also click the "heart" icon to establish favorites. If you click the "heart" at the top (next to the search field), then Nitro will only show your favorites.
-
-The last way that metadata is presented is via Info "tiles", also called the "Flip View". To access that mode, pick the icon below the main Info button. That will display metadata inside the viewer itself. This is an example with a single image:
-
-<p align=left><img src="images/single_flip.jpg" height="464"/></p>
-
-On the Mac, you have access to ExifTool directly, so you can search for metadata. 
-
-Because metadata is shown in the viewer itself, Flip View is able to show metadata for multiple images at once. To do that, enter either Compare Mode or N-Up Mode. If you then select multiple images and pick Flip View, you will see metadata side by side as shown below.
-
-<p align=left><img src="images/multi_flip.jpg" height="464"/></p>
-
-If you search in the ExifTool area, Nitro will filter all images by the same string.
-
-On iPhone, this flip view is the primary way that metadata is displayed, due to the smaller screen. In Edit, you can access shot information by tapping the Info button at the top of the screen as shown below.
-
-<p align=left><img src="images/iphone_metadata_small.jpg" height="500"/></p>
-
 ## <a name=Editing-on-iPhones></a>Editing on iPhones
 [Back to top](#top)
 
@@ -2304,28 +2264,238 @@ Masking is also different on iPhones. The basic controls are the same, but there
 
 To enter masking, tap the Masks button at the bottom. You will see a display like the one shown above on the left. Tap the Add menu button to add a mask - the same types of masks are available on iPhones as on Macs and iPads. Also note the blue Exit button above that area. That is the way you exit masking. An exit button is needed because the same adjustment icons are available for masking as for regular editing, so a mode is required so it’s clear whether you are editing the entire image, or the adjustments for a particular mask. Once you create (or choose a previously-created mask), the brushing tools appear, with the same options and controls as iPads and Macs have.
 
+## <a name= Metadata-and-ExifTool></a> Metadata and ExifTool
+[Back to top](#top)
+
+Nitro shows metadata in multiple ways. The primary way is via the Info button in the right side panel. This image shows the various controls available on either side of the main viewer window:
+
+<p align=left><img src="images/oneUpLabeled.jpg" height="500"/></p>
+
+If you pick the Info button, then you will get three sections of metadata. The first is shot information, as shown here:
+
+<p align=left><img src="images/shot_info.jpg" height="260"/></p>
+
+This information is also visible when in the Edit interface, though you can also collapse it to get more working space vertically.
+
+The second section contains a map with location information, if there is GPS data in the image.
+
+<p align=left><img src="images/map.jpg" height="267"/></p>
+
+You can drag the map to move it and there are also different view options (Satellite and Road).
+
+The last section contains miscellaneous metadata that varies from camera to camera:
+
+<p align=left><img src="images/metadata.jpg" height="358"/></p>
+
+This information is not editable.
+
+On the Mac, you can also access much more extensive metadata with Nitro's Exiftool integration. To access ExifTool, click the EXIF button in the right side panel.
+
+<p align=left><img src="images/exiftool.jpg" height="464"/></p>
+
+You can filter to show specific Exif keys and you can also click the "heart" icon to establish favorites. If you click the "heart" at the top (next to the search field), then Nitro will only show your favorites.
+
+The last way that metadata is presented is via Info "tiles", also called the "Flip View". To access that mode, pick the icon below the main Info button. That will display metadata inside the viewer itself. This is an example with a single image:
+
+<p align=left><img src="images/single_flip.jpg" height="464"/></p>
+
+On the Mac, you have access to ExifTool directly, so you can search for metadata. 
+
+Because metadata is shown in the viewer itself, Flip View is able to show metadata for multiple images at once. To do that, enter either Compare Mode or N-Up Mode. If you then select multiple images and pick Flip View, you will see metadata side by side as shown below.
+
+<p align=left><img src="images/multi_flip.jpg" height="464"/></p>
+
+If you search in the ExifTool area, Nitro will filter all images by the same string.
+
+On iPhone, this flip view is the primary way that metadata is displayed, due to the smaller screen. In Edit, you can access shot information by tapping the Info button at the top of the screen as shown below.
+
+<p align=left><img src="images/iphone_metadata_small.jpg" height="500"/></p>
+
+## <a name= External-Editing></a>External Editing (Mac)
+[Back to top](#top)
+
+External Editing is a Mac-only feature that integrates Nitro with other apps on your Mac. You can select an image in the Nitro grid and then send it to an external editor app. The list of apps is built automatically by Nitro by querying macOS for apps that announce that they can edit images. Then macOS returns a set of apps satisfying that requirement and Nitro then builds the menu. When you select an app, Nitro will also ask which type of file you want to send to the other app. 
+
+<p align=left><img src="images/external_edit.jpg" height="185"/></p>
+
+The choices for file format are as follows:
+* Original Image
+* JPEG
+* TIFF 8 bit
+* TIFF 16 bit
+
+You also have choices for color profile:
+* sRGB
+* AdobeRGB
+* Display P3
+* ProPhoto RGB
+* BT 2020
+
+If you request the original file, then the color profile is disabled and has no effect. Otherwise, Nitro will render a new file and send it to the other app. The image will be stored next to the original (again unless you are sending the original, in which case no extra file is made).
+
+This feature is only available when using Finder folders. That is because Photos is responsible for managing images in the library. It is unsafe to manage files outside of Photos’ control. Further, Apple does not provide a way for 3rd parties to import images into the Photo library by reference, so if the feature existed for the Photo Library, it would fail for referenced images (or it would put the externally edited image inside the library folder.
+
+## <a name= Batch-Processing></a>Batch Processing 
+[Back to top](#top)
+
+You use batch processing to work with multiple files together, rather than at the same time. The most common example of batch processing is probably batch export, where multiple images are exported with a common set of export parameters.
+
+On iPads and iPhones, you trigger batch processing by using the Select button to choose the images, and then tapping the Batch button. A collection of operations appears, which are described below:
+
+* Export
+* Paste Most Recent Edit
+* Auto Enhance… (version 2025.1 and later)
+* Apply Preset…
+* Rotate left and right
+* Revert to Original
+* Flag / Reject / Remove Flag (version 2025.1 and later)
+
+In addition there are three other advanced operations:
+
+* Build Thumbnails: this makes a new thumbnail from the image(s). This is useful when the thumbnail in your image is poor quality or has incorrect orientation.
+* Reindex Images: this is useful when the database is out of date for some reason but it’s best to only use that in conjunction with a conversation with support@gentlemencoders.com
+* Reconnect XMP Sidecars: If you pick it, the app will look for all the sidecars and rename them to have a lower-case extension. This is a rarely used feature, but if you find that the app is unexpectedly not processing your sidecars, check the file extension and use this feature to fix them. There is more information in the section on XMP.
+
+On the Mac, these operations are available either through the main menu (usually in the Image menu) or via the contextual menu when you right-click on an image. 
+
+#### Restrictions in Edit
+Nitro reduces the set of batch operations while you are in Edit. In general, you cannot perform most of these actions using the Batch menu (or the Image menu on Mac) on the image currently being edited. That restriction may be removed in the future, but for now, simply use the analogous button in the Edit interface. For example, rather than use Apply Preset from the menus, go to the Preset interface in Edit. Export and Flagging are exceptions - those work on images in Edit as they do not affect the editing data itself.
+
+Note: If you want to apply a batch operation to both the currently edited image and other images not being edited, then exit Edit and then apply the action. That way, the edits are saved, and the operation can run. The simplest way is to click on the edit button on the right side panel which closes the edit panel and saves the edits.
+
+## <a name= Export>Export 
+[Back to top](#top)
+
+Export is the primary way to get images out of Nitro. The options for export vary depending on the platform you are using and where you are using the Photo Library or not.
+
+### Export Operations
+ On iOS, there are the following export options. 
+
+<p align=left><img src="images/export_operations.jpg" height="230"/></p>
+
+The following table describes when those options are available. Yes means it is always available. No means it is never available. Otherwise, the notation indicates whether it’s available when using the Photo Library or File System (Finder / Files.app).
+
+| Action  | iOS  | Mac |
+|:----------|:----------|:----------|
+| Save a new image to the File System | Yes | Yes |
+| Save a new image to the Photo Library | Yes | Yes |
+| Copy original and rating / adjustment metadata to Photo Library | Files.app | Finder |
+| Copy original and rating / adjustment metadata to File System | Photo Library  | Photo Library |
+| Share a new image to another app | Yes | No |
+| Share original and rating / adjustment metadata to another app | Yes | No |
+| Share original (only) to another app | Yes | No |
+| Update image in Photo Library* | iOS 16 | macOS 13 |
+
+The last item requires extra discussion. In iOS 16 / macOS 13 and earlier, any time a 3rd party app edited an image in the Photo Library, Photos would display a confirmation dialog. This dialog could not be suppressed. It made it very difficult to edit a series of images because the dialog would appear for each image. This was finally removed in iOS 17 and macOS 14 (Sonoma). To make the dialog less of an obstacle to smooth editing, Nitro has two modes of operation, and the default varies depending on OS version. 
+* On iOS 17 / macOS 14 and later: Nitro will commit edits to the library when saving them.
+* On iOS 16 / macOS 13: Nitro will save edits locally rather than committing them to the Photo Library. You would then use Export to commit the edits to the library. The app will remind you to do that periodically. 
+There are preferences to control this behavior, which are discussed in more detail in that section of this manual.
+
+### Export Settings
+
+In addition to the operation, you can choose how the image is generated. 
+
+<p align=left><img src="images/export_settings.jpg" height="250"/></p>
+
+* Name: lets you set a custom name (see Batch Export for details on setting names for multiple files)
+* Format: Choices include JPEG, TIFF (8 and 16 bit), HEIF (8 and 10 bit), and PNG (8 and 16 bit).
+* Compression: compression quality, including lossless for TIFF and PNG.
+* DPI / PPI: sets a metadata tag for the dots / pixels per inch. This has no effect on the image rendered, but can be helpful for printers and similar devices.
+* Color Profile: choices include sRGB, AdobeRGB, Display P3, ProPhoto RGB and BT.2020. To avoid banding when using a wide-gamut format like AdobeRGB, Display P3, ProPhoto RGB and BT 2020, I recommend selecting either 10 or 16 bits for the format.
+* Output Size: you can export to full size, a set of specific sizes (like 1024 pixels), or custom sizes. Note: Nitro does not upscale images at this time.
+  * Fit to Longer Edge will take a single number and size the image so that the longer edge is the desired size (basically it fits to a square of the desired size)
+  * Fit to Width and Height sizes the image to fit within a rectangle defined by the custom size values.
+* Metadata: choices for including different metadata in the file.
+* Watermark: you can apply a watermark to exported image. That is described more in the [Watermark](#Watermark) section below.
+* Copyright: you can enter a copyright to store in the IPTC copyright field.
+* On the Mac, there are also After Export Actions, which are described below.
+
+In addition, ratings and keywords are stored into the exported file automatically (unless you choose not to export IPTC metadata).
+
+Note: export on iPhone looks and works a little different. See the section [Editing on iPhones](#Editing-on-iPhones) for more information.
+
+### Batch Export
+
+If you want to export or share multiple files at once, use Batch Export. On iOS, start by tapping the Select button and choosing the images. Then tap the Batch button. On macOS, select images as you would normally and then use File > Export…
+
+The basic export interface is similar for batch export, except for file naming:
+
+<p align=left><img src="images/export_operations.jpg" height="280"/></p>
+
+When exporting multiple files, you can specify custom names as follows. For all examples below, the original file name is “IMG_8625”.
+
+* Original Name: outputs “IMG_8625” with the desired file extension for the output format.
+* Original Name + Date: uses a YYYY-MM-DD format, as in “IMG_8625-2025-01-24”
+* Original Name + Suffix: you specify a number or a number with a character, as in “-1”, so you might see “IMG_8625-1”
+* Custom Name + Sequence: You specify the name and a starting number. There is an optional padding field as well. So, if you entered a custom name of Vacation and a starting number of 100 and a padding of zero, you would see “Vacation-100.JPG”.
+* Custom Name + Date + Sequence: includes the date, resulting in “Vacation-2025-01-24-100”
+
+### Export Actions
+
+After Export Actions are a Mac-specific feature that lets you open another app after export completes. This works for a single image export or a batch export. The list of apps displayed are all apps that announce to macOS that they can view a JPEG (some apps can view images, but not edit them, so this list is longer than the list of editors).
+
+<p align=left><img src="images/after_export.jpg" height="150"/></p>
+
+In addition to viewer apps, Nitro includes Reveal in Finder and the “Default App” which is whatever app you have chosen to open image files with the file format you are exporting.
+
+## <a name= Watermarking>Watermarking
+[Back to top](#top)
+
+Watermarking is the process of applying a partially transparent image or block of text to an image. This is usually done to protect the rights to an image or intellectual property. Nitro has a powerful watermarking feature that you set up in the Export interface (on the Mac, there is also a menu item: Nitro > Watermark Setup…
+
+Below is the watermark interface for text:
+
+<p align=left><img src="images/watermark.jpg" height="490"/></p>
+
+For any watermark, you can position it in any of six locations by clicking or tapping on the appropriate dot (left side of the dialog).
+
+You can also specify opacity, the size of the watermark, and the inset from the dot. The X inset moves the watermark left or right and the Y inset moves it up and down. 
+
+For a text watermark, you type in custom text, with a choice of font and color. Some default colors are also offered. In addition you can use an outlined-treatment for the text which makes look a bit more subtle on the image.
+
+For image watermarks, tap the “Use an Image” control, which displays this interface:
+
+<p align=left><img src="images/watermark_image.jpg" height="490"/></p>
+
+You can choose images from the photo library or the file system (Finder / Files.app). The same controls for opacity, size, and position are offered.
+
+Nitro currently only supports a single watermark, though there are plans to allow multiple watermarks and choose them at export time.
+
 ## <a name=Topics-Coming-Soon></a> Topics Coming Soon
 [Back to top](#top)
 
-## External Editing (Mac)
-
-## Batch Processing 
-
-## Export 
-
 ## Compare Mode 
+
+What it's for and what it's not for
+How to enter it
+How to use it
+How to exit
 
 ## N-Up 
 
+What it's for and what it's not for
+How to enter it
+How to use it
+How to exit
+
 ## Enhanced RAW Support
+
+Why it's needed
+link to camera support
+lens correction is not included
 
 ## Settings (esp. Standard RAW Development and such) 
 
+List each setting with brief description
+
 ## Power tips 
+
+Keyboard shortcuts
 
 ## <a name=Modification-History></a> Modification History
 [Back to top](#top)
 
+- 2025-01-24: External Editing, Batch Processing, Export, Watermarking
 - 2025-01-21: Editing on iPhones
 - 2025-01-20: Quick Fixes, Presets, LUTs, Masking, and RAW+JPEG Editing
 - 2025-01-20: Photo Library limitations and table of contents
@@ -2345,6 +2515,7 @@ Questions? Comments? Suggestions for topic areas? Email [support\@gentlemencoder
 <h1>Nitro Manual</h1>
 <p><strong><em>Note: This manual is incomplete and will evolve over time. I wanted to get something out to people now rather than wait until every section was done.</em></strong></p>
 <h2>Overview</h2>
+<p>Note: This user manual is best used as a reference in conjunction with the many videos I have created on YouTube (see Video Tutorials below).</p>
 <p>Nitro is an advanced photo library manager and editor. It is able to browse and edit images in both the Apple Photo Library and the File System (i.e., Finder folders on Mac and Files.app folders on iPads and iPhones). All edits are non-destructive. That means that the original image is never modified. Instead, edits are stored as metadata along with the image, and the edited image is reconstructed using the original image as needed. Nitro uses (and extends) Apple’s RAW engine to decode RAW images. Apple's RAW engine supports hundreds of RAW camera formats, as well as DNGs and iPhone ProRAW images. However, there are many cameras that Apple does not support fully. For most of those, Nitro adds additional camera support. These include Compressed Fujifilm images, Nikon HE* format, GoPro RAW and many more. This is one of Nitro’s key advantages over other apps that use Apple's RAW engine. Please note: when this manual refers to iOS, it is referring to both iOS (iPhones) and iPadOS (iPads).</p>
 <h2><a name=top></a>Table of Contents</h2>
 <table>
@@ -2357,38 +2528,58 @@ Questions? Comments? Suggestions for topic areas? Email [support\@gentlemencoder
 <tbody>
 <tr>
 <td align="left"><a href="#Apple-Photos-and-the-File-System">Apple Photos and the File System</a></td>
-<td align="left"><a href="#The-Editing-Panel">The Editing Panel</a></td>
-</tr>
-<tr>
-<td align="left"><a href="#Browsing-Options">Browsing Options</a></td>
-<td align="left"><a href="#Quick-Fixes">Quick Fixes</a></td>
-</tr>
-<tr>
-<td align="left"><a href="#Sorting-and-Filtering">Sorting and Filtering</a></td>
-<td align="left"><a href="#Presets-and-LUTs">Presets and LUTs</a></td>
-</tr>
-<tr>
-<td align="left"><a href="#Photo-Library-Limitations">Photo Library Limitations</a></td>
-<td align="left"><a href="#Editing-Sliders">Editing Sliders</a></td>
-</tr>
-<tr>
-<td align="left"><a href="#Rating-and-Flagging">Rating and Flagging</a></td>
-<td align="left"><a href="#Masking">Masking</a></td>
-</tr>
-<tr>
-<td align="left"><a href="#Finder-Files.app-Tagging">Finder / Files.app Tagging</a></td>
 <td align="left"><a href="#Editing-on-iPhones">Editing on iPhones</a></td>
 </tr>
 <tr>
-<td align="left"><a href="#XMP-File-Overview">XMP File Overview</a></td>
+<td align="left"><a href="#Browsing-Options">Browsing Options</a></td>
 <td align="left"><a href="#Metadata-and-ExifTool">Metadata and ExifTool</a></td>
 </tr>
 <tr>
+<td align="left"><a href="#Sorting-and-Filtering">Sorting and Filtering</a></td>
+<td align="left"><a href="#External-Editing">External Editing</a></td>
+</tr>
+<tr>
+<td align="left"><a href="#Photo-Library-Limitations">Photo Library Limitations</a></td>
+<td align="left"><a href="#Batch-Processing">Batch Processing</a></td>
+</tr>
+<tr>
+<td align="left"><a href="#Rating-and-Flagging">Rating and Flagging</a></td>
+<td align="left"><a href="#Export">Export</a></td>
+</tr>
+<tr>
+<td align="left"><a href="#Finder-Files.app-Tagging">Finder / Files.app Tagging</a></td>
+<td align="left"><a href="#Watermarking">Watermarking</a></td>
+</tr>
+<tr>
+<td align="left"><a href="#XMP-File-Overview">XMP File Overview</a></td>
+<td align="left"></td>
+</tr>
+<tr>
 <td align="left"><a href="#Cross-Machine-Workflows-Editing-and-Rating">Cross-Machine Workflows: Editing and Rating</a></td>
-<td align="left"><a href="#Topics-Coming-Soon">Topics Coming Soon</a></td>
+<td align="left"></td>
 </tr>
 <tr>
 <td align="left"><a href="#One-Up-The-Viewer">One Up (The Viewer)</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="#The-Editing-Panel">The Editing Panel</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="#Quick-Fixes">Quick Fixes</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="#Presets-and-LUTs">Presets and LUTs</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="#Editing-Sliders">Editing Sliders</a></td>
+<td align="left"><a href="#Topics-Coming-Soon">Topics Coming Soon</a></td>
+</tr>
+<tr>
+<td align="left"><a href="#Masking">Masking</a></td>
 <td align="left"><a href="#Modification-History">Modification History</a></td>
 </tr>
 </tbody>
@@ -2947,30 +3138,6 @@ aberration near edges / high contrast areas. If you have red or cyan aberration,
 <p>When browsing the Photo library, RAW + JPEG image pairs are represented by a single thumbnail. The thumbnail shown is the one made by Photos, or is the result of editing either the RAW or the JPEG. Photos defaults to editing the JPEG, while Nitro defaults to editing the RAW. There are a few different ways to control which one is edited. While in Edit, if you have an R+J image, you can switch between the two with the R+J button. It is located next to the 4-way control as shown here:</p>
 <p align=left><img src="images/rj_switch.jpg" height="164"/></p>
 <p>Click that button to switch between the two images. If you switch to the JPEG, adjustments that are RAW-only will disappear, and vice-versa. In addition, on the Mac, you can right-click on the Viewer to switch, or use the Image menu. Finally, in Settings, you can choose whether the RAW or the JPEG is the default.</p>
-<h2><a name= Metadata-and-ExifTool></a> Metadata and ExifTool</h2>
-<p><a href="#top">Back to top</a></p>
-<p>Nitro shows metadata in multiple ways. The primary way is via the Info button in the right side panel. This image shows the various controls available on either side of the main viewer window:</p>
-<p align=left><img src="images/oneUpLabeled.jpg" height="500"/></p>
-<p>If you pick the Info button, then you will get three sections of metadata. The first is shot information, as shown here:</p>
-<p align=left><img src="images/shot_info.jpg" height="260"/></p>
-<p>This information is also visible when in the Edit interface, though you can also collapse it to get more working space vertically.</p>
-<p>The second section contains a map with location information, if there is GPS data in the image.</p>
-<p align=left><img src="images/map.jpg" height="267"/></p>
-<p>You can drag the map to move it and there are also different view options (Satellite and Road).</p>
-<p>The last section contains miscellaneous metadata that varies from camera to camera:</p>
-<p align=left><img src="images/metadata.jpg" height="358"/></p>
-<p>This information is not editable.</p>
-<p>On the Mac, you can also access much more extensive metadata with Nitro's Exiftool integration. To access ExifTool, click the EXIF button in the right side panel.</p>
-<p align=left><img src="images/exiftool.jpg" height="464"/></p>
-<p>You can filter to show specific Exif keys and you can also click the &quot;heart&quot; icon to establish favorites. If you click the &quot;heart&quot; at the top (next to the search field), then Nitro will only show your favorites.</p>
-<p>The last way that metadata is presented is via Info &quot;tiles&quot;, also called the &quot;Flip View&quot;. To access that mode, pick the icon below the main Info button. That will display metadata inside the viewer itself. This is an example with a single image:</p>
-<p align=left><img src="images/single_flip.jpg" height="464"/></p>
-<p>On the Mac, you have access to ExifTool directly, so you can search for metadata.</p>
-<p>Because metadata is shown in the viewer itself, Flip View is able to show metadata for multiple images at once. To do that, enter either Compare Mode or N-Up Mode. If you then select multiple images and pick Flip View, you will see metadata side by side as shown below.</p>
-<p align=left><img src="images/multi_flip.jpg" height="464"/></p>
-<p>If you search in the ExifTool area, Nitro will filter all images by the same string.</p>
-<p>On iPhone, this flip view is the primary way that metadata is displayed, due to the smaller screen. In Edit, you can access shot information by tapping the Info button at the top of the screen as shown below.</p>
-<p align=left><img src="images/iphone_metadata_small.jpg" height="500"/></p>
 <h2><a name=Editing-on-iPhones></a>Editing on iPhones</h2>
 <p><a href="#top">Back to top</a></p>
 <p>Nitro has a different user interface on iPhones, due to the tall and narrow shape of the device. Most controls are on the bottom of the screen and more menu choices are in the “...” menu at the upper left. The app opens into the last album or folder you viewed. To access the other folders / albums, tap the Library button in the upper left. Below are some screenshots of the interface:</p>
@@ -3011,19 +3178,212 @@ aberration near edges / high contrast areas. If you have red or cyan aberration,
 <p>Masking is also different on iPhones. The basic controls are the same, but there are a few additional things to keep in mind.</p>
 <p align=left><img src="images/iphone_masking.jpg" height="280"/></p>
 <p>To enter masking, tap the Masks button at the bottom. You will see a display like the one shown above on the left. Tap the Add menu button to add a mask - the same types of masks are available on iPhones as on Macs and iPads. Also note the blue Exit button above that area. That is the way you exit masking. An exit button is needed because the same adjustment icons are available for masking as for regular editing, so a mode is required so it’s clear whether you are editing the entire image, or the adjustments for a particular mask. Once you create (or choose a previously-created mask), the brushing tools appear, with the same options and controls as iPads and Macs have.</p>
+<h2><a name= Metadata-and-ExifTool></a> Metadata and ExifTool</h2>
+<p><a href="#top">Back to top</a></p>
+<p>Nitro shows metadata in multiple ways. The primary way is via the Info button in the right side panel. This image shows the various controls available on either side of the main viewer window:</p>
+<p align=left><img src="images/oneUpLabeled.jpg" height="500"/></p>
+<p>If you pick the Info button, then you will get three sections of metadata. The first is shot information, as shown here:</p>
+<p align=left><img src="images/shot_info.jpg" height="260"/></p>
+<p>This information is also visible when in the Edit interface, though you can also collapse it to get more working space vertically.</p>
+<p>The second section contains a map with location information, if there is GPS data in the image.</p>
+<p align=left><img src="images/map.jpg" height="267"/></p>
+<p>You can drag the map to move it and there are also different view options (Satellite and Road).</p>
+<p>The last section contains miscellaneous metadata that varies from camera to camera:</p>
+<p align=left><img src="images/metadata.jpg" height="358"/></p>
+<p>This information is not editable.</p>
+<p>On the Mac, you can also access much more extensive metadata with Nitro's Exiftool integration. To access ExifTool, click the EXIF button in the right side panel.</p>
+<p align=left><img src="images/exiftool.jpg" height="464"/></p>
+<p>You can filter to show specific Exif keys and you can also click the &quot;heart&quot; icon to establish favorites. If you click the &quot;heart&quot; at the top (next to the search field), then Nitro will only show your favorites.</p>
+<p>The last way that metadata is presented is via Info &quot;tiles&quot;, also called the &quot;Flip View&quot;. To access that mode, pick the icon below the main Info button. That will display metadata inside the viewer itself. This is an example with a single image:</p>
+<p align=left><img src="images/single_flip.jpg" height="464"/></p>
+<p>On the Mac, you have access to ExifTool directly, so you can search for metadata.</p>
+<p>Because metadata is shown in the viewer itself, Flip View is able to show metadata for multiple images at once. To do that, enter either Compare Mode or N-Up Mode. If you then select multiple images and pick Flip View, you will see metadata side by side as shown below.</p>
+<p align=left><img src="images/multi_flip.jpg" height="464"/></p>
+<p>If you search in the ExifTool area, Nitro will filter all images by the same string.</p>
+<p>On iPhone, this flip view is the primary way that metadata is displayed, due to the smaller screen. In Edit, you can access shot information by tapping the Info button at the top of the screen as shown below.</p>
+<p align=left><img src="images/iphone_metadata_small.jpg" height="500"/></p>
+<h2><a name= External-Editing></a>External Editing (Mac)</h2>
+<p><a href="#top">Back to top</a></p>
+<p>External Editing is a Mac-only feature that integrates Nitro with other apps on your Mac. You can select an image in the Nitro grid and then send it to an external editor app. The list of apps is built automatically by Nitro by querying macOS for apps that announce that they can edit images. Then macOS returns a set of apps satisfying that requirement and Nitro then builds the menu. When you select an app, Nitro will also ask which type of file you want to send to the other app.</p>
+<p align=left><img src="images/external_edit.jpg" height="185"/></p>
+<p>The choices for file format are as follows:</p>
+<ul>
+<li>Original Image</li>
+<li>JPEG</li>
+<li>TIFF 8 bit</li>
+<li>TIFF 16 bit</li>
+</ul>
+<p>You also have choices for color profile:</p>
+<ul>
+<li>sRGB</li>
+<li>AdobeRGB</li>
+<li>Display P3</li>
+<li>ProPhoto RGB</li>
+<li>BT 2020</li>
+</ul>
+<p>If you request the original file, then the color profile is disabled and has no effect. Otherwise, Nitro will render a new file and send it to the other app. The image will be stored next to the original (again unless you are sending the original, in which case no extra file is made).</p>
+<p>This feature is only available when using Finder folders. That is because Photos is responsible for managing images in the library. It is unsafe to manage files outside of Photos’ control. Further, Apple does not provide a way for 3rd parties to import images into the Photo library by reference, so if the feature existed for the Photo Library, it would fail for referenced images (or it would put the externally edited image inside the library folder.</p>
+<h2><a name= Batch-Processing></a>Batch Processing</h2>
+<p><a href="#top">Back to top</a></p>
+<p>You use batch processing to work with multiple files together, rather than at the same time. The most common example of batch processing is probably batch export, where multiple images are exported with a common set of export parameters.</p>
+<p>On iPads and iPhones, you trigger batch processing by using the Select button to choose the images, and then tapping the Batch button. A collection of operations appears, which are described below:</p>
+<ul>
+<li>Export</li>
+<li>Paste Most Recent Edit</li>
+<li>Auto Enhance… (version 2025.1 and later)</li>
+<li>Apply Preset…</li>
+<li>Rotate left and right</li>
+<li>Revert to Original</li>
+<li>Flag / Reject / Remove Flag (version 2025.1 and later)</li>
+</ul>
+<p>In addition there are three other advanced operations:</p>
+<ul>
+<li>Build Thumbnails: this makes a new thumbnail from the image(s). This is useful when the thumbnail in your image is poor quality or has incorrect orientation.</li>
+<li>Reindex Images: this is useful when the database is out of date for some reason but it’s best to only use that in conjunction with a conversation with support@gentlemencoders.com</li>
+<li>Reconnect XMP Sidecars: If you pick it, the app will look for all the sidecars and rename them to have a lower-case extension. This is a rarely used feature, but if you find that the app is unexpectedly not processing your sidecars, check the file extension and use this feature to fix them. There is more information in the section on XMP.</li>
+</ul>
+<p>On the Mac, these operations are available either through the main menu (usually in the Image menu) or via the contextual menu when you right-click on an image.</p>
+<h4>Restrictions in Edit</h4>
+<p>Nitro reduces the set of batch operations while you are in Edit. In general, you cannot perform most of these actions using the Batch menu (or the Image menu on Mac) on the image currently being edited. That restriction may be removed in the future, but for now, simply use the analogous button in the Edit interface. For example, rather than use Apply Preset from the menus, go to the Preset interface in Edit. Export and Flagging are exceptions - those work on images in Edit as they do not affect the editing data itself.</p>
+<p>Note: If you want to apply a batch operation to both the currently edited image and other images not being edited, then exit Edit and then apply the action. That way, the edits are saved, and the operation can run. The simplest way is to click on the edit button on the right side panel which closes the edit panel and saves the edits.</p>
+<h2><a name= Export>Export</h2>
+<p><a href="#top">Back to top</a></p>
+<p>Export is the primary way to get images out of Nitro. The options for export vary depending on the platform you are using and where you are using the Photo Library or not.</p>
+<h3>Export Operations</h3>
+<p>On iOS, there are the following export options.</p>
+<p align=left><img src="images/export_operations.jpg" height="230"/></p>
+<p>The following table describes when those options are available. Yes means it is always available. No means it is never available. Otherwise, the notation indicates whether it’s available when using the Photo Library or File System (Finder / Files.app).</p>
+<table>
+<thead>
+<tr>
+<th align="left">Action</th>
+<th align="left">iOS</th>
+<th align="left">Mac</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Save a new image to the File System</td>
+<td align="left">Yes</td>
+<td align="left">Yes</td>
+</tr>
+<tr>
+<td align="left">Save a new image to the Photo Library</td>
+<td align="left">Yes</td>
+<td align="left">Yes</td>
+</tr>
+<tr>
+<td align="left">Copy original and rating / adjustment metadata to Photo Library</td>
+<td align="left">Files.app</td>
+<td align="left">Finder</td>
+</tr>
+<tr>
+<td align="left">Copy original and rating / adjustment metadata to File System</td>
+<td align="left">Photo Library</td>
+<td align="left">Photo Library</td>
+</tr>
+<tr>
+<td align="left">Share a new image to another app</td>
+<td align="left">Yes</td>
+<td align="left">No</td>
+</tr>
+<tr>
+<td align="left">Share original and rating / adjustment metadata to another app</td>
+<td align="left">Yes</td>
+<td align="left">No</td>
+</tr>
+<tr>
+<td align="left">Share original (only) to another app</td>
+<td align="left">Yes</td>
+<td align="left">No</td>
+</tr>
+<tr>
+<td align="left">Update image in Photo Library*</td>
+<td align="left">iOS 16</td>
+<td align="left">macOS 13</td>
+</tr>
+</tbody>
+</table>
+<p>The last item requires extra discussion. In iOS 16 / macOS 13 and earlier, any time a 3rd party app edited an image in the Photo Library, Photos would display a confirmation dialog. This dialog could not be suppressed. It made it very difficult to edit a series of images because the dialog would appear for each image. This was finally removed in iOS 17 and macOS 14 (Sonoma). To make the dialog less of an obstacle to smooth editing, Nitro has two modes of operation, and the default varies depending on OS version.</p>
+<ul>
+<li>On iOS 17 / macOS 14 and later: Nitro will commit edits to the library when saving them.</li>
+<li>On iOS 16 / macOS 13: Nitro will save edits locally rather than committing them to the Photo Library. You would then use Export to commit the edits to the library. The app will remind you to do that periodically.
+There are preferences to control this behavior, which are discussed in more detail in that section of this manual.</li>
+</ul>
+<h3>Export Settings</h3>
+<p>In addition to the operation, you can choose how the image is generated.</p>
+<p align=left><img src="images/export_settings.jpg" height="250"/></p>
+<ul>
+<li>Name: lets you set a custom name (see Batch Export for details on setting names for multiple files)</li>
+<li>Format: Choices include JPEG, TIFF (8 and 16 bit), HEIF (8 and 10 bit), and PNG (8 and 16 bit).</li>
+<li>Compression: compression quality, including lossless for TIFF and PNG.</li>
+<li>DPI / PPI: sets a metadata tag for the dots / pixels per inch. This has no effect on the image rendered, but can be helpful for printers and similar devices.</li>
+<li>Color Profile: choices include sRGB, AdobeRGB, Display P3, ProPhoto RGB and BT.2020. To avoid banding when using a wide-gamut format like AdobeRGB, Display P3, ProPhoto RGB and BT 2020, I recommend selecting either 10 or 16 bits for the format.</li>
+<li>Output Size: you can export to full size, a set of specific sizes (like 1024 pixels), or custom sizes. Note: Nitro does not upscale images at this time.
+<ul>
+<li>Fit to Longer Edge will take a single number and size the image so that the longer edge is the desired size (basically it fits to a square of the desired size)</li>
+<li>Fit to Width and Height sizes the image to fit within a rectangle defined by the custom size values.</li>
+</ul>
+</li>
+<li>Metadata: choices for including different metadata in the file.</li>
+<li>Watermark: you can apply a watermark to exported image. That is described more in the <a href="#Watermark">Watermark</a> section below.</li>
+<li>Copyright: you can enter a copyright to store in the IPTC copyright field.</li>
+<li>On the Mac, there are also After Export Actions, which are described below.</li>
+</ul>
+<p>In addition, ratings and keywords are stored into the exported file automatically (unless you choose not to export IPTC metadata).</p>
+<p>Note: export on iPhone looks and works a little different. See the section <a href="#Editing-on-iPhones">Editing on iPhones</a> for more information.</p>
+<h3>Batch Export</h3>
+<p>If you want to export or share multiple files at once, use Batch Export. On iOS, start by tapping the Select button and choosing the images. Then tap the Batch button. On macOS, select images as you would normally and then use File &gt; Export…</p>
+<p>The basic export interface is similar for batch export, except for file naming:</p>
+<p align=left><img src="images/export_operations.jpg" height="280"/></p>
+<p>When exporting multiple files, you can specify custom names as follows. For all examples below, the original file name is “IMG_8625”.</p>
+<ul>
+<li>Original Name: outputs “IMG_8625” with the desired file extension for the output format.</li>
+<li>Original Name + Date: uses a YYYY-MM-DD format, as in “IMG_8625-2025-01-24”</li>
+<li>Original Name + Suffix: you specify a number or a number with a character, as in “-1”, so you might see “IMG_8625-1”</li>
+<li>Custom Name + Sequence: You specify the name and a starting number. There is an optional padding field as well. So, if you entered a custom name of Vacation and a starting number of 100 and a padding of zero, you would see “Vacation-100.JPG”.</li>
+<li>Custom Name + Date + Sequence: includes the date, resulting in “Vacation-2025-01-24-100”</li>
+</ul>
+<h3>Export Actions</h3>
+<p>After Export Actions are a Mac-specific feature that lets you open another app after export completes. This works for a single image export or a batch export. The list of apps displayed are all apps that announce to macOS that they can view a JPEG (some apps can view images, but not edit them, so this list is longer than the list of editors).</p>
+<p align=left><img src="images/after_export.jpg" height="150"/></p>
+<p>In addition to viewer apps, Nitro includes Reveal in Finder and the “Default App” which is whatever app you have chosen to open image files with the file format you are exporting.</p>
+<h2><a name= Watermarking>Watermarking</h2>
+<p><a href="#top">Back to top</a></p>
+<p>Watermarking is the process of applying a partially transparent image or block of text to an image. This is usually done to protect the rights to an image or intellectual property. Nitro has a powerful watermarking feature that you set up in the Export interface (on the Mac, there is also a menu item: Nitro &gt; Watermark Setup…</p>
+<p>Below is the watermark interface for text:</p>
+<p align=left><img src="images/watermark.jpg" height="490"/></p>
+<p>For any watermark, you can position it in any of six locations by clicking or tapping on the appropriate dot (left side of the dialog).</p>
+<p>You can also specify opacity, the size of the watermark, and the inset from the dot. The X inset moves the watermark left or right and the Y inset moves it up and down.</p>
+<p>For a text watermark, you type in custom text, with a choice of font and color. Some default colors are also offered. In addition you can use an outlined-treatment for the text which makes look a bit more subtle on the image.</p>
+<p>For image watermarks, tap the “Use an Image” control, which displays this interface:</p>
+<p align=left><img src="images/watermark_image.jpg" height="490"/></p>
+<p>You can choose images from the photo library or the file system (Finder / Files.app). The same controls for opacity, size, and position are offered.</p>
+<p>Nitro currently only supports a single watermark, though there are plans to allow multiple watermarks and choose them at export time.</p>
 <h2><a name=Topics-Coming-Soon></a> Topics Coming Soon</h2>
 <p><a href="#top">Back to top</a></p>
-<h2>External Editing (Mac)</h2>
-<h2>Batch Processing</h2>
-<h2>Export</h2>
 <h2>Compare Mode</h2>
+<p>What it's for and what it's not for
+How to enter it
+How to use it
+How to exit</p>
 <h2>N-Up</h2>
+<p>What it's for and what it's not for
+How to enter it
+How to use it
+How to exit</p>
 <h2>Enhanced RAW Support</h2>
+<p>Why it's needed
+link to camera support
+lens correction is not included</p>
 <h2>Settings (esp. Standard RAW Development and such)</h2>
+<p>List each setting with brief description</p>
 <h2>Power tips</h2>
+<p>Keyboard shortcuts</p>
 <h2><a name=Modification-History></a> Modification History</h2>
 <p><a href="#top">Back to top</a></p>
 <ul>
+<li>2025-01-24: External Editing, Batch Processing, Export, Watermarking</li>
 <li>2025-01-21: Editing on iPhones</li>
 <li>2025-01-20: Quick Fixes, Presets, LUTs, Masking, and RAW+JPEG Editing</li>
 <li>2025-01-20: Photo Library limitations and table of contents</li>
