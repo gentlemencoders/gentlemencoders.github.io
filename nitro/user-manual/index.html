@@ -1361,20 +1361,22 @@ Nitro is an advanced photo library manager and editor. It is able to browse and 
 ## <a name=top></a>Table of Contents
 |   |   |
 |:----------|:----------|
-| [Apple Photos and the File System](#Apple-Photos-and-the-File-System)    |  [Editing on iPhones](#Editing-on-iPhones)   |
-| [Browsing Options](#Browsing-Options)    | [Metadata and ExifTool](#Metadata-and-ExifTool)    |
-| [Sorting and Filtering](#Sorting-and-Filtering)    | [External Editing](#External-Editing)    |
-| [Photo Library Limitations](#Photo-Library-Limitations)    |  [Batch Processing](#Batch-Processing)    |
-| [Rating and Flagging](#Rating-and-Flagging)    | [Export](#Export)    |
-| [Finder / Files.app Tagging](#Finder-Files.app-Tagging)    | [Watermarking](#Watermarking)    |
-| [XMP File Overview](#XMP-File-Overview)    |     |
-| [Cross-Machine Workflows: Editing and Rating](#Cross-Machine-Workflows-Editing-and-Rating)    |     |
-| [One Up (The Viewer)](#One-Up-The-Viewer)    |   |
-| [The Editing Panel](#The-Editing-Panel)    |  |
-| [Quick Fixes](#Quick-Fixes)    |  |
+| [Apple Photos and the File System](#Apple-Photos-and-the-File-System)    | [Masking](#Masking)    |
+| [Browsing Options](#Browsing-Options)    | [Editing on iPhones](#Editing-on-iPhones)    |
+| [Sorting and Filtering](#Sorting-and-Filtering)    |[Metadata and ExifTool](#Metadata-and-ExifTool)     |
+| [Photo Library Limitations](#Photo-Library-Limitations)    | [External Editing](#External-Editing)     |
+| [Rating and Flagging](#Rating-and-Flagging)    | [Batch Processing](#Batch-Processing)    |
+| [Finder / Files.app Tagging](#Finder-Files.app-Tagging)    | [Export](#Export)    |
+| [XMP File Overview](#XMP-File-Overview)    |  [Watermarking](#Watermarking)  |
+| [Cross-Machine Workflows: Editing and Rating](#Cross-Machine-Workflows-Editing-and-Rating)    |[Display Modes](#Display-Modes)   |
+| [Non-Destructive Editing](#Non-Destructive-Editing)   | [Single File Editor](#Single-File-Editor)   |
+| [One Up (The Viewer)](#One-Up-The-Viewer)    |[Enhanced RAW Support](#Enhanced-RAW-Support)   |
+| [The Editing Panel](#The-Editing-Panel)    | [Settings / Preferences](#Settings) |
+| [Quick Fixes](#Quick-Fixes)   |[Power Tips](#Power-Tips)   |
 | [Presets and LUTs](#Presets-and-LUTs)    |   |
-| [Editing Sliders](#Editing-Sliders)    | [Topics Coming Soon](#Topics-Coming-Soon)  |
-| [Masking](#Masking)    | [Modification History](#Modification-History)  |
+| [Editing Sliders](#Editing-Sliders)    | [Modification History](#Modification-History)  |
+
+
 
 ## Video Tutorials
 You can watch video tutorials of Nitro on YouTube at:
@@ -1627,6 +1629,55 @@ If you eject an external drive and open Nitro, then it will alert you about dire
 
 This may happen more frequently on iOS because Apple changes the path to the disk each time it is ejected and reconnected.
 
+### <a name=Non-Destructive-Editing></a> Non-Destructive Editing
+[Back to top](#top)
+
+This section is taken from the TidBITs article I wrote titled, "The Ins and Outs of Non-destructive Editing in Photos for Mac and iOS". You can find it [here](https://tidbits.com/2019/06/14/the-ins-and-outs-of-non-destructive-editing-in-photos-for-mac-and-ios/).
+
+One of the near-magical features of Photos, and iPhoto before it, is the way it allows you to edit a photo with the assurance that those edits are non-destructive—you can always revert to the original version. That said, non-destructive editing brings with it some confusion, particularly for those working with RAW images or using Photos extensions to do the editing. Both Photos and Nitro work in similar ways.
+
+Most applications directly modify your documents. For example, when you choose Save in Microsoft Word, it saves your changes directly to the document’s file, replacing the previous version of the file in the process. Some image-editing applications also modify image files directly, notably Adobe Photoshop and Apple’s Preview.
+
+In contrast, most photo-editing applications work non-destructively and never modify the original photo. The application applies edits to an in-memory copy of the original to produce a real-time preview of the adjusted image.
+
+<p align=left><img src="images/non_destructive1.jpg" height="240"/></p>
+
+The application may automatically save the edit instructions, or it may wait for you to hit Done or choose Save. From your standpoint, the image appears to be modified, but the original file remains untouched. While extremely useful, this non-destructive model can be confusing to users because it clashes with their expectations based on other applications.
+
+Photos saves the edit instructions in a location separate from the original file and generates a full-size JPEG (and smaller thumbnail images) that contain the results of the edits. (Photos makes JPEGs for all file types, including RAWs and Apple’s new HEIC files. You cannot rely on the Info pane in the Mac version of Photos to tell you the file type you are editing because it always shows you the file type of the original.) After the edit is completed, this is what is stored on disk:
+
+<p align=left><img src="images/non_destructive2.jpg" height="247"/></p>
+
+The full-size JPEG is an individual file on disk. The smaller thumbnails are stored in “container” files that hold multiple thumbnails at once. The edit instructions are stored in the photo library’s database, along with other information about the image.
+
+If you want to continue editing the image at a later date, Photos and Nitro reload both the original and the edit instructions and then combine them to display the adjusted image.
+
+Outside of editing mode, Photos and Nitro hide the original photo from view, instead showing the full-size JPEG or smaller thumbnails at every point in the application. While this is clearly correct, hiding the original reinforces the perception that the original has been modified. This is the main point of confusion for people. This can lead to users wanting to copy or duplicate images before they edit them — so convinced by this sleight of hand, they believe they need to preserve their original before making any adjustments. (Some people duplicate images because they want to have both unadjusted and adjusted copies visible in the grid, or to have two different edited versions, but this is less common.)
+
+When working with the File System, Nitro will save edits into an XMP file. When working with the Photo Library, Nitro saves edits and a full size JPEG (or HEIF) into the Photo Library. 
+
+A key question becomes, what happens if you edit an image in the Photo Library with two editors (for example, both Photos and Nitro)? This is a bit of a problem, because Photos can store the adjustment information for only one editor for any given image. As soon as the changes from a second editor are saved, the edit instructions from the first editor are discarded and cannot be recovered! The original image and the JPEG generated by the first editor are preserved, but the option to make changes with the first editor is lost. This is another key point of confusion for customers.
+
+To illustrate this problem, imagine that a user decides to use the Photos Auto Enhance feature on a RAW image and then use the Nitro Photo extension to apply a crop and vignette. This can make sense, because Photos has a good auto enhance and, unlike the Photos Vignette tool, the Nitro Vignette lets you pick the center of the vignette.
+
+Step 1: The user clicks the Auto Enhance button and clicks Done. As described earlier, Photos stores a full-size JPEG and the adjustment parameters in the library (the original is present, but hidden):
+<p align=left><img src="images/non_destructive3.jpg" height="263"/></p>
+
+Step 2: The user selects Nitro from the Photos extensions menu (or edits using the Nitro standalone app). Here’s where we run into the first difference from the previous example: Photos sends the full-size JPEG (not the original RAW image) to the Photos extension. Photos sends a JPEG rather than the original because the user expects to see the auto-enhanced image in the Photos extension, not the unadjusted original. Since Apple does not publish its internal format for adjustments, nor does it provide access to the code for its adjustments, there is no way for a Photos extension to apply the auto enhance made in Photos. This is also true in reverse—if a user edits an image with a Photos extension (or standalone app), and then edits further in Photos, they are working in Photos with a rendered JPEG—Photos has no way to apply edits made by other companies’ extensions to the original file.
+Step 3: The user applies Crop and Vignette in Nitro and clicks Save Changes. This is what gets stored in the Photos library:
+<p align=left><img src="images/non_destructive4.jpg" height="336"/></p>
+
+Notice that Photos has just discarded its own adjustment data! While everything may look fine, the Photos editing information has been lost, and the user is never informed of this. While the user can go back into the Photos extension and adjust the crop or vignette (or any other adjustment in the extension), they cannot go back a step and fine-tune the sliders in Photos. Further, the user cannot undo the step before they invoked the Photos extension—the only option available is Revert to Original because there is no Apple adjustment data left to revert to.
+Note that there are also now two JPEGs stored in the library, one from Photos and one from the Nitro Photos extension / Nitro standalone app. This is necessary to maintain some semblance of non-destructive editing. The first JPEG is the one created by Photos as a result of the Auto Enhance step and handed off to the other editor. Remember that for the user to re-edit an image with the same editor, the editor must receive the “starting image” along with its editing instructions. In this case, the “starting image” is the JPEG made after Auto Enhance was applied. Though there are two JPEGs, only the final JPEG is visible in the user interface. The auto-enhanced JPEG is hidden; it’s only stored in the library to enable re-editing with the Photos extension.
+“But,” you may say, “I can edit in Photos, and then use a Photos extension, and go back to Photos and continue editing.” True, but you are adjusting the JPEG sent back from the Photos extension, not the original adjustments you made in Photos to the RAW file. Imagine that you make the edited image black-and-white. This is what is stored:
+<p align=left><img src="images/non_destructive5.jpg" height="327"/></p>
+
+In other words, you are stacking Photos adjustments on top of the Nitro adjustments (and losing the Nitro adjustment data in the process).
+Also note that this loss of adjustment data will occur if you edit in the Photos extension first and then edit in Photos, or if you don’t edit in Photos at all, but instead do all your editing with two Photos extensions. The order doesn’t matter—just the use of two or more editors on the same image.
+A RAW-specific note: If you first edit a RAW in Photos and then send the image to Nitro or another RAW-friendly Photos extension like DxO OpticsPro, not only are you working in the Photos extension with an 8-bit JPEG, rather than a 12- or 14-bit RAW, you lose access to the RAW processing features that Nitro or DxO provide. This severe loss of quality happens for any edit done in Photos, even a simple rotate or flip.
+
+There is a lot more to discuss in this area, but I will refer you again to the [TidBITs article](https://tidbits.com/2019/06/14/the-ins-and-outs-of-non-destructive-editing-in-photos-for-mac-and-ios/). In more recent versions of macOS and iOS, Nitro is able to write 8 or 10-bit HEIF images, though Photos continues to only store 8-bit JPEGs.
+
 ## <a name=One-Up-The-Viewer></a>One Up (The Viewer)
 [Back to top](#top)
 
@@ -1649,8 +1700,6 @@ Nitro has a number of ways to zoom into images. The first way is by using the co
 
 ## <a name=The-Editing-Panel></a> The Editing Panel
 [Back to top](#top)
-
-[Undo, Redo, and Show Original](#Undo-Redo-and-Show-Original)<br>
 
 Enter edit by picking the first button on the right side panel (see above image).
 
@@ -2461,40 +2510,194 @@ You can choose images from the photo library or the file system (Finder / Files.
 
 Nitro currently only supports a single watermark, though there are plans to allow multiple watermarks and choose them at export time.
 
-## <a name=Topics-Coming-Soon></a> Topics Coming Soon
+### <a name= Display-Modes></a>Display Modes
 [Back to top](#top)
 
-## Compare Mode 
+Nitro has three display modes for the Viewer. A single image (sometimes called One-Up), multiple images (N-Up Mode), and a dedicated comparison mode (Compare Mode). Both Compare Mode and N-Up Mode are entered by clicking or tapping an icon on the right side panel. 
 
-What it's for and what it's not for
-How to enter it
-How to use it
-How to exit
+<p align=left><img src="images/nup_compare.jpg" height="257"/></p>
 
-## N-Up 
+One-Up is entered initially when exiting the grid, and also by exiting Compare Mode or N-Up (in other words, it’s the default display mode). Neither N-Up nor Compare Mode are available on iPhones due to the limited screen space. One-Up is described [earlier](#One-Up-The-Viewer) in this manual, so this section will focus on the other two modes.
 
-What it's for and what it's not for
-How to enter it
-How to use it
-How to exit
+N-Up and Compare Mode are quite similar, but there are a few key differences, which will be noted.
 
-## Enhanced RAW Support
+### N-Up
+[Back to top](#top)
 
-Why it's needed
-link to camera support
-lens correction is not included
+N-Up allows you to see images larger than in the grid, and to edit multiple images as well. When in N-up, the file name is displayed at the bottom of the image. There is one image that receives an outlined border; that is the primary selection and is the one that receives editing, rating and other commands. To change the primary selection, click or tap on one of the other images. To add or remove items from the displayed images:
 
-## Settings (esp. Standard RAW Development and such) 
+* macOS: use the command or shift key while selecting images
+* iOS: tap on a selected image to deselect, and tap on a deselected image to add it.
 
-List each setting with brief description
+<p align=left><img src="images/nup.jpg" height="711"/></p>
+
+A key control is visible above the images: Synchronize Pan (and Zoom). When checked, zooming one image will zoom all of them. Panning one image will pan all of them. However, when it is unchecked, only one image will be affected. If you use the keyboard shortcuts or buttons to zoom, then the primary selection is affected. Otherwise, if you are using a trackpad or pinch gestures, then the affected image is the one you are interacting with.
+
+In addition, the Info Flip (or Metadata Tiles) view changes behavior in N-Up and Compare mode. All images will flip to reveal metadata, as shown below. 
+
+<p align=left><img src="images/nup_flip.jpg" height="709"/></p>
+
+On macOS, when searching for EXIF metadata, all of the tiles will update simultaneously as shown below:
+
+<p align=left><img src="images/nup_flip_search.jpg" height="707"/></p>
+
+N-Up is limited to four images on iPads and sixteen images on Macs. You exit N-Up Mode by clicking or tapping on the N-Up Mode icon.
+
+### Compare
+[Back to top](#top)
+
+Compare Mode is very similar to N-Up, in terms of zoom, panning and metadata. However, there is a key difference in terms of selection and purpose. The purpose of Compare Mode is to make it easier to compare similar images and to then select the best of them. It works by “pinning” one image on the left of the display and then letting you cycle through other images with the arrow key or by tapping / clicking. Only two images are ever displayed in Compare Mode. The left image does not change as you add or remove items from the selection. Further, it is not the “primary selection” - instead the image on the right is the primary selection. There are two buttons on the top of the display area. 
+
+<p align=left><img src="images/compare_mode.jpg" height="776"/></p>
+
+The first button swaps the two images, making the right image the “pick.” The second image selects the pick and exits Compare Mode. You can also exit Compare Mode by clicking or tapping on the Compare Mode icon.
+
+## <a name= Single-File-Editor></a> Single File Editor
+[Back to top](#top)
+
+
+
+## <a name= Enhanced-RAW-Support></a>Enhanced RAW Support
+[Back to top](#top)
+
+Nitro relies on Apple’s RAW camera support to decode RAW images for display and editing. Apple’s decoder has been part of iOS, iPadOS, and macOS for years, and produces very good images. Apple also includes support for hundreds of cameras and formats. However, despite these strengths, Apple has been slow to add support for cameras, and recently support has reached glacial rates. This leaves many photographers unable to view or edit images from newer cameras in Apple’s Preview or Photos apps, and other apps that use Apple’s RAW support are similarly hampered. 
+
+To alleviate this increasingly severe problem, both RAW Power and Nitro include Enhanced RAW Support, which adds support for a large number of cameras and formats that Apple has not chosen to support. Nitro and RAW Power add this support in a unique way that extends Apple’s decoding capabilities. All of the same RAW editing controls are available for Enhanced RAW - so you are getting the quality decode and editing features. New cameras are added all the time. A few highlights of this support:
+
+* Fujifilm Compressed Format
+* Nikon HE and HE* formats
+* GoPro RAW files
+* High resolution modes for Olympus and other camera companies
+
+One missing aspect to this support, however, is lens correction. Images that are processed through Enhanced RAW Support do not receive automatic lens correction through Apple’s decoder. Instead, you will need to use the manual Lens Correction Adjustment, which is [described here](#Lens-Correction). The best part about Enhanced RAW Support is that it is transparent to you. Images simply work.
+
+RAW images that are not supported by Apple will appear blank in Photos. However, once you edit them in Nitro, then Nitro will create a full-size JPEG (or HEIF) and store that in the Photo Library. After that, you can view the image in Photos. However, if you revert to original (either in Nitro or Photos), the image will be blank again in Photos.
+ 
+When using the Nitro Photo Extension, you can still benefit from Enhanced RAW Support, though the image will look blank in Photos. However, when you open it in the Photo Extension, the image will be decoded and will be editable. Like the Nitro standalone app, when saving the edits, the edited image will be visible in Photos.
+
+The camera support list is maintained on the website, and it varies across operating system versions. The latest version can be [found here](https://www.gentlemencoders.com/extended-raw/index.html).
+
+Another solution to the lack of camera support is to convert images to DNG format. That will preserve lens correction (when possible). There are pros and cons to converting to DNG which are beyond the scope of this document. 
+
+## <a name= Settings></a>Settings (esp. Standard RAW Development and such) 
+[Back to top](#top)
+
+Nitro has a large collection of preferences, or settings. They are described below. Some of the items have help strings and so they are not included here.
+
+### Appearance
+
+* Always Use Dark Mode: Nitro defaults to running in dark mode. If you want to use the system setting for dark mode, then turn this off.
+* Viewer Background: You can set the background for images in the Viewer here. The default is 18% gray which is a neutral gray to the human eye.
+
+### Interface
+
+* Use Command Keys for Rating: this switches the rating keys from single keystrokes (1, 2, 3, 4, 5) to Cmd-1 through Cmd-5.
+* Automatically Advance when Flagging / Rating: you can enable these settings to advance to the next image when rating or flagging. This only works when displaying the viewer, not in the grid view.
+* Place Info & Edit on the Left Side: you can swap the controls so that Info and Edit are on the left side of the interface.
+* Always Make Tabbed Windows (macOS only): when you make a new browser, turn this on to get tabs rather than separate windows.
+* Double Click to Zoom Image: if you enable this, then double-click will zoom the image rather than return to the grid.
+*Increased Precision for Some Exif Keys: increases the number of decimal points shown in ExifTool output.
+* Do Not Hide Sidebar Automatically: keeps the sidebar visible when displaying the One Up Viewer.
+
+ ### Editing
+
+* Calculate Histogram with Display P3: this will switch the histogram from sRGB to Display P3, which is useful if you plan to export files to the Display P3 color profile.
+* Configure Editing Options: this lets you reorder adjustments in the Edit interface as well as control whether adjustments automatically collapse to save space.
+* RAW + JPEG: Edit JPEG By Default: this switches the default for RAW+JPEG from editing the RAW to editing the JPEG.
+
+
+### Photo Library Editing
+* Update Photo Library Automatically: if this is on, then edits in Nitro will be saved to the Photo Library immediately upon the edit finishing. On macOS Ventura and iOS 16, Photos will display a confirmation dialog. If this is off, then you will need to use the Export interface to update the photo library (see the Export section for more information).
+* File Format: when edits are saved to the Photo Library, the list of edit parameters are stored, as well as a rendered full-size image that includes those edits. Here, you can choose the file format for those full-size images. Apple only permits JPEG and HEIF file formats for full-size rendered images in the library. Changes to this settings, and the remaining two in this section, affect all future edits, but not previously saved ones.
+* Color Profile: lets you set the color profile for full size images stored in the Photo Library. If you use a wide gamut profile like Display P3, it’s best to also use HEIF-10 rather than HEIF-8 or JPEG to avoid banding.
+* Image Quality: set the compression ratio for full-size images.
+
+
+### Auto Lens Correction
+* Apply Lens Correction When Possible: you can let Nitro automatically correct images when it can determine a good correction based on previous corrections you made manually (see Lens Correction for more details). 
+* Only Apply Auto Lens Correction to RAWs: Camera-generated JPEGs usually have lens correction already applied, so this usually should be set to ON to avoid applying a duplicate correction. However, if the camera doesn’t apply correction, or an insufficient one, then turning this on can make sense.
+
+
+### Purchase Status
+This section lets you view your current active purchase(s) of Nitro. In addition, you can manage any Nitro subscription you have (displaying Apple’s interface for this). If you have a lifetime purchase or are using the trial, then the Manage Subscription button will be disabled. The View Prices button lets you display the paywall in case you want to switch to a different plan (for example, purchase the lifetime option while on subscription, or if you want to buy something while still on the trial).
+
 
 ## Power tips 
+[Back to top](#top)
 
-Keyboard shortcuts
+This is an evolving section. 
+
+
+### Keyboard Shortcuts
+This does not include every shortcut that is visible in the menus on macOS. The ⌥ is the Option key; the ^ is the Control key, and ⇧ is the Shift key. On iPads with a keyboard, you can press and hold the Command key (⌘) to see the shortcuts.
+
+| Command   | Shortcut   |
+|:----------|:----------|
+| Export   | ⌘E    |
+| Larger Thumbnails   | ⌥⌘+    |
+| Smaller Thumbnails   | ⌥⌘-    |
+| Show / Hide Sidebar   | ^⌘S    |
+| Filter…   | ⌥⌘F    |
+| Filter: Show Unrated or Better   | ⌥⌘0    |
+| Filter: Show ★ or Better   | ⌥⌘1    |
+| Filter: Show ★★ or Better   | ⌥⌘2    |
+| Filter: Show ★★★ or Better   | ⌥⌘3    |
+| Filter: Show ★★★★ or Better   | ⌥⌘4    |
+| Filter: Show ★★★★★   | ⌥⌘5    |
+| Filter: Show Flagged   | ⌥⌘ \    |
+| Filter: Show Rejected   | ⌥⌘X    |
+| Filter: Show Favorites   | ⌥⌘8    |
+| Rate ★   | 1    |
+| Rate ★★   | 2    |
+| Rate ★★★   | 3    |
+| Rate ★★★★   | 4    |
+| Rate ★★★★★   | 5    |
+| Flag Image   | \    |
+| Reject Image   | X    |
+| Remove Flag   | ]    |
+| Mark Favorite   | .    |
+| Copy Edits   | ⌥⌘C    |
+| Paste Edits   | ⌥⌘V    |
+| Rotate Left   | ⇧⌘L    |
+| Rotate Right   | ⇧⌘R    |
+| Highlight Hot and Cold Pixels   | ⌥⇧⌘H    |
+| Delete From Library   | ⌘⌫    |
+| Build Thumbnails   | ⌥⇧⌘T    |
+| One-Up Mode   | ⌥P    |
+| N-Up Mode   | ⌥N    |
+| Compare Mode   | ⌥C    |
+| Show / Hide Viewer   | V    |
+| Show ExifTool Info   | ⌥⇧⌘I    |
+| Enter Edit   | Return Key    |
+
+
+These commands are enabled when you are in Edit:
+
+| Edit Command   | Shortcut   |
+|:----------|:----------|
+| Show Unedited Image  | M    |
+| Exit Edit   | Return Key    |
+
+
+These commands are enabled when you are in Edit and have the Sliders view open:
+
+| Edit Command   | Shortcut   |
+|:----------|:----------|
+| Add Black and White   | B    |
+| Enter / Exit Crop Tool   | C    |
+| Enter / Exit Straighten Tool   | G    |
+| Rotate Left   | [    |
+| Rotate Right   | ]    |
+| Flip Horizontal   | ⌥⇧H    |
+| Flip Vertical   | ⌥⇧V    
+| Add Vignette   | ^V    |
+| Enter / Exit White Balance Sampler   | W    |
+
 
 ## <a name=Modification-History></a> Modification History
 [Back to top](#top)
 
+- 2025-01-25: Display Modes, Enhanced RAW Support, Non-Destructive Editing, Settings, Shortcut Keys
 - 2025-01-24: External Editing, Batch Processing, Export, Watermarking
 - 2025-01-21: Editing on iPhones
 - 2025-01-20: Quick Fixes, Presets, LUTs, Masking, and RAW+JPEG Editing
@@ -2528,47 +2731,51 @@ Questions? Comments? Suggestions for topic areas? Email [support\@gentlemencoder
 <tbody>
 <tr>
 <td align="left"><a href="#Apple-Photos-and-the-File-System">Apple Photos and the File System</a></td>
-<td align="left"><a href="#Editing-on-iPhones">Editing on iPhones</a></td>
+<td align="left"><a href="#Masking">Masking</a></td>
 </tr>
 <tr>
 <td align="left"><a href="#Browsing-Options">Browsing Options</a></td>
-<td align="left"><a href="#Metadata-and-ExifTool">Metadata and ExifTool</a></td>
+<td align="left"><a href="#Editing-on-iPhones">Editing on iPhones</a></td>
 </tr>
 <tr>
 <td align="left"><a href="#Sorting-and-Filtering">Sorting and Filtering</a></td>
-<td align="left"><a href="#External-Editing">External Editing</a></td>
+<td align="left"><a href="#Metadata-and-ExifTool">Metadata and ExifTool</a></td>
 </tr>
 <tr>
 <td align="left"><a href="#Photo-Library-Limitations">Photo Library Limitations</a></td>
-<td align="left"><a href="#Batch-Processing">Batch Processing</a></td>
+<td align="left"><a href="#External-Editing">External Editing</a></td>
 </tr>
 <tr>
 <td align="left"><a href="#Rating-and-Flagging">Rating and Flagging</a></td>
-<td align="left"><a href="#Export">Export</a></td>
+<td align="left"><a href="#Batch-Processing">Batch Processing</a></td>
 </tr>
 <tr>
 <td align="left"><a href="#Finder-Files.app-Tagging">Finder / Files.app Tagging</a></td>
-<td align="left"><a href="#Watermarking">Watermarking</a></td>
+<td align="left"><a href="#Export">Export</a></td>
 </tr>
 <tr>
 <td align="left"><a href="#XMP-File-Overview">XMP File Overview</a></td>
-<td align="left"></td>
+<td align="left"><a href="#Watermarking">Watermarking</a></td>
 </tr>
 <tr>
 <td align="left"><a href="#Cross-Machine-Workflows-Editing-and-Rating">Cross-Machine Workflows: Editing and Rating</a></td>
-<td align="left"></td>
+<td align="left"><a href="#Display-Modes">Display Modes</a></td>
+</tr>
+<tr>
+<td align="left"><a href="#Non-Destructive-Editing">Non-Destructive Editing</a></td>
+<td align="left"><a href="#Single-File-Editor">Single File Editor</a></td>
 </tr>
 <tr>
 <td align="left"><a href="#One-Up-The-Viewer">One Up (The Viewer)</a></td>
-<td align="left"></td>
+<td align="left"><a href="#Enhanced-RAW-Support">Enhanced RAW Support</a></td>
 </tr>
 <tr>
 <td align="left"><a href="#The-Editing-Panel">The Editing Panel</a></td>
-<td align="left"></td>
+<td align="left"><a href="#Settings">Settings / Preferences</a></td>
 </tr>
 <tr>
 <td align="left"><a href="#Quick-Fixes">Quick Fixes</a></td>
-<td align="left"></td>
+<td align="left"><a href="#Power-Tips">Power Tips</a></td>
 </tr>
 <tr>
 <td align="left"><a href="#Presets-and-LUTs">Presets and LUTs</a></td>
@@ -2576,10 +2783,6 @@ Questions? Comments? Suggestions for topic areas? Email [support\@gentlemencoder
 </tr>
 <tr>
 <td align="left"><a href="#Editing-Sliders">Editing Sliders</a></td>
-<td align="left"><a href="#Topics-Coming-Soon">Topics Coming Soon</a></td>
-</tr>
-<tr>
-<td align="left"><a href="#Masking">Masking</a></td>
 <td align="left"><a href="#Modification-History">Modification History</a></td>
 </tr>
 </tbody>
@@ -2744,6 +2947,35 @@ Or, go into Edit for these images - Nitro will build the thumbnail when it loads
 <p>If you eject an external drive and open Nitro, then it will alert you about directories that are missing. It is safe to select Remove from App. You will not lose any data.</p>
 <p align=left><img src="images/unable_to_find_folders.jpg" height="311"/></p>
 <p>This may happen more frequently on iOS because Apple changes the path to the disk each time it is ejected and reconnected.</p>
+<h3><a name=Non-Destructive-Editing></a> Non-Destructive Editing</h3>
+<p><a href="#top">Back to top</a></p>
+<p>This section is taken from the TidBITs article I wrote titled, &quot;The Ins and Outs of Non-destructive Editing in Photos for Mac and iOS&quot;. You can find it <a href="https://tidbits.com/2019/06/14/the-ins-and-outs-of-non-destructive-editing-in-photos-for-mac-and-ios/">here</a>.</p>
+<p>One of the near-magical features of Photos, and iPhoto before it, is the way it allows you to edit a photo with the assurance that those edits are non-destructive—you can always revert to the original version. That said, non-destructive editing brings with it some confusion, particularly for those working with RAW images or using Photos extensions to do the editing. Both Photos and Nitro work in similar ways.</p>
+<p>Most applications directly modify your documents. For example, when you choose Save in Microsoft Word, it saves your changes directly to the document’s file, replacing the previous version of the file in the process. Some image-editing applications also modify image files directly, notably Adobe Photoshop and Apple’s Preview.</p>
+<p>In contrast, most photo-editing applications work non-destructively and never modify the original photo. The application applies edits to an in-memory copy of the original to produce a real-time preview of the adjusted image.</p>
+<p align=left><img src="images/non_destructive1.jpg" height="240"/></p>
+<p>The application may automatically save the edit instructions, or it may wait for you to hit Done or choose Save. From your standpoint, the image appears to be modified, but the original file remains untouched. While extremely useful, this non-destructive model can be confusing to users because it clashes with their expectations based on other applications.</p>
+<p>Photos saves the edit instructions in a location separate from the original file and generates a full-size JPEG (and smaller thumbnail images) that contain the results of the edits. (Photos makes JPEGs for all file types, including RAWs and Apple’s new HEIC files. You cannot rely on the Info pane in the Mac version of Photos to tell you the file type you are editing because it always shows you the file type of the original.) After the edit is completed, this is what is stored on disk:</p>
+<p align=left><img src="images/non_destructive2.jpg" height="247"/></p>
+<p>The full-size JPEG is an individual file on disk. The smaller thumbnails are stored in “container” files that hold multiple thumbnails at once. The edit instructions are stored in the photo library’s database, along with other information about the image.</p>
+<p>If you want to continue editing the image at a later date, Photos and Nitro reload both the original and the edit instructions and then combine them to display the adjusted image.</p>
+<p>Outside of editing mode, Photos and Nitro hide the original photo from view, instead showing the full-size JPEG or smaller thumbnails at every point in the application. While this is clearly correct, hiding the original reinforces the perception that the original has been modified. This is the main point of confusion for people. This can lead to users wanting to copy or duplicate images before they edit them — so convinced by this sleight of hand, they believe they need to preserve their original before making any adjustments. (Some people duplicate images because they want to have both unadjusted and adjusted copies visible in the grid, or to have two different edited versions, but this is less common.)</p>
+<p>When working with the File System, Nitro will save edits into an XMP file. When working with the Photo Library, Nitro saves edits and a full size JPEG (or HEIF) into the Photo Library.</p>
+<p>A key question becomes, what happens if you edit an image in the Photo Library with two editors (for example, both Photos and Nitro)? This is a bit of a problem, because Photos can store the adjustment information for only one editor for any given image. As soon as the changes from a second editor are saved, the edit instructions from the first editor are discarded and cannot be recovered! The original image and the JPEG generated by the first editor are preserved, but the option to make changes with the first editor is lost. This is another key point of confusion for customers.</p>
+<p>To illustrate this problem, imagine that a user decides to use the Photos Auto Enhance feature on a RAW image and then use the Nitro Photo extension to apply a crop and vignette. This can make sense, because Photos has a good auto enhance and, unlike the Photos Vignette tool, the Nitro Vignette lets you pick the center of the vignette.</p>
+<p>Step 1: The user clicks the Auto Enhance button and clicks Done. As described earlier, Photos stores a full-size JPEG and the adjustment parameters in the library (the original is present, but hidden):</p>
+<p align=left><img src="images/non_destructive3.jpg" height="263"/></p>
+<p>Step 2: The user selects Nitro from the Photos extensions menu (or edits using the Nitro standalone app). Here’s where we run into the first difference from the previous example: Photos sends the full-size JPEG (not the original RAW image) to the Photos extension. Photos sends a JPEG rather than the original because the user expects to see the auto-enhanced image in the Photos extension, not the unadjusted original. Since Apple does not publish its internal format for adjustments, nor does it provide access to the code for its adjustments, there is no way for a Photos extension to apply the auto enhance made in Photos. This is also true in reverse—if a user edits an image with a Photos extension (or standalone app), and then edits further in Photos, they are working in Photos with a rendered JPEG—Photos has no way to apply edits made by other companies’ extensions to the original file.
+Step 3: The user applies Crop and Vignette in Nitro and clicks Save Changes. This is what gets stored in the Photos library:</p>
+<p align=left><img src="images/non_destructive4.jpg" height="336"/></p>
+<p>Notice that Photos has just discarded its own adjustment data! While everything may look fine, the Photos editing information has been lost, and the user is never informed of this. While the user can go back into the Photos extension and adjust the crop or vignette (or any other adjustment in the extension), they cannot go back a step and fine-tune the sliders in Photos. Further, the user cannot undo the step before they invoked the Photos extension—the only option available is Revert to Original because there is no Apple adjustment data left to revert to.
+Note that there are also now two JPEGs stored in the library, one from Photos and one from the Nitro Photos extension / Nitro standalone app. This is necessary to maintain some semblance of non-destructive editing. The first JPEG is the one created by Photos as a result of the Auto Enhance step and handed off to the other editor. Remember that for the user to re-edit an image with the same editor, the editor must receive the “starting image” along with its editing instructions. In this case, the “starting image” is the JPEG made after Auto Enhance was applied. Though there are two JPEGs, only the final JPEG is visible in the user interface. The auto-enhanced JPEG is hidden; it’s only stored in the library to enable re-editing with the Photos extension.
+“But,” you may say, “I can edit in Photos, and then use a Photos extension, and go back to Photos and continue editing.” True, but you are adjusting the JPEG sent back from the Photos extension, not the original adjustments you made in Photos to the RAW file. Imagine that you make the edited image black-and-white. This is what is stored:</p>
+<p align=left><img src="images/non_destructive5.jpg" height="327"/></p>
+<p>In other words, you are stacking Photos adjustments on top of the Nitro adjustments (and losing the Nitro adjustment data in the process).
+Also note that this loss of adjustment data will occur if you edit in the Photos extension first and then edit in Photos, or if you don’t edit in Photos at all, but instead do all your editing with two Photos extensions. The order doesn’t matter—just the use of two or more editors on the same image.
+A RAW-specific note: If you first edit a RAW in Photos and then send the image to Nitro or another RAW-friendly Photos extension like DxO OpticsPro, not only are you working in the Photos extension with an 8-bit JPEG, rather than a 12- or 14-bit RAW, you lose access to the RAW processing features that Nitro or DxO provide. This severe loss of quality happens for any edit done in Photos, even a simple rotate or flip.</p>
+<p>There is a lot more to discuss in this area, but I will refer you again to the <a href="https://tidbits.com/2019/06/14/the-ins-and-outs-of-non-destructive-editing-in-photos-for-mac-and-ios/">TidBITs article</a>. In more recent versions of macOS and iOS, Nitro is able to write 8 or 10-bit HEIF images, though Photos continues to only store 8-bit JPEGs.</p>
 <h2><a name=One-Up-The-Viewer></a>One Up (The Viewer)</h2>
 <p><a href="#top">Back to top</a></p>
 <p>From the grid, you can tap (iOS) or double-click (Mac) to enter the Viewer. When in Viewer mode, the grid is replaced by a filmstrip and there is a large set of controls on the left and right sides of a large image view, as shown below:</p>
@@ -2760,7 +2992,6 @@ Or, go into Edit for these images - Nitro will build the thumbnail when it loads
 </table>
 <h2><a name=The-Editing-Panel></a> The Editing Panel</h2>
 <p><a href="#top">Back to top</a></p>
-<p><a href="#Undo-Redo-and-Show-Original">Undo, Redo, and Show Original</a><br></p>
 <p>Enter edit by picking the first button on the right side panel (see above image).</p>
 <p align=left><img src="images/editPanelLabeled.jpg" height="510"/></p>
 <p>At the top is shot information including shutter speed ISO and camera. You can collapse it or expand it to get more information. Next is the histogram which includes clipping indicators, which are discussed below. Histograms visually describe the distribution of color or tone in an image; the leftmost column represents black and the rightmost column represents white.
@@ -3360,29 +3591,315 @@ There are preferences to control this behavior, which are discussed in more deta
 <p align=left><img src="images/watermark_image.jpg" height="490"/></p>
 <p>You can choose images from the photo library or the file system (Finder / Files.app). The same controls for opacity, size, and position are offered.</p>
 <p>Nitro currently only supports a single watermark, though there are plans to allow multiple watermarks and choose them at export time.</p>
-<h2><a name=Topics-Coming-Soon></a> Topics Coming Soon</h2>
+<h3><a name= Display-Modes></a>Display Modes</h3>
 <p><a href="#top">Back to top</a></p>
-<h2>Compare Mode</h2>
-<p>What it's for and what it's not for
-How to enter it
-How to use it
-How to exit</p>
-<h2>N-Up</h2>
-<p>What it's for and what it's not for
-How to enter it
-How to use it
-How to exit</p>
-<h2>Enhanced RAW Support</h2>
-<p>Why it's needed
-link to camera support
-lens correction is not included</p>
-<h2>Settings (esp. Standard RAW Development and such)</h2>
-<p>List each setting with brief description</p>
+<p>Nitro has three display modes for the Viewer. A single image (sometimes called One-Up), multiple images (N-Up Mode), and a dedicated comparison mode (Compare Mode). Both Compare Mode and N-Up Mode are entered by clicking or tapping an icon on the right side panel.</p>
+<p align=left><img src="images/nup_compare.jpg" height="257"/></p>
+<p>One-Up is entered initially when exiting the grid, and also by exiting Compare Mode or N-Up (in other words, it’s the default display mode). Neither N-Up nor Compare Mode are available on iPhones due to the limited screen space. One-Up is described <a href="#One-Up-The-Viewer">earlier</a> in this manual, so this section will focus on the other two modes.</p>
+<p>N-Up and Compare Mode are quite similar, but there are a few key differences, which will be noted.</p>
+<h3>N-Up</h3>
+<p><a href="#top">Back to top</a></p>
+<p>N-Up allows you to see images larger than in the grid, and to edit multiple images as well. When in N-up, the file name is displayed at the bottom of the image. There is one image that receives an outlined border; that is the primary selection and is the one that receives editing, rating and other commands. To change the primary selection, click or tap on one of the other images. To add or remove items from the displayed images:</p>
+<ul>
+<li>macOS: use the command or shift key while selecting images</li>
+<li>iOS: tap on a selected image to deselect, and tap on a deselected image to add it.</li>
+</ul>
+<p align=left><img src="images/nup.jpg" height="711"/></p>
+<p>A key control is visible above the images: Synchronize Pan (and Zoom). When checked, zooming one image will zoom all of them. Panning one image will pan all of them. However, when it is unchecked, only one image will be affected. If you use the keyboard shortcuts or buttons to zoom, then the primary selection is affected. Otherwise, if you are using a trackpad or pinch gestures, then the affected image is the one you are interacting with.</p>
+<p>In addition, the Info Flip (or Metadata Tiles) view changes behavior in N-Up and Compare mode. All images will flip to reveal metadata, as shown below.</p>
+<p align=left><img src="images/nup_flip.jpg" height="709"/></p>
+<p>On macOS, when searching for EXIF metadata, all of the tiles will update simultaneously as shown below:</p>
+<p align=left><img src="images/nup_flip_search.jpg" height="707"/></p>
+<p>N-Up is limited to four images on iPads and sixteen images on Macs. You exit N-Up Mode by clicking or tapping on the N-Up Mode icon.</p>
+<h3>Compare</h3>
+<p><a href="#top">Back to top</a></p>
+<p>Compare Mode is very similar to N-Up, in terms of zoom, panning and metadata. However, there is a key difference in terms of selection and purpose. The purpose of Compare Mode is to make it easier to compare similar images and to then select the best of them. It works by “pinning” one image on the left of the display and then letting you cycle through other images with the arrow key or by tapping / clicking. Only two images are ever displayed in Compare Mode. The left image does not change as you add or remove items from the selection. Further, it is not the “primary selection” - instead the image on the right is the primary selection. There are two buttons on the top of the display area.</p>
+<p align=left><img src="images/compare_mode.jpg" height="776"/></p>
+<p>The first button swaps the two images, making the right image the “pick.” The second image selects the pick and exits Compare Mode. You can also exit Compare Mode by clicking or tapping on the Compare Mode icon.</p>
+<h2><a name= Single-File-Editor></a> Single File Editor</h2>
+<p><a href="#top">Back to top</a></p>
+<h2><a name= Enhanced-RAW-Support></a>Enhanced RAW Support</h2>
+<p><a href="#top">Back to top</a></p>
+<p>Nitro relies on Apple’s RAW camera support to decode RAW images for display and editing. Apple’s decoder has been part of iOS, iPadOS, and macOS for years, and produces very good images. Apple also includes support for hundreds of cameras and formats. However, despite these strengths, Apple has been slow to add support for cameras, and recently support has reached glacial rates. This leaves many photographers unable to view or edit images from newer cameras in Apple’s Preview or Photos apps, and other apps that use Apple’s RAW support are similarly hampered.</p>
+<p>To alleviate this increasingly severe problem, both RAW Power and Nitro include Enhanced RAW Support, which adds support for a large number of cameras and formats that Apple has not chosen to support. Nitro and RAW Power add this support in a unique way that extends Apple’s decoding capabilities. All of the same RAW editing controls are available for Enhanced RAW - so you are getting the quality decode and editing features. New cameras are added all the time. A few highlights of this support:</p>
+<ul>
+<li>Fujifilm Compressed Format</li>
+<li>Nikon HE and HE* formats</li>
+<li>GoPro RAW files</li>
+<li>High resolution modes for Olympus and other camera companies</li>
+</ul>
+<p>One missing aspect to this support, however, is lens correction. Images that are processed through Enhanced RAW Support do not receive automatic lens correction through Apple’s decoder. Instead, you will need to use the manual Lens Correction Adjustment, which is <a href="#Lens-Correction">described here</a>. The best part about Enhanced RAW Support is that it is transparent to you. Images simply work.</p>
+<p>RAW images that are not supported by Apple will appear blank in Photos. However, once you edit them in Nitro, then Nitro will create a full-size JPEG (or HEIF) and store that in the Photo Library. After that, you can view the image in Photos. However, if you revert to original (either in Nitro or Photos), the image will be blank again in Photos.</p>
+<p>When using the Nitro Photo Extension, you can still benefit from Enhanced RAW Support, though the image will look blank in Photos. However, when you open it in the Photo Extension, the image will be decoded and will be editable. Like the Nitro standalone app, when saving the edits, the edited image will be visible in Photos.</p>
+<p>The camera support list is maintained on the website, and it varies across operating system versions. The latest version can be <a href="https://www.gentlemencoders.com/extended-raw/index.html">found here</a>.</p>
+<p>Another solution to the lack of camera support is to convert images to DNG format. That will preserve lens correction (when possible). There are pros and cons to converting to DNG which are beyond the scope of this document.</p>
+<h2><a name= Settings></a>Settings (esp. Standard RAW Development and such)</h2>
+<p><a href="#top">Back to top</a></p>
+<p>Nitro has a large collection of preferences, or settings. They are described below. Some of the items have help strings and so they are not included here.</p>
+<h3>Appearance</h3>
+<ul>
+<li>Always Use Dark Mode: Nitro defaults to running in dark mode. If you want to use the system setting for dark mode, then turn this off.</li>
+<li>Viewer Background: You can set the background for images in the Viewer here. The default is 18% gray which is a neutral gray to the human eye.</li>
+</ul>
+<h3>Interface</h3>
+<ul>
+<li>Use Command Keys for Rating: this switches the rating keys from single keystrokes (1, 2, 3, 4, 5) to Cmd-1 through Cmd-5.</li>
+<li>Automatically Advance when Flagging / Rating: you can enable these settings to advance to the next image when rating or flagging. This only works when displaying the viewer, not in the grid view.</li>
+<li>Place Info &amp; Edit on the Left Side: you can swap the controls so that Info and Edit are on the left side of the interface.</li>
+<li>Always Make Tabbed Windows (macOS only): when you make a new browser, turn this on to get tabs rather than separate windows.</li>
+<li>Double Click to Zoom Image: if you enable this, then double-click will zoom the image rather than return to the grid.
+*Increased Precision for Some Exif Keys: increases the number of decimal points shown in ExifTool output.</li>
+<li>Do Not Hide Sidebar Automatically: keeps the sidebar visible when displaying the One Up Viewer.</li>
+</ul>
+<h3>Editing</h3>
+<ul>
+<li>Calculate Histogram with Display P3: this will switch the histogram from sRGB to Display P3, which is useful if you plan to export files to the Display P3 color profile.</li>
+<li>Configure Editing Options: this lets you reorder adjustments in the Edit interface as well as control whether adjustments automatically collapse to save space.</li>
+<li>RAW + JPEG: Edit JPEG By Default: this switches the default for RAW+JPEG from editing the RAW to editing the JPEG.</li>
+</ul>
+<h3>Photo Library Editing</h3>
+<ul>
+<li>Update Photo Library Automatically: if this is on, then edits in Nitro will be saved to the Photo Library immediately upon the edit finishing. On macOS Ventura and iOS 16, Photos will display a confirmation dialog. If this is off, then you will need to use the Export interface to update the photo library (see the Export section for more information).</li>
+<li>File Format: when edits are saved to the Photo Library, the list of edit parameters are stored, as well as a rendered full-size image that includes those edits. Here, you can choose the file format for those full-size images. Apple only permits JPEG and HEIF file formats for full-size rendered images in the library. Changes to this settings, and the remaining two in this section, affect all future edits, but not previously saved ones.</li>
+<li>Color Profile: lets you set the color profile for full size images stored in the Photo Library. If you use a wide gamut profile like Display P3, it’s best to also use HEIF-10 rather than HEIF-8 or JPEG to avoid banding.</li>
+<li>Image Quality: set the compression ratio for full-size images.</li>
+</ul>
+<h3>Auto Lens Correction</h3>
+<ul>
+<li>Apply Lens Correction When Possible: you can let Nitro automatically correct images when it can determine a good correction based on previous corrections you made manually (see Lens Correction for more details).</li>
+<li>Only Apply Auto Lens Correction to RAWs: Camera-generated JPEGs usually have lens correction already applied, so this usually should be set to ON to avoid applying a duplicate correction. However, if the camera doesn’t apply correction, or an insufficient one, then turning this on can make sense.</li>
+</ul>
+<h3>Purchase Status</h3>
+<p>This section lets you view your current active purchase(s) of Nitro. In addition, you can manage any Nitro subscription you have (displaying Apple’s interface for this). If you have a lifetime purchase or are using the trial, then the Manage Subscription button will be disabled. The View Prices button lets you display the paywall in case you want to switch to a different plan (for example, purchase the lifetime option while on subscription, or if you want to buy something while still on the trial).</p>
 <h2>Power tips</h2>
-<p>Keyboard shortcuts</p>
+<p><a href="#top">Back to top</a></p>
+<p>This is an evolving section.</p>
+<h3>Keyboard Shortcuts</h3>
+<p>This does not include every shortcut that is visible in the menus on macOS. The ⌥ is the Option key; the ^ is the Control key, and ⇧ is the Shift key. On iPads with a keyboard, you can press and hold the Command key (⌘) to see the shortcuts.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Command</th>
+<th align="left">Shortcut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Export</td>
+<td align="left">⌘E</td>
+</tr>
+<tr>
+<td align="left">Larger Thumbnails</td>
+<td align="left">⌥⌘+</td>
+</tr>
+<tr>
+<td align="left">Smaller Thumbnails</td>
+<td align="left">⌥⌘-</td>
+</tr>
+<tr>
+<td align="left">Show / Hide Sidebar</td>
+<td align="left">^⌘S</td>
+</tr>
+<tr>
+<td align="left">Filter…</td>
+<td align="left">⌥⌘F</td>
+</tr>
+<tr>
+<td align="left">Filter: Show Unrated or Better</td>
+<td align="left">⌥⌘0</td>
+</tr>
+<tr>
+<td align="left">Filter: Show ★ or Better</td>
+<td align="left">⌥⌘1</td>
+</tr>
+<tr>
+<td align="left">Filter: Show ★★ or Better</td>
+<td align="left">⌥⌘2</td>
+</tr>
+<tr>
+<td align="left">Filter: Show ★★★ or Better</td>
+<td align="left">⌥⌘3</td>
+</tr>
+<tr>
+<td align="left">Filter: Show ★★★★ or Better</td>
+<td align="left">⌥⌘4</td>
+</tr>
+<tr>
+<td align="left">Filter: Show ★★★★★</td>
+<td align="left">⌥⌘5</td>
+</tr>
+<tr>
+<td align="left">Filter: Show Flagged</td>
+<td align="left">⌥⌘ \</td>
+</tr>
+<tr>
+<td align="left">Filter: Show Rejected</td>
+<td align="left">⌥⌘X</td>
+</tr>
+<tr>
+<td align="left">Filter: Show Favorites</td>
+<td align="left">⌥⌘8</td>
+</tr>
+<tr>
+<td align="left">Rate ★</td>
+<td align="left">1</td>
+</tr>
+<tr>
+<td align="left">Rate ★★</td>
+<td align="left">2</td>
+</tr>
+<tr>
+<td align="left">Rate ★★★</td>
+<td align="left">3</td>
+</tr>
+<tr>
+<td align="left">Rate ★★★★</td>
+<td align="left">4</td>
+</tr>
+<tr>
+<td align="left">Rate ★★★★★</td>
+<td align="left">5</td>
+</tr>
+<tr>
+<td align="left">Flag Image</td>
+<td align="left">\</td>
+</tr>
+<tr>
+<td align="left">Reject Image</td>
+<td align="left">X</td>
+</tr>
+<tr>
+<td align="left">Remove Flag</td>
+<td align="left">]</td>
+</tr>
+<tr>
+<td align="left">Mark Favorite</td>
+<td align="left">.</td>
+</tr>
+<tr>
+<td align="left">Copy Edits</td>
+<td align="left">⌥⌘C</td>
+</tr>
+<tr>
+<td align="left">Paste Edits</td>
+<td align="left">⌥⌘V</td>
+</tr>
+<tr>
+<td align="left">Rotate Left</td>
+<td align="left">⇧⌘L</td>
+</tr>
+<tr>
+<td align="left">Rotate Right</td>
+<td align="left">⇧⌘R</td>
+</tr>
+<tr>
+<td align="left">Highlight Hot and Cold Pixels</td>
+<td align="left">⌥⇧⌘H</td>
+</tr>
+<tr>
+<td align="left">Delete From Library</td>
+<td align="left">⌘⌫</td>
+</tr>
+<tr>
+<td align="left">Build Thumbnails</td>
+<td align="left">⌥⇧⌘T</td>
+</tr>
+<tr>
+<td align="left">One-Up Mode</td>
+<td align="left">⌥P</td>
+</tr>
+<tr>
+<td align="left">N-Up Mode</td>
+<td align="left">⌥N</td>
+</tr>
+<tr>
+<td align="left">Compare Mode</td>
+<td align="left">⌥C</td>
+</tr>
+<tr>
+<td align="left">Show / Hide Viewer</td>
+<td align="left">V</td>
+</tr>
+<tr>
+<td align="left">Show ExifTool Info</td>
+<td align="left">⌥⇧⌘I</td>
+</tr>
+<tr>
+<td align="left">Enter Edit</td>
+<td align="left">Return Key</td>
+</tr>
+</tbody>
+</table>
+<p>These commands are enabled when you are in Edit:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Edit Command</th>
+<th align="left">Shortcut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Show Unedited Image</td>
+<td align="left">M</td>
+</tr>
+<tr>
+<td align="left">Exit Edit</td>
+<td align="left">Return Key</td>
+</tr>
+</tbody>
+</table>
+<p>These commands are enabled when you are in Edit and have the Sliders view open:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Edit Command</th>
+<th align="left">Shortcut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Add Black and White</td>
+<td align="left">B</td>
+</tr>
+<tr>
+<td align="left">Enter / Exit Crop Tool</td>
+<td align="left">C</td>
+</tr>
+<tr>
+<td align="left">Enter / Exit Straighten Tool</td>
+<td align="left">G</td>
+</tr>
+<tr>
+<td align="left">Rotate Left</td>
+<td align="left">[</td>
+</tr>
+<tr>
+<td align="left">Rotate Right</td>
+<td align="left">]</td>
+</tr>
+<tr>
+<td align="left">Flip Horizontal</td>
+<td align="left">⌥⇧H</td>
+</tr>
+<tr>
+<td align="left">Flip Vertical</td>
+<td align="left">⌥⇧V</td>
+</tr>
+<tr>
+<td align="left">Add Vignette</td>
+<td align="left">^V</td>
+</tr>
+<tr>
+<td align="left">Enter / Exit White Balance Sampler</td>
+<td align="left">W</td>
+</tr>
+</tbody>
+</table>
 <h2><a name=Modification-History></a> Modification History</h2>
 <p><a href="#top">Back to top</a></p>
 <ul>
+<li>2025-01-25: Display Modes, Enhanced RAW Support, Non-Destructive Editing, Settings, Shortcut Keys</li>
 <li>2025-01-24: External Editing, Batch Processing, Export, Watermarking</li>
 <li>2025-01-21: Editing on iPhones</li>
 <li>2025-01-20: Quick Fixes, Presets, LUTs, Masking, and RAW+JPEG Editing</li>
