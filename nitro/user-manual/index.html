@@ -2555,7 +2555,38 @@ The first button swaps the two images, making the right image the “pick.” Th
 ## <a name= Single-File-Editor></a> Single File Editor
 [Back to top](#top)
 
+Nitro normally operates by showing the contents of folders on your device, or browsing the Photo Library. However, on Macs, there is a third option, called the Single File Editor (SFE). This is a way to edit a single file on your computer using Nitro. There are four ways to access the SFE:
+* File > Open (or Open Recent)
+* Drag a file to the app icon
+* Use the Finder’s Open With command
+* Use an app that can send files to Nitro
 
+
+You can have as many SFE windows / tabs as you want, but each one can only edit that one file. 
+
+
+Depending on where the file is located, you may see a privileges alert that looks like this:
+
+
+<p align=left><img src="images/sfe_privileges.jpg" height="325"/></p>
+
+
+There is a bug in macOS where sometimes Nitro cannot store editing information into the XMP file. Nitro will display this alert and then show an Open panel that you can use to resolve the issue. If you want to use the SFE for a large number of directories, you can pick a higher level (parent) folder or give Nitro full disk access in System Settings.
+
+
+After the file is opened, the interface mostly resembles the regular Nitro edit environment with some key differences. First, the toolbar is different:
+
+
+<p align=left><img src="images/sfe_toolbar.jpg" height="50"/></p>
+
+
+The tools are editing-focused, along with Save and Export buttons. The editing environment is the same, except that a) the sidebar is not visible and b) the right side panel removes functions that are not applicable (such as viewing thumbnails or Compare Moe). However, Copy Edits and Paste Edits are still available, which makes it easy to copy edits between SFE windows. 
+
+
+<p align=left><img src="images/sfe_main.jpg" height="778"/></p>
+
+
+While there is a Save button, explicitly saving is not necessary. Closing the SFE window or tab is sufficient to save your edits. 
 
 ## <a name= Enhanced-RAW-Support></a>Enhanced RAW Support
 [Back to top](#top)
@@ -2697,6 +2728,7 @@ These commands are enabled when you are in Edit and have the Sliders view open:
 ## <a name=Modification-History></a> Modification History
 [Back to top](#top)
 
+- 2025-01-26: Single File Editor
 - 2025-01-25: Display Modes, Enhanced RAW Support, Non-Destructive Editing, Settings, Shortcut Keys
 - 2025-01-24: External Editing, Batch Processing, Export, Watermarking
 - 2025-01-21: Editing on iPhones
@@ -3618,6 +3650,22 @@ There are preferences to control this behavior, which are discussed in more deta
 <p>The first button swaps the two images, making the right image the “pick.” The second image selects the pick and exits Compare Mode. You can also exit Compare Mode by clicking or tapping on the Compare Mode icon.</p>
 <h2><a name= Single-File-Editor></a> Single File Editor</h2>
 <p><a href="#top">Back to top</a></p>
+<p>Nitro normally operates by showing the contents of folders on your device, or browsing the Photo Library. However, on Macs, there is a third option, called the Single File Editor (SFE). This is a way to edit a single file on your computer using Nitro. There are four ways to access the SFE:</p>
+<ul>
+<li>File &gt; Open (or Open Recent)</li>
+<li>Drag a file to the app icon</li>
+<li>Use the Finder’s Open With command</li>
+<li>Use an app that can send files to Nitro</li>
+</ul>
+<p>You can have as many SFE windows / tabs as you want, but each one can only edit that one file.</p>
+<p>Depending on where the file is located, you may see a privileges alert that looks like this:</p>
+<p align=left><img src="images/sfe_privileges.jpg" height="325"/></p>
+<p>There is a bug in macOS where sometimes Nitro cannot store editing information into the XMP file. Nitro will display this alert and then show an Open panel that you can use to resolve the issue. If you want to use the SFE for a large number of directories, you can pick a higher level (parent) folder or give Nitro full disk access in System Settings.</p>
+<p>After the file is opened, the interface mostly resembles the regular Nitro edit environment with some key differences. First, the toolbar is different:</p>
+<p align=left><img src="images/sfe_toolbar.jpg" height="50"/></p>
+<p>The tools are editing-focused, along with Save and Export buttons. The editing environment is the same, except that a) the sidebar is not visible and b) the right side panel removes functions that are not applicable (such as viewing thumbnails or Compare Moe). However, Copy Edits and Paste Edits are still available, which makes it easy to copy edits between SFE windows.</p>
+<p align=left><img src="images/sfe_main.jpg" height="778"/></p>
+<p>While there is a Save button, explicitly saving is not necessary. Closing the SFE window or tab is sufficient to save your edits.</p>
 <h2><a name= Enhanced-RAW-Support></a>Enhanced RAW Support</h2>
 <p><a href="#top">Back to top</a></p>
 <p>Nitro relies on Apple’s RAW camera support to decode RAW images for display and editing. Apple’s decoder has been part of iOS, iPadOS, and macOS for years, and produces very good images. Apple also includes support for hundreds of cameras and formats. However, despite these strengths, Apple has been slow to add support for cameras, and recently support has reached glacial rates. This leaves many photographers unable to view or edit images from newer cameras in Apple’s Preview or Photos apps, and other apps that use Apple’s RAW support are similarly hampered.</p>
@@ -3899,6 +3947,7 @@ There are preferences to control this behavior, which are discussed in more deta
 <h2><a name=Modification-History></a> Modification History</h2>
 <p><a href="#top">Back to top</a></p>
 <ul>
+<li>2025-01-26: Single File Editor</li>
 <li>2025-01-25: Display Modes, Enhanced RAW Support, Non-Destructive Editing, Settings, Shortcut Keys</li>
 <li>2025-01-24: External Editing, Batch Processing, Export, Watermarking</li>
 <li>2025-01-21: Editing on iPhones</li>
