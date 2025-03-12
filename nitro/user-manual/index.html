@@ -1691,9 +1691,12 @@ Nitro has a number of ways to zoom into images. The first way is by using the co
 <br>
 <table>
 <tr><td> Zoom to Fit </td><td> Cmd-Shift-minus </td></tr>
-<tr><td> Zoom to Actual Size (100%) </td><td>Z</td></tr>
 <tr><td> Zoom In</td><td> Cmd-plus </td></tr>
 <tr><td> Zoom Out</td><td> Cmd-minus</td></tr>
+<tr><td> Zoom to Actual Size (100%) </td><td>Z</td></tr>
+<tr><td> Zoom to 200%</td><td> Option-Z</td></tr>
+<tr><td> Zoom to 300$</td><td> Control-Z</td></tr>
+<tr><td> Zoom to 400%</td><td> Shift-Z</td></tr>
 </table>
 
 ## <a name=The-Editing-Panel></a> The Editing Panel
@@ -1859,7 +1862,7 @@ You can drag adjustments up and down. You can also change the auto-collapse adju
 
 Editing sliders in Nitro have a number of additional features to make it easier to set values. 
 - Reset: Double-click the slider to reset the value (you can also double-click the title of the slider)
-- Precision Mode: Drag the slider vertically about 1 inch (2.5 cm) until the slider ball turns green. Then drag horizontally as then the values will update more slowly.
+- Fine-tuning Mode: Drag the slider vertically about 1 inch (2.5 cm) until the slider ball turns green. Then drag horizontally as then the values will update more slowly.
 - Nudge (Mac only): you can click the arrows next to the slider value to nudge the values up or down. Hold the option key while clicking to move them a smaller amount.
 - Manual Entry: 
     - Mac: click on the numeric field to type in a new value
@@ -2397,6 +2400,8 @@ On iPads and iPhones, you trigger batch processing by using the Select button to
 * Revert to Original
 * Flag / Reject / Remove Flag (version 2025.1 and later)
 
+You can also press the Trash Can icon after using Select to batch-delete files. On the Mac, you can select images and use the trash can or Cmd-Delete. 
+
 In addition there are three other advanced operations:
 
 * Build Thumbnails: this makes a new thumbnail from the image(s). This is useful when the thumbnail in your image is poor quality or has incorrect orientation.
@@ -2450,10 +2455,12 @@ In addition to the operation, you can choose how the image is generated.
 * DPI / PPI: sets a metadata tag for the dots / pixels per inch. This has no effect on the image rendered, but can be helpful for printers and similar devices.
 * Color Profile: choices include sRGB, AdobeRGB, Display P3, ProPhoto RGB and BT.2020. To avoid banding when using a wide-gamut format like AdobeRGB, Display P3, ProPhoto RGB and BT 2020, I recommend selecting either 10 or 16 bits for the format.
 * Output Size: you can export to full size, a set of specific sizes (like 1024 pixels), or custom sizes. Note: Nitro does not upscale images at this time.
-  * Fit to Longer Edge will take a single number and size the image so that the longer edge is the desired size (basically it fits to a square of the desired size)
+  * Fit to Longer Edge will take a single number and size the image so that the longer edge is the desired size (while ensuring the image retains its same aspect ratio)
+  * Fit to Shorter Edge will take a single number and size the image so that the shorter edge is the desired size (while ensuring the image retains its same aspect ratio).
   * Fit to Width and Height sizes the image to fit within a rectangle defined by the custom size values.
 * Metadata: choices for including different metadata in the file.
 * Watermark: you can apply a watermark to exported image. That is described more in the [Watermark](#Watermark) section below.
+* Border: you can apply a border to exported image. That is described more in the [Borders](#Borders) section below.
 * Copyright: you can enter a copyright to store in the IPTC copyright field.
 * On the Mac, there are also After Export Actions, which are described below.
 
@@ -2507,6 +2514,19 @@ For image watermarks, tap the “Use an Image” control, which displays this in
 You can choose images from the photo library or the file system (Finder / Files.app). The same controls for opacity, size, and position are offered.
 
 Nitro currently only supports a single watermark, though there are plans to allow multiple watermarks and choose them at export time.
+
+## <a name= Borders>Borders
+[Back to top](#top)
+
+Nitro allows you to add a border to an image during export. The border rests on top of the image, so if the border is too wide, it can cover portions of your image. You set up borders in the Export dialog. Press the Setup button next to the Border popup to get started. You can create multiple borders and choose between them in the Export dialog.
+
+Below is the interface to set up and manage borders:
+
+<p align=left><img src="images/borders.jpg" height="487"/></p>
+
+In the example above, you can see two borders have been created, with different colors and thicknesses. Start by pressing the New button to add a border and configure it using controls. There are also buttons to edit, duplicate, or delete borders. You can use standard swipe gestures to delete a border from the list. For a custom color, press the “Choose” button in the row labeled “Color”.
+
+Press the Save button to save the borders. Then in export, select the border you want to use (or No Border if you do not want a border applied).
 
 ### <a name= Display-Modes></a>Display Modes
 [Back to top](#top)
@@ -2625,8 +2645,10 @@ Nitro has a large collection of preferences, or settings. They are described bel
 * Place Info & Edit on the Left Side: you can swap the controls so that Info and Edit are on the left side of the interface.
 * Always Make Tabbed Windows (macOS only): when you make a new browser, turn this on to get tabs rather than separate windows.
 * Double Click to Zoom Image: if you enable this, then double-click will zoom the image rather than return to the grid.
-*Increased Precision for Some Exif Keys: increases the number of decimal points shown in ExifTool output.
+* Tighter zoom levels below 100%: Zoom In / Out changes by 10% rather than 25%.
+* Increased Precision for Some Exif Keys: increases the number of decimal points shown in ExifTool output.
 * Do Not Hide Sidebar Automatically: keeps the sidebar visible when displaying the One Up Viewer.
+* Snap Sliders near Default Values: when editing, if the slider value is near its default value, the app will snap it there. However, if you do not like this behavior, you can turn it off here.
 
  ### Editing
 
@@ -2726,6 +2748,8 @@ These commands are enabled when you are in Edit and have the Sliders view open:
 ## <a name=Modification-History></a> Modification History
 [Back to top](#top)
 
+- 2025-03-12: Update manual for version 2025.3 improvements.
+- 2025-01-26: Add information about batch delete.
 - 2025-01-26: Single File Editor
 - 2025-01-25: Display Modes, Enhanced RAW Support, Non-Destructive Editing, Settings, Shortcut Keys
 - 2025-01-24: External Editing, Batch Processing, Export, Watermarking
@@ -3015,9 +3039,12 @@ A RAW-specific note: If you first edit a RAW in Photos and then send the image t
 <br></p>
 <table>
 <tr><td> Zoom to Fit </td><td> Cmd-Shift-minus </td></tr>
-<tr><td> Zoom to Actual Size (100%) </td><td>Z</td></tr>
 <tr><td> Zoom In</td><td> Cmd-plus </td></tr>
 <tr><td> Zoom Out</td><td> Cmd-minus</td></tr>
+<tr><td> Zoom to Actual Size (100%) </td><td>Z</td></tr>
+<tr><td> Zoom to 200%</td><td> Option-Z</td></tr>
+<tr><td> Zoom to 300$</td><td> Control-Z</td></tr>
+<tr><td> Zoom to 400%</td><td> Shift-Z</td></tr>
 </table>
 <h2><a name=The-Editing-Panel></a> The Editing Panel</h2>
 <p><a href="#top">Back to top</a></p>
@@ -3161,7 +3188,7 @@ The height of the histogram tells you how much of the image (relatively) contain
 <p>Editing sliders in Nitro have a number of additional features to make it easier to set values.</p>
 <ul>
 <li>Reset: Double-click the slider to reset the value (you can also double-click the title of the slider)</li>
-<li>Precision Mode: Drag the slider vertically about 1 inch (2.5 cm) until the slider ball turns green. Then drag horizontally as then the values will update more slowly.</li>
+<li>Fine-tuning Mode: Drag the slider vertically about 1 inch (2.5 cm) until the slider ball turns green. Then drag horizontally as then the values will update more slowly.</li>
 <li>Nudge (Mac only): you can click the arrows next to the slider value to nudge the values up or down. Hold the option key while clicking to move them a smaller amount.</li>
 <li>Manual Entry:
 <ul>
@@ -3496,6 +3523,7 @@ aberration near edges / high contrast areas. If you have red or cyan aberration,
 <li>Revert to Original</li>
 <li>Flag / Reject / Remove Flag (version 2025.1 and later)</li>
 </ul>
+<p>You can also press the Trash Can icon after using Select to batch-delete files. On the Mac, you can select images and use the trash can or Cmd-Delete.</p>
 <p>In addition there are three other advanced operations:</p>
 <ul>
 <li>Build Thumbnails: this makes a new thumbnail from the image(s). This is useful when the thumbnail in your image is poor quality or has incorrect orientation.</li>
@@ -3581,12 +3609,14 @@ There are preferences to control this behavior, which are discussed in more deta
 <li>Color Profile: choices include sRGB, AdobeRGB, Display P3, ProPhoto RGB and BT.2020. To avoid banding when using a wide-gamut format like AdobeRGB, Display P3, ProPhoto RGB and BT 2020, I recommend selecting either 10 or 16 bits for the format.</li>
 <li>Output Size: you can export to full size, a set of specific sizes (like 1024 pixels), or custom sizes. Note: Nitro does not upscale images at this time.
 <ul>
-<li>Fit to Longer Edge will take a single number and size the image so that the longer edge is the desired size (basically it fits to a square of the desired size)</li>
+<li>Fit to Longer Edge will take a single number and size the image so that the longer edge is the desired size (while ensuring the image retains its same aspect ratio)</li>
+<li>Fit to Shorter Edge will take a single number and size the image so that the shorter edge is the desired size (while ensuring the image retains its same aspect ratio).</li>
 <li>Fit to Width and Height sizes the image to fit within a rectangle defined by the custom size values.</li>
 </ul>
 </li>
 <li>Metadata: choices for including different metadata in the file.</li>
 <li>Watermark: you can apply a watermark to exported image. That is described more in the <a href="#Watermark">Watermark</a> section below.</li>
+<li>Border: you can apply a border to exported image. That is described more in the <a href="#Borders">Borders</a> section below.</li>
 <li>Copyright: you can enter a copyright to store in the IPTC copyright field.</li>
 <li>On the Mac, there are also After Export Actions, which are described below.</li>
 </ul>
@@ -3620,6 +3650,13 @@ There are preferences to control this behavior, which are discussed in more deta
 <p align=left><img src="images/watermark_image.jpg" height="490"/></p>
 <p>You can choose images from the photo library or the file system (Finder / Files.app). The same controls for opacity, size, and position are offered.</p>
 <p>Nitro currently only supports a single watermark, though there are plans to allow multiple watermarks and choose them at export time.</p>
+<h2><a name= Borders>Borders</h2>
+<p><a href="#top">Back to top</a></p>
+<p>Nitro allows you to add a border to an image during export. The border rests on top of the image, so if the border is too wide, it can cover portions of your image. You set up borders in the Export dialog. Press the Setup button next to the Border popup to get started. You can create multiple borders and choose between them in the Export dialog.</p>
+<p>Below is the interface to set up and manage borders:</p>
+<p align=left><img src="images/borders.jpg" height="487"/></p>
+<p>In the example above, you can see two borders have been created, with different colors and thicknesses. Start by pressing the New button to add a border and configure it using controls. There are also buttons to edit, duplicate, or delete borders. You can use standard swipe gestures to delete a border from the list. For a custom color, press the “Choose” button in the row labeled “Color”.</p>
+<p>Press the Save button to save the borders. Then in export, select the border you want to use (or No Border if you do not want a border applied).</p>
 <h3><a name= Display-Modes></a>Display Modes</h3>
 <p><a href="#top">Back to top</a></p>
 <p>Nitro has three display modes for the Viewer. A single image (sometimes called One-Up), multiple images (N-Up Mode), and a dedicated comparison mode (Compare Mode). Both Compare Mode and N-Up Mode are entered by clicking or tapping an icon on the right side panel.</p>
@@ -3692,9 +3729,11 @@ There are preferences to control this behavior, which are discussed in more deta
 <li>Automatically Advance when Flagging / Rating: you can enable these settings to advance to the next image when rating or flagging. This only works when displaying the viewer, not in the grid view.</li>
 <li>Place Info &amp; Edit on the Left Side: you can swap the controls so that Info and Edit are on the left side of the interface.</li>
 <li>Always Make Tabbed Windows (macOS only): when you make a new browser, turn this on to get tabs rather than separate windows.</li>
-<li>Double Click to Zoom Image: if you enable this, then double-click will zoom the image rather than return to the grid.
-*Increased Precision for Some Exif Keys: increases the number of decimal points shown in ExifTool output.</li>
+<li>Double Click to Zoom Image: if you enable this, then double-click will zoom the image rather than return to the grid.</li>
+<li>Tighter zoom levels below 100%: Zoom In / Out changes by 10% rather than 25%.</li>
+<li>Increased Precision for Some Exif Keys: increases the number of decimal points shown in ExifTool output.</li>
 <li>Do Not Hide Sidebar Automatically: keeps the sidebar visible when displaying the One Up Viewer.</li>
+<li>Snap Sliders near Default Values: when editing, if the slider value is near its default value, the app will snap it there. However, if you do not like this behavior, you can turn it off here.</li>
 </ul>
 <h3>Editing</h3>
 <ul>
@@ -3944,6 +3983,8 @@ There are preferences to control this behavior, which are discussed in more deta
 <h2><a name=Modification-History></a> Modification History</h2>
 <p><a href="#top">Back to top</a></p>
 <ul>
+<li>2025-03-12: Update manual for version 2025.3 improvements.</li>
+<li>2025-01-26: Add information about batch delete.</li>
 <li>2025-01-26: Single File Editor</li>
 <li>2025-01-25: Display Modes, Enhanced RAW Support, Non-Destructive Editing, Settings, Shortcut Keys</li>
 <li>2025-01-24: External Editing, Batch Processing, Export, Watermarking</li>
