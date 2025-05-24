@@ -1361,17 +1361,17 @@ Nitro is an advanced photo library manager and editor. It is able to browse and 
 |:----------|:----------|
 | [Apple Photos and the File System](#Apple-Photos-and-the-File-System)    | [Masking](#Masking)    |
 | [Browsing Options](#Browsing-Options)    | [Editing on iPhones](#Editing-on-iPhones)    |
-| [Sorting and Filtering](#Sorting-and-Filtering)    |[Metadata and ExifTool](#Metadata-and-ExifTool)     |
-| [Photo Library Limitations](#Photo-Library-Limitations)    | [External Editing](#External-Editing)     |
-| [Rating and Flagging](#Rating-and-Flagging)    | [Batch Processing](#Batch-Processing)    |
-| [Finder / Files.app Tagging](#Finder-Files.app-Tagging)    | [Export](#Export)    |
-| [XMP File Overview](#XMP-File-Overview)    |  [Watermarking](#Watermarking)  |
-| [Cross-Machine Workflows: Editing and Rating](#Cross-Machine-Workflows-Editing-and-Rating)    |[Display Modes](#Display-Modes)   |
-| [Non-Destructive Editing](#Non-Destructive-Editing)   | [Single File Editor](#Single-File-Editor)   |
-| [One Up (The Viewer)](#One-Up-The-Viewer)    |[Enhanced RAW Support](#Enhanced-RAW-Support)   |
-| [The Editing Panel](#The-Editing-Panel)    | [Settings / Preferences](#Settings) |
-| [Quick Fixes](#Quick-Fixes)   |[Power Tips](#Power-Tips)   |
-| [Presets and LUTs](#Presets-and-LUTs)    |   |
+| [Sorting and Filtering](#Sorting-and-Filtering)    | [External Editing](#External-Editing)    |
+| [Photo Library Limitations](#Photo-Library-Limitations)    | [Metadata and ExifTool](#Metadata-and-ExifTool)     |
+| [Rating and Flagging](#Rating-and-Flagging)    | [Keywords](#Keywords)    |
+| [Finder / Files.app Tagging](#Finder-Files.app-Tagging)    | [Batch Processing](#Batch-Processing)    |
+| [XMP File Overview](#XMP-File-Overview)    |[Export](#Export)    |
+| [Cross-Machine Workflows: Editing and Rating](#Cross-Machine-Workflows-Editing-and-Rating)    | [Watermarking](#Watermarking)  |
+| [Non-Destructive Editing](#Non-Destructive-Editing)   | [Display Modes](#Display-Modes)   |
+| [One Up (The Viewer)](#One-Up-The-Viewer)    | [Single File Editor](#Single-File-Editor)  |
+| [The Editing Panel](#The-Editing-Panel)    | [Enhanced RAW Support](#Enhanced-RAW-Support) |
+| [Quick Fixes](#Quick-Fixes)   | [Settings / Preferences](#Settings)  |
+| [Presets and LUTs](#Presets-and-LUTs)    | [Power Tips](#Power-Tips)  |
 | [Editing Sliders](#Editing-Sliders)    | [Modification History](#Modification-History)  |
 
 
@@ -1573,7 +1573,7 @@ Here is an example of an XMP file with the namespaces, public and private areas 
 
 **Ratings:** Nitro will read and write ratings to the public namespace, which means that ratings you set in Lightroom, or other apps that use XMP, will show up in Nitro (and vice-versa, with some exceptions).
 
-**Keywords:** Nitro will read keywords from the public area. The current version of Nitro does not write keywords, but when it does it will write them to the same public area. Lightroom also has areas for hierarchical keywords, which Nitro may support in the future.
+**Keywords:** Nitro will read and write keywords in the public area.
 
 **Flags:** There is no public area for flags, so Nitro reads and writes flags to its private namespace.
 
@@ -2314,6 +2314,30 @@ Masking is also different on iPhones. The basic controls are the same, but there
 
 To enter masking, tap the Masks button at the bottom. You will see a display like the one shown above on the left. Tap the Add menu button to add a mask - the same types of masks are available on iPhones as on Macs and iPads. Also note the blue Exit button above that area. That is the way you exit masking. An exit button is needed because the same adjustment icons are available for masking as for regular editing, so a mode is required so it’s clear whether you are editing the entire image, or the adjustments for a particular mask. Once you create (or choose a previously-created mask), the brushing tools appear, with the same options and controls as iPads and Macs have.
 
+## <a name= External-Editing></a>External Editing (Mac)
+[Back to top](#top)
+
+External Editing is a Mac-only feature that integrates Nitro with other apps on your Mac. You can select an image in the Nitro grid and then send it to an external editor app. The list of apps is built automatically by Nitro by querying macOS for apps that announce that they can edit images. Then macOS returns a set of apps satisfying that requirement and Nitro then builds the menu. When you select an app, Nitro will also ask which type of file you want to send to the other app. 
+
+<p align=left><img src="images/external_edit.jpg" height="185"/></p>
+
+The choices for file format are as follows:
+* Original Image
+* JPEG
+* TIFF 8 bit
+* TIFF 16 bit
+
+You also have choices for color profile:
+* sRGB
+* AdobeRGB
+* Display P3
+* ProPhoto RGB
+* BT 2020
+
+If you request the original file, then the color profile is disabled and has no effect. Otherwise, Nitro will render a new file and send it to the other app. The image will be stored next to the original (again unless you are sending the original, in which case no extra file is made).
+
+This feature is only available when using Finder folders. That is because Photos is responsible for managing images in the library. It is unsafe to manage files outside of Photos’ control. Further, Apple does not provide a way for 3rd parties to import images into the Photo library by reference, so if the feature existed for the Photo Library, it would fail for referenced images (or it would put the externally edited image inside the library folder.
+
 ## <a name= Metadata-and-ExifTool></a> Metadata and ExifTool
 [Back to top](#top)
 
@@ -2361,29 +2385,86 @@ On iPhone, this flip view is the primary way that metadata is displayed, due to 
 
 <p align=left><img src="images/iphone_metadata_small.jpg" height="500"/></p>
 
-## <a name= External-Editing></a>External Editing (Mac)
-[Back to top](#top)
+## <a name= Keywords></a>Keywords
+Note: Currently, editing keywords is limited to the file system. That's because Apple does not provide an official way to work with keywords in the Photo Library. I have provided a way to view and filter keywords in the Photo Library, but not modify or add them (you can do that in Photos on the Mac). If Apple provides full keyword access in the future, then I’ll add it to Nitro. The interface will work the same way as it does for the file system. Also, this feature is not currently available on the iPhone. There simply isn’t enough space to add it - that may change in the future.
 
-External Editing is a Mac-only feature that integrates Nitro with other apps on your Mac. You can select an image in the Nitro grid and then send it to an external editor app. The list of apps is built automatically by Nitro by querying macOS for apps that announce that they can edit images. Then macOS returns a set of apps satisfying that requirement and Nitro then builds the menu. When you select an app, Nitro will also ask which type of file you want to send to the other app. 
+You can view keywords in the Info panel as shown below (see the red rounded rectangle).
 
-<p align=left><img src="images/external_edit.jpg" height="185"/></p>
+<p align=left><img src="images/info_keywords.jpg" height="409"/></p>
 
-The choices for file format are as follows:
-* Original Image
-* JPEG
-* TIFF 8 bit
-* TIFF 16 bit
+You can also filter for keywords in the standard filtering interface. Nitro will show all the keywords in the current folder / album. You can filter for keywords in the container, or for keywords NOT in the container, as well as AND / OR searches.
 
-You also have choices for color profile:
-* sRGB
-* AdobeRGB
-* Display P3
-* ProPhoto RGB
-* BT 2020
+<p align=left><img src="images/keyword_filtering.jpg" height="311"/></p>
 
-If you request the original file, then the color profile is disabled and has no effect. Otherwise, Nitro will render a new file and send it to the other app. The image will be stored next to the original (again unless you are sending the original, in which case no extra file is made).
+Nitro is able to read keywords in XMP files added by other apps, so you can use keywords even if you do not use Nitro's keyword interface. 
 
-This feature is only available when using Finder folders. That is because Photos is responsible for managing images in the library. It is unsafe to manage files outside of Photos’ control. Further, Apple does not provide a way for 3rd parties to import images into the Photo library by reference, so if the feature existed for the Photo Library, it would fail for referenced images (or it would put the externally edited image inside the library folder.
+### Keyword Editor
+There are multiple ways to add and remove keywords. The first way is using the new Keyword Editor, which you access by tapping on the button that looks like a tag in the right side panel (indicated in yellow in the above image). The Keyword Editor looks like this:
+
+<p align=left><img src="images/keyword_editor.jpg" height="516"/></p>
+
+Keywords already on the image are at the top. Press the X button to remove them. You can undo and redo changes you make in this view. Changes to keywords are saved when you go to another image, or return to the grid.
+
+You can type into the Add Keyword which will autocomplete based on the current keyword list.
+
+<p align=left><img src="images/keyword_autocomplete.jpg" height="307"/></p>
+
+Nitro keyword lists are hierarchical, so if you add a keyword, it will also add the parent keywords. Nitro doesn’t store the hierarchy in the XMP file - the hierarchy lets you organize keywords and search efficiently. You can also add a bunch of keywords by typing them all together, separated by commas.
+
+NOTE: keywords that begin with a tilde (~) will not be added when a child is picked. This allows the hierarchy to organize using some generic terms (such as "Image Type") that won't be added as keywords.
+
+TIP: You can resize the keyword area at the top by dragging on the grabber that is right below the Add Keyword text field.
+
+### Keyword Lists
+Nitro comes with about 1000 keywords, organized into a hierarchy. In addition, Nitro has localized versions of this keyword list, so there is a keyword list in German, French, Spanish, Japanese, and Chinese. The app will automatically load the correct one for the language you are using; if you are using a language other than English, then Nitro will include both the localized keyword list and the English one.
+
+In addition to auto-complete in the Add Keyword, you can filter for them. Tap on a keyword to add it (and its parents) to the image. The heart icon represents favorites. You can favorite keywords. Then tap the heart next to the search field to filter by them.
+
+There are also keyword options. Press the Keyword Lists to display a menu. The check mark shows the current keyword list (called Default). You can import keyword lists, and also edit a keyword list (including the default one). The last choice displays the folder with the keyword lists the app is using. You can remove files there if you like. But if you do, restart Nitro so it reads them back in.
+
+<p align=left><img src="images/keyword_list_menu.jpg" height="136"/></p>
+
+Keyword Lists have a specific format. Each keyword is on a separate line and hierarchy is handled with tab characters. You can use the Show My Keyword Lists menu item and open at the default keyword list in a text editor if you want to see what they look like. Also, do not include commas, semicolons, or pipe characters ("|"). Also do not end keywords with an asterisk ("*")
+
+<p align=left><img src="images/keyword_list_format.jpg" height="530"/></p>
+
+#### Editing a Keyword List
+The simplest reason to edit a keyword list is to add a set of keywords to the default list, or remove ones you don’t like. Here is the interface. It’s mostly self-explanatory. You can delete keywords, rename them and move them around. Changes to a keyword list <b>do not</b> change images that have been tagged already. Tap/Click in the background of a keyword row to select it. Press the New button to add a new keyword at the same level as the selected keyword. The + Child button adds a child to the selected keyword.
+
+<p align=left><img src="images/edit_keyword_list.jpg" height="682"/></p>
+
+As far as reordering, if you move a keyword into an expanded list, then it will move it there. If you try to move a keyword to a keyword that is closed, then it goes into the parent’s level. You can expand the one you want to move it there. There are also the promote and demote buttons that you can use to move items in the hierarchy.
+
+By the way, if you mess up the default keyword list in the app - don’t worry. Pick “Show My Keyword Lists” in the Keyword List menu, find the Default Keyword List and delete it. Then quit and reopen the app. The app will then copy a fresh file for your use.
+
+There is also a copy/paste command for keywords. On the Mac, you can get to that in the Metadata menu. Pick an image with keywords and select Copy Keywords. Then pick one or more images and select Paste Keywords. 
+
+On the Mac you can do it by going to the Metadata menu and choosing Add / Remove Keywords.
+
+You may have noticed the AI button in the keyword editor interface. Nitro also has the ability to generate keywords using AI. You can do that here in 1-up or batch assign them. The interfaces are basically the same, which will be discussed in the next section.
+
+### Batch Keywords
+
+There are three ways to assign keywords to a bunch of images at once. On the Mac, you can use the Add / Remove Keywords menu in the Metadata menu. You can also right-click on an image and display the contextual menu. On the iPad, you can use the Batch interface or the contextual menu. This is the interface:
+
+<p align=left><img src="images/batch_keywords.jpg" height="679"/></p>
+
+The batch interface looks a lot like the Keyword Editor. At the top is a set of keywords and then the Add and keyword list below that. However, because you can have more than one image selected, the Batch interface has to indicate which keywords are on <b>all</b> selected images and which are only on some images. The checkmark indicates the keyword is on all images and the dash indicates it’s only on some images.
+
+If you tap on a keyword with a dash, it will replace the dash with a checkmark. That means that the keyword will be applied to all selected images. If you have a keyword with a checkmark and tap it, then the checkmark will be removed and there will be <b>no</b> indicator. That means it will be deleted from all images that have it. There is also undo and redo right in the panel.
+
+### Automatic Keywording
+Nitro can automatically generate keywords. You access that feature the same way as Batch Keywords: menus on the Mac, and contextual menus or the Batch button on iPads. There is also a blue AI button in the Keyword Editor. This is a brand new AI model that is small enough and efficient enough to run on your device. The interface looks like this:
+
+<p align=left><img src="images/ai_keyword_editor.jpg" height="630"/></p>
+
+As the text at the top says, all AI processing is done on your iPad or Mac and none of your images are uploaded to the cloud. Currently, the model only works in English. A future release may add additional languages.
+
+To keep the download of Nitro small, the models are not stored inside the Nitro app. So the first time you use it, Nitro will download the models to your machine. They are stored in the Caches directory, so if you get low on disk space, iOS or MacOS will remove the files automatically and Nitro will then download them again.
+
+After downloading, the app will load the models. The first time you use the feature on a given launch of Nitro, it will take a few seconds to load - it’s getting a bunch of Apple technology running. After that it will be faster. Then it runs the model and determines a set of keywords for each image individually. You can tap on each image to see what it came up with. We all know that AI is not 100% accurate, so there is a control at the bottom that lets you control the number of keywords it displays. You can also delete keywords from the list that you don’t like or aren’t correct for the image. Press Save to store them to XMP files.
+
+TIP: the keywords it is using come from the same default keyword set. So, if you add or remove keywords from there, the app will use that updated list when running the AI model, which means the model will only recommend keywords that are in the list - giving you more control over the output. That said, not every word and term is recognized by the model.
 
 ## <a name= Batch-Processing></a>Batch Processing 
 [Back to top](#top)
@@ -2748,6 +2829,7 @@ These commands are enabled when you are in Edit and have the Sliders view open:
 ## <a name=Modification-History></a> Modification History
 [Back to top](#top)
 
+- 2025-04-18: Update manual for version 2025.4 improvements.
 - 2025-03-12: Update manual for version 2025.3 improvements.
 - 2025-01-26: Add information about batch delete.
 - 2025-01-26: Single File Editor
@@ -2792,47 +2874,47 @@ Questions? Comments? Suggestions for topic areas? Email [support\@gentlemencoder
 </tr>
 <tr>
 <td align="left"><a href="#Sorting-and-Filtering">Sorting and Filtering</a></td>
-<td align="left"><a href="#Metadata-and-ExifTool">Metadata and ExifTool</a></td>
-</tr>
-<tr>
-<td align="left"><a href="#Photo-Library-Limitations">Photo Library Limitations</a></td>
 <td align="left"><a href="#External-Editing">External Editing</a></td>
 </tr>
 <tr>
+<td align="left"><a href="#Photo-Library-Limitations">Photo Library Limitations</a></td>
+<td align="left"><a href="#Metadata-and-ExifTool">Metadata and ExifTool</a></td>
+</tr>
+<tr>
 <td align="left"><a href="#Rating-and-Flagging">Rating and Flagging</a></td>
-<td align="left"><a href="#Batch-Processing">Batch Processing</a></td>
+<td align="left"><a href="#Keywords">Keywords</a></td>
 </tr>
 <tr>
 <td align="left"><a href="#Finder-Files.app-Tagging">Finder / Files.app Tagging</a></td>
-<td align="left"><a href="#Export">Export</a></td>
+<td align="left"><a href="#Batch-Processing">Batch Processing</a></td>
 </tr>
 <tr>
 <td align="left"><a href="#XMP-File-Overview">XMP File Overview</a></td>
-<td align="left"><a href="#Watermarking">Watermarking</a></td>
+<td align="left"><a href="#Export">Export</a></td>
 </tr>
 <tr>
 <td align="left"><a href="#Cross-Machine-Workflows-Editing-and-Rating">Cross-Machine Workflows: Editing and Rating</a></td>
-<td align="left"><a href="#Display-Modes">Display Modes</a></td>
+<td align="left"><a href="#Watermarking">Watermarking</a></td>
 </tr>
 <tr>
 <td align="left"><a href="#Non-Destructive-Editing">Non-Destructive Editing</a></td>
-<td align="left"><a href="#Single-File-Editor">Single File Editor</a></td>
+<td align="left"><a href="#Display-Modes">Display Modes</a></td>
 </tr>
 <tr>
 <td align="left"><a href="#One-Up-The-Viewer">One Up (The Viewer)</a></td>
-<td align="left"><a href="#Enhanced-RAW-Support">Enhanced RAW Support</a></td>
+<td align="left"><a href="#Single-File-Editor">Single File Editor</a></td>
 </tr>
 <tr>
 <td align="left"><a href="#The-Editing-Panel">The Editing Panel</a></td>
-<td align="left"><a href="#Settings">Settings / Preferences</a></td>
+<td align="left"><a href="#Enhanced-RAW-Support">Enhanced RAW Support</a></td>
 </tr>
 <tr>
 <td align="left"><a href="#Quick-Fixes">Quick Fixes</a></td>
-<td align="left"><a href="#Power-Tips">Power Tips</a></td>
+<td align="left"><a href="#Settings">Settings / Preferences</a></td>
 </tr>
 <tr>
 <td align="left"><a href="#Presets-and-LUTs">Presets and LUTs</a></td>
-<td align="left"></td>
+<td align="left"><a href="#Power-Tips">Power Tips</a></td>
 </tr>
 <tr>
 <td align="left"><a href="#Editing-Sliders">Editing Sliders</a></td>
@@ -2968,7 +3050,7 @@ Questions? Comments? Suggestions for topic areas? Email [support\@gentlemencoder
 &lt;/x:xmpmeta&gt;
 </code></pre>
 <p><strong>Ratings:</strong> Nitro will read and write ratings to the public namespace, which means that ratings you set in Lightroom, or other apps that use XMP, will show up in Nitro (and vice-versa, with some exceptions).</p>
-<p><strong>Keywords:</strong> Nitro will read keywords from the public area. The current version of Nitro does not write keywords, but when it does it will write them to the same public area. Lightroom also has areas for hierarchical keywords, which Nitro may support in the future.</p>
+<p><strong>Keywords:</strong> Nitro will read and write keywords in the public area.</p>
 <p><strong>Flags:</strong> There is no public area for flags, so Nitro reads and writes flags to its private namespace.</p>
 <p><strong>Edits:</strong> There is no public definition of editing parameters, so Nitro also stores its editing information in a private namespace. For brevity, the above XMP file does not show Nitro’s full editing data, but you can open an XMP file to see what that looks like.</p>
 <h3>XMP File Names and File Extensions</h3>
@@ -3465,6 +3547,27 @@ aberration near edges / high contrast areas. If you have red or cyan aberration,
 <p>Masking is also different on iPhones. The basic controls are the same, but there are a few additional things to keep in mind.</p>
 <p align=left><img src="images/iphone_masking.jpg" height="280"/></p>
 <p>To enter masking, tap the Masks button at the bottom. You will see a display like the one shown above on the left. Tap the Add menu button to add a mask - the same types of masks are available on iPhones as on Macs and iPads. Also note the blue Exit button above that area. That is the way you exit masking. An exit button is needed because the same adjustment icons are available for masking as for regular editing, so a mode is required so it’s clear whether you are editing the entire image, or the adjustments for a particular mask. Once you create (or choose a previously-created mask), the brushing tools appear, with the same options and controls as iPads and Macs have.</p>
+<h2><a name= External-Editing></a>External Editing (Mac)</h2>
+<p><a href="#top">Back to top</a></p>
+<p>External Editing is a Mac-only feature that integrates Nitro with other apps on your Mac. You can select an image in the Nitro grid and then send it to an external editor app. The list of apps is built automatically by Nitro by querying macOS for apps that announce that they can edit images. Then macOS returns a set of apps satisfying that requirement and Nitro then builds the menu. When you select an app, Nitro will also ask which type of file you want to send to the other app.</p>
+<p align=left><img src="images/external_edit.jpg" height="185"/></p>
+<p>The choices for file format are as follows:</p>
+<ul>
+<li>Original Image</li>
+<li>JPEG</li>
+<li>TIFF 8 bit</li>
+<li>TIFF 16 bit</li>
+</ul>
+<p>You also have choices for color profile:</p>
+<ul>
+<li>sRGB</li>
+<li>AdobeRGB</li>
+<li>Display P3</li>
+<li>ProPhoto RGB</li>
+<li>BT 2020</li>
+</ul>
+<p>If you request the original file, then the color profile is disabled and has no effect. Otherwise, Nitro will render a new file and send it to the other app. The image will be stored next to the original (again unless you are sending the original, in which case no extra file is made).</p>
+<p>This feature is only available when using Finder folders. That is because Photos is responsible for managing images in the library. It is unsafe to manage files outside of Photos’ control. Further, Apple does not provide a way for 3rd parties to import images into the Photo library by reference, so if the feature existed for the Photo Library, it would fail for referenced images (or it would put the externally edited image inside the library folder.</p>
 <h2><a name= Metadata-and-ExifTool></a> Metadata and ExifTool</h2>
 <p><a href="#top">Back to top</a></p>
 <p>Nitro shows metadata in multiple ways. The primary way is via the Info button in the right side panel. This image shows the various controls available on either side of the main viewer window:</p>
@@ -3489,27 +3592,49 @@ aberration near edges / high contrast areas. If you have red or cyan aberration,
 <p>If you search in the ExifTool area, Nitro will filter all images by the same string.</p>
 <p>On iPhone, this flip view is the primary way that metadata is displayed, due to the smaller screen. In Edit, you can access shot information by tapping the Info button at the top of the screen as shown below.</p>
 <p align=left><img src="images/iphone_metadata_small.jpg" height="500"/></p>
-<h2><a name= External-Editing></a>External Editing (Mac)</h2>
-<p><a href="#top">Back to top</a></p>
-<p>External Editing is a Mac-only feature that integrates Nitro with other apps on your Mac. You can select an image in the Nitro grid and then send it to an external editor app. The list of apps is built automatically by Nitro by querying macOS for apps that announce that they can edit images. Then macOS returns a set of apps satisfying that requirement and Nitro then builds the menu. When you select an app, Nitro will also ask which type of file you want to send to the other app.</p>
-<p align=left><img src="images/external_edit.jpg" height="185"/></p>
-<p>The choices for file format are as follows:</p>
-<ul>
-<li>Original Image</li>
-<li>JPEG</li>
-<li>TIFF 8 bit</li>
-<li>TIFF 16 bit</li>
-</ul>
-<p>You also have choices for color profile:</p>
-<ul>
-<li>sRGB</li>
-<li>AdobeRGB</li>
-<li>Display P3</li>
-<li>ProPhoto RGB</li>
-<li>BT 2020</li>
-</ul>
-<p>If you request the original file, then the color profile is disabled and has no effect. Otherwise, Nitro will render a new file and send it to the other app. The image will be stored next to the original (again unless you are sending the original, in which case no extra file is made).</p>
-<p>This feature is only available when using Finder folders. That is because Photos is responsible for managing images in the library. It is unsafe to manage files outside of Photos’ control. Further, Apple does not provide a way for 3rd parties to import images into the Photo library by reference, so if the feature existed for the Photo Library, it would fail for referenced images (or it would put the externally edited image inside the library folder.</p>
+<h2><a name= Keywords></a>Keywords</h2>
+<p>Note: Currently, editing keywords is limited to the file system. That's because Apple does not provide an official way to work with keywords in the Photo Library. I have provided a way to view and filter keywords in the Photo Library, but not modify or add them (you can do that in Photos on the Mac). If Apple provides full keyword access in the future, then I’ll add it to Nitro. The interface will work the same way as it does for the file system. Also, this feature is not currently available on the iPhone. There simply isn’t enough space to add it - that may change in the future.</p>
+<p>You can view keywords in the Info panel as shown below (see the red rounded rectangle).</p>
+<p align=left><img src="images/info_keywords.jpg" height="409"/></p>
+<p>You can also filter for keywords in the standard filtering interface. Nitro will show all the keywords in the current folder / album. You can filter for keywords in the container, or for keywords NOT in the container, as well as AND / OR searches.</p>
+<p align=left><img src="images/keyword_filtering.jpg" height="311"/></p>
+<p>Nitro is able to read keywords in XMP files added by other apps, so you can use keywords even if you do not use Nitro's keyword interface.</p>
+<h3>Keyword Editor</h3>
+<p>There are multiple ways to add and remove keywords. The first way is using the new Keyword Editor, which you access by tapping on the button that looks like a tag in the right side panel (indicated in yellow in the above image). The Keyword Editor looks like this:</p>
+<p align=left><img src="images/keyword_editor.jpg" height="516"/></p>
+<p>Keywords already on the image are at the top. Press the X button to remove them. You can undo and redo changes you make in this view. Changes to keywords are saved when you go to another image, or return to the grid.</p>
+<p>You can type into the Add Keyword which will autocomplete based on the current keyword list.</p>
+<p align=left><img src="images/keyword_autocomplete.jpg" height="307"/></p>
+<p>Nitro keyword lists are hierarchical, so if you add a keyword, it will also add the parent keywords. Nitro doesn’t store the hierarchy in the XMP file - the hierarchy lets you organize keywords and search efficiently. You can also add a bunch of keywords by typing them all together, separated by commas.</p>
+<p>NOTE: keywords that begin with a tilde (~) will not be added when a child is picked. This allows the hierarchy to organize using some generic terms (such as &quot;Image Type&quot;) that won't be added as keywords.</p>
+<p>TIP: You can resize the keyword area at the top by dragging on the grabber that is right below the Add Keyword text field.</p>
+<h3>Keyword Lists</h3>
+<p>Nitro comes with about 1000 keywords, organized into a hierarchy. In addition, Nitro has localized versions of this keyword list, so there is a keyword list in German, French, Spanish, Japanese, and Chinese. The app will automatically load the correct one for the language you are using; if you are using a language other than English, then Nitro will include both the localized keyword list and the English one.</p>
+<p>In addition to auto-complete in the Add Keyword, you can filter for them. Tap on a keyword to add it (and its parents) to the image. The heart icon represents favorites. You can favorite keywords. Then tap the heart next to the search field to filter by them.</p>
+<p>There are also keyword options. Press the Keyword Lists to display a menu. The check mark shows the current keyword list (called Default). You can import keyword lists, and also edit a keyword list (including the default one). The last choice displays the folder with the keyword lists the app is using. You can remove files there if you like. But if you do, restart Nitro so it reads them back in.</p>
+<p align=left><img src="images/keyword_list_menu.jpg" height="136"/></p>
+<p>Keyword Lists have a specific format. Each keyword is on a separate line and hierarchy is handled with tab characters. You can use the Show My Keyword Lists menu item and open at the default keyword list in a text editor if you want to see what they look like. Also, do not include commas, semicolons, or pipe characters (&quot;|&quot;). Also do not end keywords with an asterisk (&quot;*&quot;)</p>
+<p align=left><img src="images/keyword_list_format.jpg" height="530"/></p>
+<h4>Editing a Keyword List</h4>
+<p>The simplest reason to edit a keyword list is to add a set of keywords to the default list, or remove ones you don’t like. Here is the interface. It’s mostly self-explanatory. You can delete keywords, rename them and move them around. Changes to a keyword list <b>do not</b> change images that have been tagged already. Tap/Click in the background of a keyword row to select it. Press the New button to add a new keyword at the same level as the selected keyword. The + Child button adds a child to the selected keyword.</p>
+<p align=left><img src="images/edit_keyword_list.jpg" height="682"/></p>
+<p>As far as reordering, if you move a keyword into an expanded list, then it will move it there. If you try to move a keyword to a keyword that is closed, then it goes into the parent’s level. You can expand the one you want to move it there. There are also the promote and demote buttons that you can use to move items in the hierarchy.</p>
+<p>By the way, if you mess up the default keyword list in the app - don’t worry. Pick “Show My Keyword Lists” in the Keyword List menu, find the Default Keyword List and delete it. Then quit and reopen the app. The app will then copy a fresh file for your use.</p>
+<p>There is also a copy/paste command for keywords. On the Mac, you can get to that in the Metadata menu. Pick an image with keywords and select Copy Keywords. Then pick one or more images and select Paste Keywords.</p>
+<p>On the Mac you can do it by going to the Metadata menu and choosing Add / Remove Keywords.</p>
+<p>You may have noticed the AI button in the keyword editor interface. Nitro also has the ability to generate keywords using AI. You can do that here in 1-up or batch assign them. The interfaces are basically the same, which will be discussed in the next section.</p>
+<h3>Batch Keywords</h3>
+<p>There are three ways to assign keywords to a bunch of images at once. On the Mac, you can use the Add / Remove Keywords menu in the Metadata menu. You can also right-click on an image and display the contextual menu. On the iPad, you can use the Batch interface or the contextual menu. This is the interface:</p>
+<p align=left><img src="images/batch_keywords.jpg" height="679"/></p>
+<p>The batch interface looks a lot like the Keyword Editor. At the top is a set of keywords and then the Add and keyword list below that. However, because you can have more than one image selected, the Batch interface has to indicate which keywords are on <b>all</b> selected images and which are only on some images. The checkmark indicates the keyword is on all images and the dash indicates it’s only on some images.</p>
+<p>If you tap on a keyword with a dash, it will replace the dash with a checkmark. That means that the keyword will be applied to all selected images. If you have a keyword with a checkmark and tap it, then the checkmark will be removed and there will be <b>no</b> indicator. That means it will be deleted from all images that have it. There is also undo and redo right in the panel.</p>
+<h3>Automatic Keywording</h3>
+<p>Nitro can automatically generate keywords. You access that feature the same way as Batch Keywords: menus on the Mac, and contextual menus or the Batch button on iPads. There is also a blue AI button in the Keyword Editor. This is a brand new AI model that is small enough and efficient enough to run on your device. The interface looks like this:</p>
+<p align=left><img src="images/ai_keyword_editor.jpg" height="630"/></p>
+<p>As the text at the top says, all AI processing is done on your iPad or Mac and none of your images are uploaded to the cloud. Currently, the model only works in English. A future release may add additional languages.</p>
+<p>To keep the download of Nitro small, the models are not stored inside the Nitro app. So the first time you use it, Nitro will download the models to your machine. They are stored in the Caches directory, so if you get low on disk space, iOS or MacOS will remove the files automatically and Nitro will then download them again.</p>
+<p>After downloading, the app will load the models. The first time you use the feature on a given launch of Nitro, it will take a few seconds to load - it’s getting a bunch of Apple technology running. After that it will be faster. Then it runs the model and determines a set of keywords for each image individually. You can tap on each image to see what it came up with. We all know that AI is not 100% accurate, so there is a control at the bottom that lets you control the number of keywords it displays. You can also delete keywords from the list that you don’t like or aren’t correct for the image. Press Save to store them to XMP files.</p>
+<p>TIP: the keywords it is using come from the same default keyword set. So, if you add or remove keywords from there, the app will use that updated list when running the AI model, which means the model will only recommend keywords that are in the list - giving you more control over the output. That said, not every word and term is recognized by the model.</p>
 <h2><a name= Batch-Processing></a>Batch Processing</h2>
 <p><a href="#top">Back to top</a></p>
 <p>You use batch processing to work with multiple files together, rather than at the same time. The most common example of batch processing is probably batch export, where multiple images are exported with a common set of export parameters.</p>
@@ -3983,6 +4108,7 @@ There are preferences to control this behavior, which are discussed in more deta
 <h2><a name=Modification-History></a> Modification History</h2>
 <p><a href="#top">Back to top</a></p>
 <ul>
+<li>2025-04-18: Update manual for version 2025.4 improvements.</li>
 <li>2025-03-12: Update manual for version 2025.3 improvements.</li>
 <li>2025-01-26: Add information about batch delete.</li>
 <li>2025-01-26: Single File Editor</li>
