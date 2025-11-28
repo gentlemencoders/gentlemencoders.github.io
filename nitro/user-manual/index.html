@@ -1405,16 +1405,19 @@
 <h2 id="photo-library-limitations"><a name=Photo-Library-Limitations></a>Photo Library Limitations</h2>
 <p><a href="#top">Back to top</a></p>
 <p>Nitro is able to read and update the Photo Library by using services provided by Apple (known as APIs). By using these APIs, Nitro can safely make changes and follow Apple's requirements for library access. That is good in general, but Apple has also placed a number of restrictions on apps as well. In fact, Apple prohibits App Store apps from many actions that the Photos app itself can take. This leads to a lot of confusion and frustration. Here are some things that Apple prohibits App Store apps from doing:
-* Reading or writing titles and descriptions
-* Reading or writing keywords
-* Reading or creating Photo library Smart Albums
-* Accessing any photo library other than the System Photo Library
-* Access to Faces, Places, or other special albums</p>
+<ul><li>Reading or writing titles and descriptions</li>
+<li>Reading or writing keywords</li>
+<li>Reading or creating Photo library Smart Albums</li>
+<li>Accessing any photo library other than the System Photo Library</li>
+<li>Access to Faces, Places, or other special albums</li>
+</ul>
+</p>
 <p>In addition, there are some features in Photos that are not made available to 3rd party apps:
-* Accessing EXIF data efficiently (especially for iCloud-based images)
-* Control over shared libraries
-* Importing images by reference (images can only be copied into the library).
-* Efficiently search for images based on metadata other than an extremely limited set.</p>
+<ul><li>Accessing EXIF data efficiently (especially for iCloud-based images)</li>
+<li>Control over shared libraries</li>
+<li>Importing images by reference (images can only be copied into the library).</li>
+<li>Efficiently search for images based on metadata other than an extremely limited set.</li>
+</ul></p>
 <p>If Apple chooses to remove these restrictions, I would make every attempt to support these features in Nitro.</p>
 <h2 id="rating-and-flagging"><a name= Rating-and-Flagging></a> Rating and Flagging</h2>
 <p><a href="#top">Back to top</a></p>
@@ -1939,10 +1942,11 @@ aberration near edges / high contrast areas. If you have red or cyan aberration,
 <p align=left><img src="images/edge_aware.jpg" height="270"/></p>
 
 <p>Below the brush size slider are a few quick actions:
-* Fill will completely fill the mask. The next step is usually to use the eraser to remove portions of the mask. This is useful if you want to apply an effect to most of the image.
-* Clear makes the mask empty so you can start over again.
-* Invert reverses the mask. This can be useful if you want to work on the opposite area that you painted (for example, the area is very large, so you paint on the small area you don’t want to affect, and then invert).</p>
-<p>When you are done painting, tap the blue checkmark to exit the painting mode.</p>
+<ul><li>Fill will completely fill the mask. The next step is usually to use the eraser to remove portions of the mask. This is useful if you want to apply an effect to most of the image.</li>
+<li>Clear makes the mask empty so you can start over again.</li>
+<li>Invert reverses the mask. This can be useful if you want to work on the opposite area that you painted (for example, the area is very large, so you paint on the small area you don’t want to affect, and then invert).</li>
+</ul></p>
+<p>When you are done painting, tap the blue checkmark to exit the painting mode.></p>
 <h4 id="mask-options">Mask Options</h4>
 <p>Also in the painting interface are mask options, as shown below.</p>
 <p align=left><img src="images/mask_options.jpg" height="205"/></p>
@@ -2047,17 +2051,17 @@ aberration near edges / high contrast areas. If you have red or cyan aberration,
 <p>External Editing is a Mac-only feature that integrates Nitro with other apps on your Mac. You can select an image in the Nitro grid and then send it to an external editor app. The list of apps is built automatically by Nitro by querying macOS for apps that announce that they can edit images. Then macOS returns a set of apps satisfying that requirement and Nitro then builds the menu. When you select an app, Nitro will also ask which type of file you want to send to the other app. </p>
 <p align=left><img src="images/external_edit.jpg" height="185"/></p>
 
-<p>The choices for file format are as follows:
-* Original Image
-* JPEG
-* TIFF 8 bit
-* TIFF 16 bit</p>
-<p>You also have choices for color profile:
-* sRGB
-* AdobeRGB
-* Display P3
-* ProPhoto RGB
-* BT 2020</p>
+<p>The choices for file format are as follows:<ul>
+<li>Original Image</li>
+<li>JPEG</li>
+<li>TIFF 8 bit</li>
+<li>TIFF 16 bit</li></ul></p>
+<p>You also have choices for color profile:<ul>
+<li>sRGB</li>
+<li>AdobeRGB</li>
+<li>Display P3</li>
+<li>ProPhoto RGB</li>
+<li>BT 2020</li></ul></p>
 <p>If you request the original file, then the color profile is disabled and has no effect. Otherwise, Nitro will render a new file and send it to the other app. The image will be stored next to the original (again unless you are sending the original, in which case no extra file is made).</p>
 <p>This feature is only available when using Finder folders. That is because Photos is responsible for managing images in the library. It is unsafe to manage files outside of Photos’ control. Further, Apple does not provide a way for 3rd parties to import images into the Photo library by reference, so if the feature existed for the Photo Library, it would fail for referenced images (or it would put the externally edited image inside the library folder.</p>
 <h2 id="metadata-and-exiftool"><a name= Metadata-and-ExifTool></a> Metadata and ExifTool</h2>
@@ -2228,8 +2232,8 @@ aberration near edges / high contrast areas. If you have red or cyan aberration,
 </tbody>
 </table>
 <p>The last item requires extra discussion. In iOS 16 / macOS 13 and earlier, any time a 3rd party app edited an image in the Photo Library, Photos would display a confirmation dialog. This dialog could not be suppressed. It made it very difficult to edit a series of images because the dialog would appear for each image. This was finally removed in iOS 17 and macOS 14 (Sonoma). To make the dialog less of an obstacle to smooth editing, Nitro has two modes of operation, and the default varies depending on OS version. 
-* On iOS 17 / macOS 14 and later: Nitro will commit edits to the library when saving them.
-* On iOS 16 / macOS 13: Nitro will save edits locally rather than committing them to the Photo Library. You would then use Export to commit the edits to the library. The app will remind you to do that periodically. 
+<ul><li>On iOS 17 / macOS 14 and later: Nitro will commit edits to the library when saving them.</li>
+<li>On iOS 16 / macOS 13: Nitro will save edits locally rather than committing them to the Photo Library. You would then use Export to commit the edits to the library. The app will remind you to do that periodically. </li></ul>
 There are preferences to control this behavior, which are discussed in more detail in that section of this manual.</p>
 <h3 id="export-settings">Export Settings</h3>
 <p>In addition to the operation, you can choose how the image is generated. </p>
@@ -2326,10 +2330,10 @@ There are preferences to control this behavior, which are discussed in more deta
 <h2 id="single-file-editor"><a name= Single-File-Editor></a> Single File Editor</h2>
 <p><a href="#top">Back to top</a></p>
 <p>Nitro normally operates by showing the contents of folders on your device, or browsing the Photo Library. However, on Macs, there is a third option, called the Single File Editor (SFE). This is a way to edit a single file on your computer using Nitro. There are four ways to access the SFE:
-* File &gt; Open (or Open Recent)
-* Drag a file to the app icon
-* Use the Finder’s Open With command
-* Use an app that can send files to Nitro</p>
+<ul><li>File &gt; Open (or Open Recent)</li>
+<li>Drag a file to the app icon</li>
+<li>Use the Finder’s Open With command</li>
+<li>Use an app that can send files to Nitro</li></ul></p>
 <p>You can have as many SFE windows / tabs as you want, but each one can only edit that one file. </p>
 <p>Depending on where the file is located, you may see a privileges alert that looks like this:</p>
 <p align=left><img src="images/sfe_privileges.jpg" height="325"/></p>
