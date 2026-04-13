@@ -388,6 +388,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#file-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      File Management
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cross-machine-workflows-editing-and-rating" class="md-nav__link">
     <span class="md-ellipsis">
       Cross-Machine Workflows: Editing and Rating
@@ -620,9 +629,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#crop" class="md-nav__link">
+  <a href="#crop-perspective" class="md-nav__link">
     <span class="md-ellipsis">
-      Crop
+      Crop &amp; Perspective
     </span>
   </a>
   
@@ -686,15 +695,6 @@
   <a href="#levels" class="md-nav__link">
     <span class="md-ellipsis">
       Levels
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#perspective" class="md-nav__link">
-    <span class="md-ellipsis">
-      Perspective
     </span>
   </a>
   
@@ -1323,6 +1323,10 @@
 <td style="text-align: left;"><a href="#Export">Export</a></td>
 </tr>
 <tr>
+<td style="text-align: left;"><a href="#File-Management">File Management</a></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
 <td style="text-align: left;"><a href="#Cross-Machine-Workflows-Editing-and-Rating">Cross-Machine Workflows: Editing and Rating</a></td>
 <td style="text-align: left;"><a href="#Watermarking">Watermarking</a></td>
 </tr>
@@ -1344,7 +1348,7 @@
 </tr>
 <tr>
 <td style="text-align: left;"><a href="#Presets-and-LUTs">Presets and LUTs</a></td>
-<td style="text-align: left;"><a href="#Power-Tips">Power Tips</a></td>
+<td style="text-align: left;"></td>
 </tr>
 <tr>
 <td style="text-align: left;"><a href="#Editing-Sliders">Editing Sliders</a></td>
@@ -1417,7 +1421,7 @@
 <p><a href="#top">Back to top</a></p>
 <p>Nitro is able to read and update the Photo Library by using services provided by Apple (known as APIs). By using these APIs, Nitro can safely make changes and follow Apple's requirements for library access. That is good in general, but Apple has also placed a number of restrictions on apps as well. In fact, Apple prohibits App Store apps from many actions that the Photos app itself can take. This leads to a lot of confusion and frustration. Here are some things that Apple prohibits App Store apps from doing:
   * Reading or writing titles and descriptions
-  * Reading or writing keywords
+  * Writing keywords
   * Reading or creating Photo library Smart Albums
   * Accessing any photo library other than the System Photo Library
   * Access to Faces, Places, or other special albums</p>
@@ -1506,6 +1510,10 @@
 <p align=left><img src="images/reconnect_sidecars@2x.jpg" height="305"/></p>
 
 <p>If you pick it, the app will look for all the sidecars and rename them to have a lower-case extension. This is a rarely used feature, but if you find that the app is unexpectedly not processing your sidecars, check the file extension and use this feature to fix them.</p>
+<h2 id="file-management"><a name=File-Management></a> File Management</h2>
+<p><a href="#top">Back to top</a></p>
+<p>Nitro has limited file management currently, but there are plans to greatly improve that. When browsing the file system, you can create new folders and delete them (as well as deleting files, of course). There is not yet the ability to rearrange or rename files or folders.</p>
+<p>Nitro does have the ability to duplicate images, both in the File System and in the Photo Library. The duplicate command is in the main menu (Mac) as well as in the contextual menus and in the Batch menu (iPad and iPhone). When duplicating in the file system, both the image and the XMP file are duplicated. When duplicating items in the Photo Library, the app will add a new item to the library, and copy as much of the metadata as allowed by Apple, including location, date, editing information, "favorite" status and album membership. However, Apple does not permit Nitro to duplicate titles, descriptions, keywords, or people tagged in photo library items. Shared items will be added to the personal photo library. Bursts are not currently supported. Duplicate is not undoable. </p>
 <h2 id="cross-machine-workflows-editing-and-rating"><a name=Cross-Machine-Workflows-Editing-and-Rating></a> Cross-Machine Workflows: Editing and Rating</h2>
 <p><a href="#top">Back to top</a></p>
 <p>As mentioned earlier, Nitro writes edits to XMP files that reside next to the original files.This way, if you need to copy or move the files, the sidecar is easy to include in the operation.</p>
@@ -1710,14 +1718,14 @@ The height of the histogram tells you how much of the image (relatively) contain
 <tbody>
 <tr>
 <td style="text-align: left;"><a href="#Reordering-Adjustments">Reordering Adjustments</a></td>
-<td style="text-align: left;"><a href="#Perspective">Perspective</a></td>
+<td style="text-align: left;"></td>
 </tr>
 <tr>
 <td style="text-align: left;"><a href="#Slider-Basics">Slider Basics</a></td>
 <td style="text-align: left;"><a href="#RAW-Tuning">RAW Tuning</a></td>
 </tr>
 <tr>
-<td style="text-align: left;"><a href="#Crop">Crop</a></td>
+<td style="text-align: left;"><a href="#Crop">Crop &amp; Perspective</a></td>
 <td style="text-align: left;"><a href="#Depth">Depth</a></td>
 </tr>
 <tr>
@@ -1767,24 +1775,34 @@ The height of the histogram tells you how much of the image (relatively) contain
     - iPad and iPhone: tap on the numeric field to get an onscreen mini-keyboard to enter numbers (see below image).</p>
 <p align=left><img src="images/numeric_keypad@2x.jpg" height="352"/></p>
 
-<h3 id="crop"><a name=Crop></a>Crop</h3>
+<h3 id="crop-perspective"><a name=Crop></a>Crop &amp; Perspective</h3>
 <p><a href="#The-Editing-Panel">Back to Editing</a></p>
 <p>Let's start with Crop. For most adjustments, you do not need to click the checkbox before working. The checkbox will automatically enable as soon as you start dragging sliders or otherwise working with the adjustment. A reset button will appear as well. You can click the checkbox to turn the adjustment off, or you can clear the adjustment by clicking the reset button.</p>
-<p>Crop initially shows a simple view with tools and a straighten slider. </p>
-<p align=left><img src="images/crop_basic@2x.jpg" height="120"/></p>
+<p>Crop consists of three related tools: Crop, Straighten, and Perspective. When you first see the Crop interface, it looks like this:</p>
+<p align=left><img src="images/crop_basic@2x.jpg" height="352"/></p>
 
 <p>From left to right the tools are:
-- Crop tool
-- Straighten tool
+ - Crop tool
+ - Straighten tool
+ - Perspective Tool</p>
+<p>Below that set are rotation and flip buttons:
 - Rotate left
 - Rotate right
 - Flip vertical
 - Flip horizontal</p>
-<p>The crop tool is mostly self-explanatory; however, an important control appears when you turn it on. In the image below, you can see a  number sign button. This controls a rule of thirds guide. Next to it is a megapixel reading that tells you the size of the image after the crop has been applied.</p>
-<p align=left><img src="images/crop_tool@2x.jpg" height="302"/></p>
+<p>Then a set of sliders for straighten and perspective; for more advanced control, you can use the tools (described below).</p>
+<p>The crop tool is mostly self-explanatory; however, an important control appears when you turn it on. In the image below, you can see a grid button. This controls a rule-of-thirds guide. Next to it is a megapixel reading that tells you the size of the image after the crop has been applied.</p>
+<p align=left><img src="images/crop_tool@2x.jpg" height="258"/></p>
 
-<p>The tool also has a popup menu to set the aspect ratio (or have freeform crop), text fields to set a custom aspect ratio, and text fields to enter a precise crop size and position. Press the "checkmark" button to exit the crop tool. There are two preferences to control how the crop tool works. The first one defaults the crop tool to the original aspect ratio each time. If you turn that off, then the app will use the last aspect ratio (including freeform) for the next image. The second preference will auto-rotate the crop box to match the image's aspect ratio.</p>
+<p>The tool also has a popup menu to set the aspect ratio (or have a freeform crop), text fields to set a custom aspect ratio, and text fields to enter a precise crop size and position. Press the "checkmark" button to exit the crop tool. There are two preferences to control how the crop tool works. The first one defaults the crop tool to the original aspect ratio each time. If you turn that off, then the app will use the last aspect ratio (including freeform) for the next image. The second preference will auto-rotate the crop box to match the image's aspect ratio. You can configure those in Nitro's Settings interface.</p>
 <p>You can straighten in a few different ways. First, you can drag the straighten slider, which will display a grid as you do that. Second, you can use the straighten tool. When you engage this tool, you can simply drag on a line in the image that should be level, but isn’t (either a vertical or horizontal line - it doesn’t matter). You may find it is easier to drag just above or to the side of the line in question. That will compute the angle and straighten the image.</p>
+<p>Perspective is more involved. Perspective corrects images that are shot off-angle, typically off to the side or up from ground level. The filter works by rotating the image three-dimensionally so that the image data looks like it was shot at the proper angle. By default, the perspective adjustment will attempt to fill the image frame, but that may not be desirable in some situations because it can cut off important parts of the image. In that event, use the Scale slider to expose the full image without cropping. Once you have done that, you can manually crop the image as you like. When you drag the Vertical or Horizontal sliders, a grid appears to make it easier to line up the image to make it straight. In addition, you can use the Stretch slider to correct for any squeezing that may happen as a result of the perspective change.</p>
+<p>The Perspective tool </p>
+<p>Instead of the sliders, you can select four points in the image and Nitro will calculate the correction for you using an advanced algorithm. When you click the perspective tool, you will see this menu:</p>
+<p align=left><img src="images/perspective_menu@2x.jpg" height="159"/></p>
+
+<p>There are three different modes. The most general purpose mode is Four Corners; it's best to start with that one. The other two modes are for cases where the horizontal and vertical lines are not related to each other (they don't represent a four-sided shape that should be rectangular).</p>
+<p>After choosing a mode, you will be able to place four points on the image. You can click/tap or drag to set the points. You can also reposition the points and zoom in to the image to place the points accurately. Once the image is corrected, you can also use the Vertical, Horizontal, and Stretch sliders to adjust the image further. After you have corrected the perspective, you can use straighten and crop to finalize the changes.</p>
 <h3 id="white-balance"><a name= White-Balance></a>White Balance</h3>
 <p><a href="#The-Editing-Panel">Back to Editing</a></p>
 <p>The white balance adjustment shows the color temperature and tint of the image, and you can adjust them if the image has a tint you want to neutralize (or add). Color temperature is expressed in degrees Kelvin, where lower temperatures result in a bluer image and higher temperatures result in a redder image.</p>
@@ -1858,12 +1876,6 @@ The height of the histogram tells you how much of the image (relatively) contain
 
 <p>Start by either checking the box to enable the Levels controls, or by clicking one of the Auto buttons. Levels defaults to working with the gray channel. Gray and RGB refer to the same channel but show the information differently. RGB shows each channel overlaid, while Gray just shows luminance. The Equal RGB button controls the way Levels processes the Gray channel. If it’s set to Equal RGB, then red, green, and blue are affected equally. However, if it is set to Luminance, then the gray curve affects the red, green and blue curves according to the luminance equation, which weights green more heavily, and blue the least. This approach avoids enhancing color casts and is much easier than converting the image to the “Lab” color space in Photoshop and manipulating it that way.</p>
 <p>Like Curves, Levels also includes an Auto Black and Auto RGB feature. Auto Black sets the black and white points on the Gray / RGB channel and will also move the midpoint to add contrast. You can choose the amount of black and white data to be clipped in Preferences. Auto RGB sets the black and white points for the Red, Green, and Blue channels but does not add a contrast point. Auto RGB can correct color casts, when Auto Black is better for general look and contrast issues. In addition, Levels has eye droppers to manually set the black and white points, and you can enter values for the black, mid, and white points. The histogram shows the image <em>before</em> the Levels adjustment. As a result, the histogram does not move as you move the controls in Levels. </p>
-<h3 id="perspective"><a name= Perspective></a> Perspective</h3>
-<p><a href="#The-Editing-Panel">Back to Editing</a></p>
-<p>Perspective corrects images that are shot off-angle, typically off to the side or up from ground level. The filter works by rotating the image three-dimensionally so that the image data looks like it was shot at the proper angle. By default, the perspective adjustment will attempt to fill the image frame, but that may not be desirable in some situations because it can cut off important parts of the image. In that event, use the Zoom Factor slider to expose the full image without cropping. Once you have done that, you can manually crop the image as you like. When you drag the Vertical or Horizontal sliders, a grid appears to make it easier to line up the image to make it straight. Be careful not to over rotate the image — if you do, the image may become warped.</p>
-<p align=left><img src="images/perspective@2x.jpg" height="165"/></p>
-
-<p>Instead of the sliders, you can select four corners in the image and Nitro will warp the image so that those become the four outermost points on the image. Perspective automatically crops the image. You can decrease that crop by moving the zoom slider, but if you move it too far, you'll get some black areas. You can use the crop tool to remove them.</p>
 <h3 id="raw-tuning"><a name= RAW-Tuning></a>RAW Tuning</h3>
 <p><a href="#The-Editing-Panel">Back to Editing</a></p>
 <p>The RAW Tuning adjustment is at the heart of Nitro, providing unique control over Apple’s RAW Engine. All of the sliders are GPU accelerated and real-time, so adjustments appear as soon as you move a slider. There are a few older cameras that don’t have access to all of the below controls, but most do. 
@@ -2324,7 +2336,7 @@ There are preferences to control this behavior, which are discussed in more deta
 <p align=left><img src="images/watermark_image@2x.jpg" height="490"/></p>
 
 <p>You can choose images from the photo library or the file system (Finder / Files.app). The same controls for opacity, size, and position are offered.</p>
-<p>Nitro currently only supports a single watermark, though there are plans to allow multiple watermarks and choose them at export time.</p>
+<p>You can create multiple watermarks by using row of controls at the top-left of the window. The first popup shows the name of the current watermark. The plus button adds a new blank watermark; the minus button removes the current watermark, and the plus in a box duplicates the current watermark. You cannot remove the last watermark. Choose the desired watermark in the Export interface. On iPhones, the watermark interface is access by entering Export, then picking the "Change…" button next to Settings.</p>
 <h2 id="borders"><a name= Borders>Borders</h2>
 <p><a href="#top">Back to top</a></p>
 <p>Nitro allows you to add a border to an image during export. The border rests on top of the image, so if the border is too wide, it can cover portions of your image. You set up borders in the Export dialog. Press the Setup button next to the Border popup to get started. You can create multiple borders and choose between them in the Export dialog.</p>
@@ -2665,6 +2677,7 @@ There are preferences to control this behavior, which are discussed in more deta
 <h2 id="modification-history"><a name=Modification-History></a> Modification History</h2>
 <p><a href="#top">Back to top</a></p>
 <ul>
+<li>2026-04-13: Add Duplicate, Update Watermarking and Perspective.</li>
 <li>2026-02-01: Add AI Eraser and Negative Clarity.</li>
 <li>2025-09-11: Manual now has a sidebar with table of contents.</li>
 <li>2025-04-18: Update manual for version 2025.4 improvements.</li>
