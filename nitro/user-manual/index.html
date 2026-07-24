@@ -825,9 +825,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#mask-options" class="md-nav__link">
+  <a href="#brushing-menu" class="md-nav__link">
     <span class="md-ellipsis">
-      Mask Options
+      Brushing Menu
     </span>
   </a>
   
@@ -835,15 +835,6 @@
         
       </ul>
     </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#mask-overlays" class="md-nav__link">
-    <span class="md-ellipsis">
-      Mask Overlays
-    </span>
-  </a>
   
 </li>
         
@@ -1948,84 +1939,111 @@ aberration near edges / high contrast areas. If you have red or cyan aberration,
 <p>The Vignette in Nitro allows you to specify the center point. To do this click the targeting control next to the reset button and then click and drag on the image. You might want to increase the intensity of the effect before changing the center point to make it easier to see what will happen. Vignette applies its effect after crop, so if you want to lighten the edges of an image before crop is applied to counteract lens shading, then use the Devignette tool in the Lens adjustment.</p>
 <h2 id="masking"><a name=Masking></a>Masking</h2>
 <p><a href="#top">Back to top</a></p>
+<p>Important Note - masking is a very rich and complex feature in Nitro. I have made a video that demonstrates the features in depth.
+To avoid repeating myself, the below description is abbreviated. Please watch <a href="https://www.youtube.com/watch?v=12MBwXYKN_4">the masking video</a>.</p>
 <p>Masking is a very powerful feature of Nitro. It allows you to work selectively on regions of an image, applying adjustments just to the area you are interested in. For example, you might want to sharpen the eyes of a person in a portrait without sharpening their skin. Or apply a black and white treatment to the background of an image while leaving the foreground in color. Or a selective adjustment like HSL might allow you to make the sky more blue, but you don't want it to affect a person's blue shirt elsewhere in the image. Linear gradients are ideal for working with skies while radial gradients help with making natural lighting effects.</p>
-<p>Note: Nitro uses the term "mask" in the opposite manner of a traditional darkroom. In a darkroom, the mask is the area that is <strong>not</strong> affected, while in Nitro, the mask is the area that <strong>is</strong> affected.</p>
+<p>Note: Nitro uses the term "mask" in the opposite manner of a traditional darkroom. In a darkroom, the mask is the area that is <strong>not</strong> affected, while in Nitro, the mask is the area that <strong>is</strong> affected. Think of it like a text selection in a word processor.</p>
 <p>You access the masking interface by picking the last of the four main editing modules:</p>
-<p align=left><img src="images/four_way_mask@2x.jpg" height="147"/></p>
+<p align=left><img src="images/four_way_mask@2x.jpg" height="176"/></p>
 
+<p>TIP: The three lines below the "Add Mask" button lets you resize the mask table to give you more working space.</p>
 <h3 id="mask-types">Mask Types</h3>
 <p>Start by adding a mask. There are several types:</p>
-<p align=left><img src="images/mask_types@2x.jpg" height="313"/></p>
+<p align=left><img src="images/mask_types@2x.jpg" height="266"/></p>
 
 <ol>
-<li>Brush Mask: use painting tools to define the area of the image you want to work on.</li>
+<li>Brush: use painting tools to define the area of the image you want to work on.</li>
 <li>Linear Gradient: a smooth rectangular area which can be rotated, inverted, or flipped.</li>
 <li>Radial Gradient: a circular mask with a gradient inside of it. You can rotate, resize, or stretch it into an ellipse.</li>
-<li>AI Subject Mask: makes a mask of the foreground subject using a machine learning model.</li>
-<li>AI Background Mask: makes a mask of the background using a machine learning model.</li>
+<li>Luminance: a mask that uses a range of brightness levels to determine which pixels to affect.</li>
+<li>Color Range: a mask that uses a single color and a range slider to determine the pixels to affect.</li>
+<li>AI Subject: makes a mask of the foreground subject using a machine learning model.</li>
+<li>AI Background: makes a mask of the background using a machine learning model.</li>
+<li>Depth: lets you edit images with depth information, such as iPhone portrait images.</li>
 </ol>
-<p>Once you have created a mask, you can modify it, and you can also apply adjustments to it. Each mask can have a large number of adjustments applied to it. Most Nitro adjustments can be applied to a mask. For example, you can create two masks and apply different White Balance corrections to adjust for a mixed lighting situation.</p>
-<p align=left><img src="images/mask_adjustments@2x.jpg" height="341"/></p>
+<p>While Brush is a type of mask, you can actually brush or erase any time of mask in order to fine tune the mask. 
+This is especially useful for AI, Color Range and Luminance masks. However, you cannot brush to add pixels to a Luminance 
+or Color Mask - just erase. You can also combine a few mask types. You can add or subtract an AI Subject or 
+AI Background mask from Linear and Radial Gradients.</p>
+<p>Once you have created a mask, you can modify it, and you can also apply adjustments to it. When you select a mask, you
+will see a brushing interface, and a segmented control for "Adjustments" and "Options".</p>
+<p align=left><img src="images/select_mask@2x.jpg" height="382"/></p>
 
+<p>Each mask can have a large number of adjustments applied to it. Most Nitro adjustments can be applied to a mask. 
+For example, you can create two masks and apply different White Balance corrections to adjust for a mixed lighting situation.</p>
+<p><b>Please note</b>, there is currently a bug with macOS and iOS with RAW images and masking. If you adjust the whole image with
+one adjustment, and then use a mask with that same adjustment, sometimes the masked area will apply to the whole image,
+not the selected area. There isn't a workaround other than to use different adjustments. 
+I am working with Apple to address this problem.</p>
+<p>Below is the Mask Options interface:</p>
+<p align=left><img src="images/mask_options@2x.jpg" height="254"/></p>
+
+<ul>
+<li>Intensity lets you dial up or down the amount of the masked effect (like the opacity of a layer).</li>
+<li>Feather blurs the edge of the mask to avoid harsh transitions. This is especially useful with AI Subject masks, and 
+edge following brushes.</li>
+<li>Luminance lets you set a range of luminance values. Outside of that range the mask has no effect. This is helpful when targeting only bright or dark areas.</li>
+<li>Color Range lets you establish a range of colors to affect.</li>
+</ul>
+<p>While there are also luminance and color range masks, the luminance and color range options can be applied to any mask.</p>
 <p>Depending on the type of mask you create, Nitro will provide you with mask editing tools. For a brush mask or an AI mask, Nitro will enable the painting tools. For a linear or radial gradient, Nitro will show the gradient on-screen tools to move or rotate the gradient. </p>
-<p align=left><img src="images/linear_gradient@2x.jpg" height="500"/></p>
+<p align=left><img src="images/linear_gradient@2x.jpg" height="578"/></p>
 
-<p>Please note that you can brush any mask in Nitro, including AI masks and gradients. This is an extremely powerful way to tune an AI mask or gradient to be exactly what you want with a minimum of effort.</p>
 <h3 id="brushing">Brushing</h3>
 <p>As mentioned above, you can brush any mask in Nitro. The brushing tools appear below the mask menu:</p>
-<p align=left><img src="images/brushing_tools_annotated@2x.jpg" height="253"/></p>
+<p align=left><img src="images/brushing_tools2@2x.jpg" height="238"/></p>
 
-<p>The first tool, paint, lets you add to a mask. The erase tool removes from a mask. The third tool provides ways to control the mask by color, brightness, or intensity. </p>
+<p>The first tool, paint, lets you add to a mask. The erase tool is second, and removes from a mask. 
+The third tool lets you move a linear or radial gradient.</p>
 <h4 id="painting-and-erasing">Painting and Erasing</h4>
 <p>To paint, start by selecting the paint brush. These are the brush parameters:</p>
 <ul>
 <li>Size - how big the outer edge of the brush is (all brushes are circular)</li>
 <li>Strength - how much paint is applied (this can be also be considered opacity)</li>
 <li>Softness - brushes have a solid interior which gradually fades toward the outer edge. The softness controls how much of the brush is solid. Nitro shows the brush as two concentric circles so you can see how softness works.</li>
+<li>Flow - this is the amount of paint that comes out of the brush. It's related to strength but different. Flow slowly builds up
+to the strength limit without exceeding it. Most people will either set flow to 1.0 and just adjust strength, or reduce flow
+and use strength as a maximum for more control.</li>
 </ul>
-<p>To change any of these parameters, tap or click on the numeric value (in the image, tap on the 25, 100, or 50). That will enable the slider below the numbers. The brush cursor will update in real time to show you how the brush will change. </p>
-<p>The last control is Edges. This enables an “edge aware” or “contour following” brush mode. When you turn on Edges, Nitro’s brush will paint only on one side of an edge, allowing you to follow contours. It can take a little practice but it’s extremely powerful. However, you will want to use the brush in both Edge On and Edge Off modes for best results.</p>
+<p>The last control is Follow Edges. This enables an “edge aware” or “contour following” brush mode. 
+When you turn on Edges, Nitro’s brush will paint only on one side of an edge, allowing you to follow contours. 
+It can take a little practice but it’s extremely powerful. However, you will want to use the brush in both on and off
+modes for best results. Next to the Follow Edge switch is a menu that lets you adjust how sensitive the edge following is.</p>
 <p>You can see the effectiveness of the edge aware brush in the below image, where the red area is the brushed area.</p>
 <p align=left><img src="images/edge_aware@2x.jpg" height="270"/></p>
 
-<p>Below the brush size slider are a few quick actions:
-  * Fill will completely fill the mask. The next step is usually to use the eraser to remove portions of the mask. This is useful if you want to apply an effect to most of the image.
-  * Clear makes the mask empty so you can start over again.
-  * Invert reverses the mask. This can be useful if you want to work on the opposite area that you painted (for example, the area is very large, so you paint on the small area you don’t want to affect, and then invert).</p>
-<p>When you are done painting, tap the blue checkmark to exit the painting mode.</p>
-<h4 id="mask-options">Mask Options</h4>
-<p>Also in the painting interface are mask options, as shown below.</p>
-<p align=left><img src="images/mask_options@2x.jpg" height="205"/></p>
+<p>On the right side is the overlay toggle to show and hide the masking overlay (sometimes called a rubylith). </p>
+<h4 id="brushing-menu">Brushing Menu</h4>
+<p align=left><img src="images/mask_overlay_options@2x.jpg" height="228"/></p>
 
+<p>The brushing menu appears to the right of the overlay button. </p>
 <ul>
-<li>Luminance lets you set a range of luminance values. Outside of that range the mask has no effect. This is helpful when targeting only bright or dark areas.</li>
-<li>Color Range lets you establish a range of colors to affect.</li>
-<li>Intensity lets you dial up or down the amount of the masked effect (like the opacity of a layer).</li>
+<li>Fill will completely fill the mask. The next step is usually to use the eraser to remove portions of the mask. This is useful if you want to apply an effect to most of the image.</li>
+<li>Clear makes the mask empty so you can start over again.</li>
+<li>Invert reverses the mask. This can be useful if you want to work on the opposite area that you painted (for example, the area is very large, so you paint on the small area you don’t want to affect, and then invert).</li>
 </ul>
-<p>Each mask can have its own mask options.</p>
-<h3 id="mask-overlays">Mask Overlays</h3>
-<p>Next to the paint tools is a half circle which represents the Mask Overlay options which control a visual overlay of the mask itself.</p>
-<p align=left><img src="images/mask_overlay@2x.jpg" height="250"/></p>
-
+<p>This menu also gives you options for different types of overlays.</p>
 <ul>
-<li>No Overlay: the mask is not visible, other than through the adjustments applied.</li>
 <li>On Black Overlay: the mask is drawn, but the image is not drawn.</li>
 <li>Rubylith Overlay: a red overlay appears.</li>
 <li>Translucent Rubylith: same as the rubylith, but it has some transparency to help you see the image behind it.</li>
 </ul>
 <h3 id="moving-a-gradient-mask">Moving a Gradient Mask</h3>
 <p>Linear and Radial Gradients can be repositioned. Because you can also brush on a gradient mask, to move a gradient select the last of the four tools which looks like a four directional arrow. On screen controls appear to let you move or resize the gradient. </p>
-<p align=left><img src="images/move_tool@2x.jpg" height="250"/></p>
+<p align=left><img src="images/movetool@2x.jpg" height="185"/></p>
 
 <ul>
 <li>Invert: this switch lets you reverse the gradient’s effective area.</li>
 <li>Constrain: this switch limits a radial gradient to a circle and linear gradient to 45 degree angles.</li>
 <li>Ramp: this slider lets you control how the gradient falls off from maximum to minimum.</li>
 </ul>
+<p>Reset Position will place the gradient at its starting position. The shift key will also constrain the mask temporarily:
+by 45 degrees for linear gradients and to a circle for radial
+gradients.</p>
 <h3 id="switching-masks-and-the-mask-menu">Switching Masks and the Mask Menu</h3>
-<p>Switch between masks by first tapping the blue checkmark. Then use the Mask popup menu to choose a different mask (or use the Add popup menu to create a new mask)</p>
-<p>Next to the Add and Mask popup menus is the Mask Options button. This brings up a menu with more commands.</p>
-<p align=left><img src="images/mask_menu@2x.jpg" height="380"/></p>
+<p>Switch between masks by selecting a different one from the top list (or by clicking Add Mask to make a new one). 
+Next to each mask is a mask menu with basic mask-oriented commands:</p>
+<p align=left><img src="images/switching_masks@2x.jpg" height="273"/></p>
 
 <ul>
 <li>Duplicate: creates a duplicate of the current mask. You can rename the mask. </li>
@@ -2035,7 +2053,6 @@ aberration near edges / high contrast areas. If you have red or cyan aberration,
 <li>Reset Edits for Mask: removes the edits from the mask</li>
 <li>Include Edits when Duplicating: If checked, then the Duplicate and Duplicate and Invert commands will also copy the edits to the duplicate mask.</li>
 </ul>
-<p>Note: the Duplicate commands are in Nitro version 2025.1 and are not available in earlier versions.</p>
 <h2 id="raw-jpeg-editing-in-photos">RAW + JPEG Editing in Photos</h2>
 <p>When browsing the Photo library, RAW + JPEG image pairs are represented by a single thumbnail. The thumbnail shown is the one made by Photos, or is the result of editing either the RAW or the JPEG. Photos defaults to editing the JPEG, while Nitro defaults to editing the RAW. There are a few different ways to control which one is edited. While in Edit, if you have an R+J image, you can switch between the two with the R+J button. It is located next to the 4-way control as shown here:</p>
 <p align=left><img src="images/rj_switch@2x.jpg" height="164"/></p>
