@@ -23,6 +23,63 @@
 			margin: 0;
 		}
 	}
+
+	/* Black Friday band: the two sale graphics side by side, stacking on narrow screens. */
+	.sale-band {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+		gap: 16px;
+		margin-bottom: 16px;
+	}
+
+	.sale-card {
+		padding-top: 30px;
+		padding-bottom: 30px;
+		text-align: center;
+	}
+
+	/* The graphic sits inside the card with an even 30px margin on the top and sides. */
+	.sale-card img {
+		display: block;
+		width: calc(100% - 60px);
+		height: auto;
+		aspect-ratio: 16 / 9;
+		margin: 0 auto;
+		border-radius: 10px;
+		cursor: pointer;
+	}
+
+	.sale-title {
+		margin: 30px 20px 4px 20px;
+		font-size: 22px;
+		line-height: 1.2;
+	}
+
+	/* Keeps the date range on one line, so a narrow screen breaks after the colon. */
+	.nowrap {
+		white-space: nowrap;
+	}
+
+	/* The start date in the caption, in the same red as the sale lines in the product tiles. */
+	.sale-date {
+		color: #C6090E;
+	}
+
+	.sale-text {
+		margin: 0 20px 24px 20px;
+		font-size: 18px;
+		font-weight: lighter;
+		line-height: 1.2;
+	}
+
+	/* One-line sale reminder in each product tile, under the red subheadline. */
+	.sale-reminder {
+		margin-top: 12px;
+		font-size: 16px;
+		font-weight: 600;
+		line-height: 1.2;
+		color: #C6090E;
+	}
 </style>
 
 <body>
@@ -37,11 +94,31 @@
 		</div-->
 		<div style="margin-top: 10pt"></div>
 		<div style="max-width: 1500px; margin: auto;">
+			<!-- Black Friday 2026: remove this whole div after the sale. -->
+			<div class="sale-band">
+				<div class="product-tile product-tile-1 sale-card">
+					<img src="images/nitro-bf.jpg" alt="Nitro Photo: Do everything. Pay once."
+						onclick="window.location.href = 'nitro-for-macos/index.html'"/>
+					<h3 class="sale-title">Black Friday Sale <span class="nowrap sale-date">starts Sunday, Nov 22</span></h3>
+					<h3 class="sale-text">50% off lifetime purchases, through Dec 4</h3>
+					<span><a class="pillbutton product-action" href="nitro-for-macos/index.html">Mac</a>
+						<a class="pillbutton product-action" href="nitro-for-ios/index.html">iPhone &amp; iPad</a></span>
+				</div>
+				<div class="product-tile product-tile-1 sale-card">
+					<img src="images/rawpower-bf.jpg" alt="RAW Power: Your best shots. Better."
+						onclick="window.location.href = 'raw-power-for-macos/index.html'"/>
+					<h3 class="sale-title">Black Friday Sale <span class="nowrap sale-date">starts Sunday, Nov 22</span></h3>
+					<h3 class="sale-text">25% off lifetime purchases, through Dec 4</h3>
+					<span><a class="pillbutton product-action" href="raw-power-for-macos/index.html">Mac</a>
+						<a class="pillbutton product-action" href="raw-power-for-ios/index.html">iPhone &amp; iPad</a></span>
+				</div>
+			</div>
 			<div class="responsive">
 				<div class="product-tile product-tile-1">
 					<h2 class="headline">NITRO<sup>®</sup></h2>
 					<h3 class="subheadline">for macOS Ventura and later</h3>
-					<h5>&nbsp;</h5><h5>&nbsp;</h5>
+					<h3 class="sale-reminder">Black Friday: 50% off starts Nov 22</h3>
+					<h5>&nbsp;</h5>
 					<h3 class="product-tile-text-multiline">Finder or iCloud Photos. Class-leading camera support.</h3>
 						<h3 class="product-tile-text-multiline">Brushing, Gradients, and AI Masks</h3>
 						<h3 class="product-tile-text-multiline">XMP Sidecars, N-Up, ExifTool</h3>
@@ -59,7 +136,8 @@
 				<div class="product-tile product-tile-1">
 					<h2 class="headline">NITRO<sup>®</sup></h2>
 					<h3 class="subheadline">for iPhone and iPad</h3>
-					<h5>&nbsp;</h5><h5>&nbsp;</h5>
+					<h3 class="sale-reminder">Black Friday: 50% off starts Nov 22</h3>
+					<h5>&nbsp;</h5>
 					<h3 class="product-tile-text-multiline">Files.app or iCloud Photos. Class-leading camera support.</h3>
 						<h3 class="product-tile-text-multiline">Brushing, Gradients, and AI Masks</h3>
 						<h3 class="product-tile-text-multiline">XMP Sidecars, N-Up, Extensive Metadata</h3>
@@ -77,6 +155,7 @@
 				<div class="product-tile product-tile-1">
 					<h2 class="headline">RAW POWER<sup>®</sup></h2>
 					<h3 class="subheadline">for macOS Mojave and later</h3>
+					<h3 class="sale-reminder">Black Friday: 25% off starts Nov 22</h3>
 					<h3 class="product-tile-text">iCloud Photos or Finder. Enhanced RAW Camera Support.</h3>
 						<h3 class="product-tile-text">
 						Exceptional Integration and Workflow, No Subscription, 4.5 Stars Worldwide!</h3>
@@ -92,6 +171,7 @@
 				<div class="product-tile product-tile-2">
 					<h2 class="headline">RAW POWER<sup>®</sup></h2>
 					<h3 class="subheadline">for iPhone and iPad</h3>
+					<h3 class="sale-reminder">Black Friday: 25% off starts Nov 22</h3>
 					<h3 class="product-tile-text">Rate, Filter, Flag. iCloud Photos or Files. </h3>
 						<h3 class="product-tile-text">
 						Professional Editing on iPhone and iPad, No Subscription, 4.5 Stars Worldwide!</h3>
